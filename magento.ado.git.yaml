@@ -10,15 +10,60 @@ stages:
     pool:
       vmImage: 'ubuntu-latest'
     steps:
-    - task: CmdLine@2
-      displayName: 'Push to GitHub'
+    # - task: CmdLine@2
+    #   displayName: 'Push to GitHub'
+    #   inputs:
+    #     script: |
+    #       git config --global user.email "arige.mahesh@itcinfotech.com"
+    #       git config --global user.name "mahesharige253"
+    #       git clone https://github.com/mahesharige253/BAT_Magento_Rubik.git
+    #       git remote remove origin || true
+    #       git remote add origin https://github.com/mahesharige253/BAT_Magento_Rubik.git
+    #       git remote set-url --add --push origin https://mahesharige253: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@github.com/mahesharige253/BAT_Magento_Rubik.git
+    #       git remote -v
+    #       git checkout -b dev-integration2
+    #       # git pull origin dev-integration2
+    #       git push -u origin HEAD:dev-integration2 --force
+    - task: Bash@3
       inputs:
+        targetType: 'inline'
         script: |
-          git config --global user.email "arige.mahesh@itcinfotech.com"
-          git config --global user.name "mahesharige253"
-          git remote remove origin || true
-          git remote add origin https://github.com/mahesharige253/BAT_Magento_Rubik.git
-          git remote set-url --add --push origin https://mahesharige253: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@github.com/mahesharige253/BAT_Magento_Rubik.git
-          git remote -v
-          git pull --rebase origin main
-          git push origin HEAD:main --force
+          #!/bin/bash
+          source="$(System.DefaultWorkingDirectory)"
+          printf "Present working directory %s directory" "$(System.DefaultWorkingDirectory)".
+          cd "$source" || return
+          git diff HEAD~1 HEAD --name-only >diff.txt
+          filelist="diff.txt"
+          destdir=$(Build.ArtifactStagingDirectory)
+           
+          while read -r line;
+          do
+          find   "$line" -exec cp --parent '{}' "$destdir"/ \;
+          echo find  -name "$line"
+          sleep 1
+          done < "$filelist"
+    # - task: CmdLine@2
+    #   inputs:
+    #     script: |
+    #       cd $(Agent.TempDirectory)
+    #       git config --global user.email "automationuser@bat.com"
+    #       git config --global user.name "automationuser"
+    #       git clone https://mahesharige253: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@github.com/mahesharige253/BAT_Magento_Rubik.git
+    #       cd BAT_Magento_Rubik
+    #       git add .
+    #       git commit -m "Package commit to Github. "
+    #       git push 
+    - task: PowerShell@2
+      inputs:
+        targetType: 'inline'
+        script: |
+          cd $(Agent.TempDirectory)
+                    git config --global user.email "automationuser@bat.com"
+                    git config --global user.name "automationuser"
+                    git clone https://mahesharige253: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@github.com/mahesharige253/BAT_Magento_Rubik.git
+                    cd BAT_Magento_Rubik
+                    Copy-Item -Path "$(Build.ArtifactStagingDirectory)/**" -Destination .  -Recurse -force
+                    git add .
+                    git commit -m "Package commit to Github. "
+                    git push
+    

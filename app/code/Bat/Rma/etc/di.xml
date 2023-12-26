@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Bat\Rma\Api\RmaCreateInterface" type="Bat\Rma\Model\Api\CreateRma"/>
+    <preference for="Magento\Rma\Block\Adminhtml\Rma\Grid" type="Bat\Rma\Block\Adminhtml\Rma\Grid"/>
+    <preference for="Magento\Rma\Block\Adminhtml\Order\View\Tab\Rma" type="Bat\Rma\Block\Adminhtml\Order\View\Tab\Rma"/>
+    <preference for="Magento\Rma\Block\Adminhtml\Customer\Edit\Tab\Rma" type="Bat\Rma\Block\Adminhtml\Customer\Edit\Tab\CustomerRma"/>
+    <type name="Magento\RmaGraphQl\Model\Rma\RequestRma">
+        <plugin name="orderReturnRequest" type="Bat\Rma\Plugin\Model\Rma\RequestRma"/>
+    </type>
+    <preference for="Magento\Rma\Block\Adminhtml\Rma\NewRma\Tab\Items\Grid" type="Bat\Rma\Block\Adminhtml\Rma\NewRma\Tab\Items\NewItemsGrid"/>
+    <preference for="Magento\Rma\Block\Adminhtml\Rma\Edit\Tab\Items\Grid" type="Bat\Rma\Block\Adminhtml\Rma\Edit\Tab\Items\EditItemsGrid"/>
+    <preference for="\Magento\Rma\Block\Adminhtml\Rma\NewRma\Tab\Items" type="Bat\Rma\Block\Adminhtml\Rma\NewRma\Tab\Items"/>
+    <type name="Magento\Sales\Model\ResourceModel\Order\Handler\State">
+        <plugin name="setBatCustomOrderState" type="Bat\Rma\Plugin\Model\Sales\Order\State"/>
+    </type>
+    <type name="Magento\SalesRule\Model\RulesApplier">
+        <plugin name="remove_discount_on_order" type="Bat\Rma\Plugin\Model\SalesRule\RulesApplier"/>
+    </type>
+     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="returns_createreturns_index_data_source" xsi:type="string">BatIroOrderCollection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="BatIroOrderCollection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">bat_iro_orders</argument>
+            <argument name="resourceModel" xsi:type="string">Bat\Rma\Model\ResourceModel\IroResource</argument>
+        </arguments>
+    </virtualType>
+</config>

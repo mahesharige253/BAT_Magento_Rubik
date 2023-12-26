@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <bat_integrations>
+            <bat_order>
+                <return_order_cron_schedule>*/5 * * * *</return_order_cron_schedule>
+                <eda_return_order_log>1</eda_return_order_log>
+            </bat_order>
+        </bat_integrations>
+    </default>
+</config>

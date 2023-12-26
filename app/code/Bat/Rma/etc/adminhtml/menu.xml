@@ -1,0 +1,6 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Bat_Rma::rma" title="Returns" translate="title" module="Bat_Rma" sortOrder="40" parent="Bat_CustomerConsentForm::menu" dependsOnModule="Bat_CustomerConsentForm" resource="Bat_Rma::viewRma"/>
+        <add id="Bat_Rma::manageRma" title="Manage Returns" module="Bat_Rma" sortOrder="40" action="returns/createreturns/index" resource="Bat_Rma::viewRma" parent="Bat_Rma::rma"/>
+    </menu>
+</config>

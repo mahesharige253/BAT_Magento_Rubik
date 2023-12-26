@@ -1,0 +1,20 @@
+type Query {
+    getAccountClosureProducts(current_page: Int = 20, page_size: Int = 1): AccountClosureProducts
+    @resolver(class: "Bat\\Rma\\Model\\Resolver\\AccountClosureProductList")
+    @doc(description: "Returns products for account closure product return")
+}
+
+type AccountClosureProducts @doc(description: "Returns products for account closure product return") {
+    items: [ProductDetails] @doc(description: "Returns array of Products")
+    current_page: Int @doc(description: "Returns current page")
+    page_size: Int @doc(description: "Returns page size")
+}
+
+type ProductDetails @doc(description: "Returns products details"){
+    short_prod_nm : String
+    name : String
+    sku : String
+    id : Int
+    product_image : String
+    price : Float
+}

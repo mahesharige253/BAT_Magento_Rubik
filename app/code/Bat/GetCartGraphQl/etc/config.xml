@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <general_settings>
+            <general>
+                <minimum_qty_per_cart>20</minimum_qty_per_cart>
+                <maximum_qty_per_cart>2000</maximum_qty_per_cart>
+            </general>
+        </general_settings>
+    </default>
+</config>

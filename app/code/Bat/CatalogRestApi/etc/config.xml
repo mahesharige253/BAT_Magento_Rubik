@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <bat_price_master>
+            <pricemaster>
+                <status>1</status>
+                <full_cron_expression>0 0 * * *</full_cron_expression>
+                <log_enabled>1</log_enabled>
+            </pricemaster>
+        </bat_price_master>
+    </default>
+</config>

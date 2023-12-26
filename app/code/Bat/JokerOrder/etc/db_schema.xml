@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="bat_joker_order_frequency" resource="default" engine="innodb" comment="Joker Order Frequency">
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true"
+                comment="ID"/>
+        <column xsi:type="varchar" name="customer_id" nullable="true" length="255" comment="Customer Id"/>
+        <column xsi:type="varchar" name="e_call_start_date" nullable="true" length="255" comment="E-call start date"/>
+        <column xsi:type="varchar" name="e_call_end_date" nullable="true" length="255" comment="E-call end date"/>
+        <column xsi:type="varchar" name="npi_start_date" nullable="true" length="255" comment="Npi start date"/>
+        <column xsi:type="varchar" name="npi_end_date" nullable="true" length="255" comment="Npi end date"/>
+        <column xsi:type="varchar" name="order_id" nullable="true" length="255" comment="Order Increment Id"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <index referenceId="BAT_JOKER_ORDER_CUSTOMER_ID" indexType="btree">
+            <column name="customer_id"/>
+        </index>
+    </table>
+</schema>

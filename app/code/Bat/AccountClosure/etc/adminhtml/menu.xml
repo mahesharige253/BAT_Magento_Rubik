@@ -1,0 +1,6 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Bat_AccountClosure::accountclosure" title="Account Closure" translate="title" module="Bat_AccountClosure" sortOrder="40" parent="Bat_CustomerConsentForm::menu" dependsOnModule="Bat_CustomerConsentForm" resource="Bat_AccountClosure::accountclosure"/>
+        <add id="Bat_AccountClosure::manageAccountClosure" title="Account Closure Request" module="Bat_AccountClosure" sortOrder="40" action="accountclosure/accountclosure/index" resource="Bat_AccountClosure::manageAccountClosure" parent="Bat_AccountClosure::accountclosure"/>
+    </menu>
+</config>

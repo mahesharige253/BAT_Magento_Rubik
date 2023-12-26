@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+     <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+        <default>
+            <payment_deadline>
+                <general>
+                    <enabled>3</enabled>
+                </general>
+                <bat_order_cancel>
+                    <sales_order_cron_enable>0</sales_order_cron_enable>
+                    <sales_order_cron_config>0 9 * * *</sales_order_cron_config>
+                    <sales_order_cron_log_enable>0</sales_order_cron_log_enable>
+                </bat_order_cancel>
+                <bat_order_payment_reminder>
+                    <order_payment_reminder_cron_enable>0</order_payment_reminder_cron_enable>
+                    <order_payment_reminder_cron_config>0 9 * * *</order_payment_reminder_cron_config>
+                    <order_payment_reminder_cron_log_enable>0</order_payment_reminder_cron_log_enable>
+                </bat_order_payment_reminder>
+                <general>
+                    <payment_deadline>2</payment_deadline>
+                    <payment_overdue_message_time>09:00:00</payment_overdue_message_time>
+                </general>
+            </payment_deadline>
+        </default>
+    </config>

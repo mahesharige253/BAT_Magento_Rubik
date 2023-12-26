@@ -1,0 +1,63 @@
+{
+    "sales_order": {
+        "column": {
+            "order_type": true,
+            "batch_id": true,
+            "updated_date": true,
+            "country_code": true,
+            "sap_order_number": true,
+            "sap_credit_status": true,
+            "sap_order_status": true,
+            "sap_country_code": true,
+            "outlet_id": true,
+            "parent_outlet_id": true,
+            "order_reject_reason": true,
+            "order_reject_desc": true,
+            "over_payment": true,
+            "order_grand_total": true,
+            "remaining_ar": true,
+            "is_return_order_created": true
+        }
+    },
+    "bat_eda_pending_orders": {
+        "column": {
+            "entity_id": true,
+            "order_id": true,
+            "order_sent": true,
+            "failure_attempts": true,
+            "order_type": true,
+            "channel": true,
+            "order_increment_id": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "index": {
+            "BAT_EDA_PENDING_ORDERS_ENTITY_ID": true,
+            "BAT_EDA_PENDING_ORDERS_ORDER_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "quote": {
+        "column": {
+            "outlet_id": true,
+            "parent_outlet_id": true
+        }
+    },
+    "sales_order_item": {
+        "column": {
+            "uom": true,
+            "product_image": true,
+            "default_attribute": true,
+            "short_prod_nm": true,
+            "base_to_secondary_uom": true
+        }
+    },
+    "quote_item": {
+        "column": {
+            "uom": true,
+            "base_to_secondary_uom": true
+        }
+    }
+}

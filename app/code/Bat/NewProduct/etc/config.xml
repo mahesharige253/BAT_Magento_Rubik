@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <product_carousel>
+            <general>
+                <new_products_carousel>1</new_products_carousel>
+                <new_products_carousel_limit>4</new_products_carousel_limit>
+                <new_products_carousel_title>New/Recommended Products</new_products_carousel_title>
+            </general>
+        </product_carousel>
+    </default>
+</config>

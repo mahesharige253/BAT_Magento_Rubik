@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Bat\Sales\Api\OrderConfirmationInterface" type="Bat\Sales\Model\Api\ConfirmOrder"/>
+    <preference for="Magento\Sales\Block\Adminhtml\Order\View\Info" type="Bat\Sales\Block\Adminhtml\Order\View\Info" />
+    <type name="Magento\Quote\Model\Quote\Item\ToOrderItem">
+       <plugin name="quote_to_order_item_conv" type="Bat\Sales\Plugin\Quote\ConvertToOrderItem"/>
+    </type>
+    <type name="Magento\Backend\Block\Widget\Button\Toolbar">
+        <plugin name="disableOrderButtons" type="Bat\Sales\Plugin\Block\Widget\Button\Toolbar" />
+    </type>
+    <preference for="Magento\Rma\Block\Adminhtml\Order\View\Buttons" type="Bat\Sales\Model\RemoveCreateReturnButton" />
+</config>

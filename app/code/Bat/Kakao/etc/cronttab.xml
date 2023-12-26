@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="bat_kakotemplatecron">
+        <job name="kakotemplatecron_cronjob" instance="Bat\Kakao\Cron\KakaoTemplateCron" method="execute">
+            <config_path>kakao/kakao_templates/full_cron_expression</config_path>
+        </job>
+    </group>
+</config>

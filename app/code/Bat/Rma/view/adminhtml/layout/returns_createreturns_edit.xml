@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Bat\Rma\Block\Adminhtml\CreateReturns\Edit" name="createreturns_edit"/>
+        </referenceContainer>
+         <referenceContainer name="left">
+            <block class="Bat\Rma\Block\Adminhtml\CreateReturns\Edit\Tabs" name="createreturns_edit_tabs">
+                <block class="Bat\Rma\Block\Adminhtml\CreateReturns\Edit\Tab\Main" name="createreturns_edit_tab_Main"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">main_section</argument>
+                    <argument name="block" xsi:type="string">createreturns_edit_tab_Main</argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

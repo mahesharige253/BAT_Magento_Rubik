@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+   <settings>
+        <buttons>
+            <button name="forgot_outletID" class="Bat\Customer\Block\Adminhtml\ForgotOutletId"/>
+            <button name="forgot_passwordPin" class="Bat\Customer\Block\Adminhtml\ForgotPasswordPin"/>
+            <button name="change_address" class="Bat\Customer\Block\Adminhtml\ChangeAddress"/>
+            <button name="push_to_swift" class="Bat\Customer\Block\Adminhtml\PushToSwift"/>
+            <button name="update_address" class="Bat\Customer\Block\Adminhtml\UpdateAddress"/>
+        </buttons>
+    </settings>
+</form>

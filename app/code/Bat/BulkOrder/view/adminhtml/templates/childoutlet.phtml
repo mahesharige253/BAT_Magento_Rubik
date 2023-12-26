@@ -1,0 +1,297 @@
+<?php
+$qtyParams = $block->getSelectedParams();
+$childData = $block->getOutletData();
+if ($childData) {
+    ?>
+    <div class="go_back_button" style="text-align:right">
+        <span class="action-default scalable save primary ui-button ui-corner-all ui-widget" 
+                style="margin-bottom: 10px;">
+                <a href="<?= $block->escapeHtml(__($block->getUrl('bulkorder/bulkorder/index'))) ?>">
+                    <?= $block->escapeHtml(__('Go Back')) ?>
+                </a></span>
+    </div>
+    <form id="productSelectionForm" action="<?= /* @noEscape */
+        $block->escapeHtml($block->getProductSubmitUrl()) ?>" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="form_key" value="<?= /* @noEscape */$block->getFormKey() ?>" />
+        <input type="hidden" name="parent_id" value="<?= /* @noEscape */$block->escapeHtml($block->getParentId()) ?>" />
+        <input type="hidden" name="min_qty" value="<?= $block->escapeHtml(__($block->getMinimumCartQty())) ?>" />
+        <input type="hidden" name="max_qty" value="<?= $block->escapeHtml(__($block->getMaximumCartQty())) ?>" />
+        <div class="admin__data-grid-wrap admin__data-grid-wrap-static">
+            
+            <table class="data-grid">
+                <thead>
+                    <tr>
+                        <th class="data-grid-th col-period no-link col-period"><span>
+                            <?= $block->escapeHtmlAttr(__('Product Name')) ?></span></th>
+                        <th colspan="2" class="data-grid-th col-period no-link col-period">
+                            <span><?= $block->escapeHtmlAttr(__('Product Details')) ?></span></th>
+                        <?php foreach ($childData as $outlet) {
+                            $outletData = explode(':', $outlet);
+                            $totalQty[$outletData[0]] = 0;
+                            $totalAmount[$outletData[0]] = 0;
+                            ?>
+                            <th rowspan="2" class="data-grid-th col-period no-link col-period"><span>
+                                    <?= /* @noEscape */$block->escapeHtmlAttr($outlet) ?>
+                                </span></th>
+                        <?php } ?>
+                    </tr>
+
+                </thead>
+                <?php
+                $skuItems = $block->getCategorySequenceProducts();
+                $priceTagItems = $block->getPriceTagItems();
+
+                foreach ($skuItems as $sku) {
+                    $stockStatus = $block->getStockStatus($sku->getSku());
+                    if ($stockStatus) {
+                        ?>
+                    <tr>
+                        <td><?= $block->escapeHtml(__($sku->getName())) ?>
+                        <td>
+                            <?php
+                            $skuTrimmed = str_replace(
+                                [ '\'', '"',',' , ';','.', ' ', '<', '>' ],
+                                '',
+                                $sku->getSku()
+                            );
+                            $price = number_format($sku->getPrice()); ?>
+                            <?= /* @noEscape */$block->escapeHtml(__('SKU : '.$sku->getSku())); ?><br>
+                            <?= /* @noEscape */$block->escapeHtml(__('Price : '.$price.' KRW')); ?>
+                        </td>
+                        <td>
+                            <?= $block->escapeHtmlAttr('Qty'); ?>
+                        </td>
+                        <?php foreach ($childData as $outlet) {
+                            $outletData = explode(':', $outlet);
+                            if (($qtyParams != '') && ($qtyParams[$outletData[0]][$sku->getSku()] != '')) {
+                                $value = $qtyParams[$outletData[0]][$sku->getSku()];
+                               // $totalQty[$outletData[0]] = 0;
+                                $totalQty[$outletData[0]] += $value;
+                            } else {
+                                $value = '';
+                            }
+                            ?>
+
+                            <td>
+                                <input type="number" min="1" oninput="validity.valid||(value='');" data-outlet="<?= $block->escapeHtml(__($outletData[0])) ?>" 
+                                class="input-text admin__control-text outlet_sku" 
+                                name="qty[<?= $block->escapeHtml(__($outletData[0].']['.$sku->getSku().']')) ?>" 
+                                value="<?= $block->escapeHtml(__($value)) ?>" 
+                                data-value="<?= /* @noEscape */$block->escapeHtml($sku->getPrice()) ?>" 
+                                data-skuvalue="<?= $block->escapeHtml(__($outletData[0].'_'.
+                                    $skuTrimmed)) ?>" />
+                            </td>
+                        <?php } ?>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <?= /* @noEscape */$block->escapeHtmlAttr('SubTotal (Price * Qty)'); ?>
+                        </td>
+                        <?php foreach ($childData as $outlet) {
+                            $outletData = explode(':', $outlet);
+                            if (($qtyParams != '') && ($qtyParams[$outletData[0]][$sku->getSku()] != '')) {
+                                $subtotal = $qtyParams[$outletData[0]][$sku->getSku()] * $sku->getPrice();
+                                $totalAmount[$outletData[0]] += $subtotal;
+                                $subtotaldata = number_format($subtotal). ' KRW';
+                            } else {
+                                $subtotaldata = '';
+                            }
+                            ?>
+                            <td>
+                            <span data-outlet="<?= $block->escapeHtml(__($outletData[0])) ?>"
+                            class="outlet_amount" style="display:none" data-subtotal="<?=
+                            $block->escapeHtml(__($outletData[0].'_'.$skuTrimmed))
+                            ?>"></span>
+                            <span  
+                            id="<?=
+                            $block->escapeHtml(__($outletData[0].'_'.$skuTrimmed))
+                            ?>"><?= $block->escapeHtml(__($subtotaldata)) ?></span> </td>
+                        <?php } ?>
+                    </tr>
+                <?php } }?>
+                <tr>
+                    <td></td>
+                    <td>Total</td>
+                    <td>Quantity</td>
+                    <?php foreach ($childData as $outlet) {
+                            $outletData = explode(':', $outlet); ?>
+                            <td><span data-outlet="<?= $block->escapeHtml(__($outletData[0])) ?>" 
+                            class="outlet_total_qty" id="<?= $block->escapeHtml(__($outletData[0].'_total')) ?>">
+                            <?= $block->escapeHtml(__($totalQty[$outletData[0]])) ?></span></td>
+                    <?php } ?>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Total</td>
+                    <td>Order Amount</td>
+                    <?php
+                    foreach ($childData as $outlet) {
+                        $outletData = explode(':', $outlet);
+                        if ($qtyParams != '') {
+                            $ordertotalAmount = number_format($totalAmount[$outletData[0]]) .' KRW';
+                        } else {
+                            $ordertotalAmount = $totalAmount[$outletData[0]];
+                        }
+                        ?>
+                            <td><span id="<?= $block->escapeHtml(__($outletData[0].'_amount')) ?>">
+                            <?= $block->escapeHtml(__($ordertotalAmount)) ?>
+                            </span> </td>
+                    <?php } ?>
+                </tr>
+                <?php
+                $firstOrderPriceTag = $block->getFirstOrderPriceTagPackage();
+                foreach ($firstOrderPriceTag as $priceItem) {
+                    ?>
+                <tr>
+                    <td>
+                    <?= /* @noEscape */$block->escapeHtmlAttr('First Order Price Tag Package'); ?>
+                    </td>
+                    <td>
+                            <?= /* @noEscape */$block->escapeHtmlAttr($priceItem->getName()); ?>
+                        </td>
+                        <td>
+                            <?= /* @noEscape */$block->escapeHtmlAttr($priceItem->getSku()); ?>
+                        </td>
+                        <?php foreach ($childData as $outlet) {
+                            $outletData = explode(':', $outlet);
+                            if (($block->isAllowedPriceTag($outletData[0]))) { ?>
+                             <td>
+                                <input type="checkbox" 
+                                name="qty[<?= $block->escapeHtml(__($outletData[0].']['.$priceItem->getSku().']')) ?>" 
+                                val="" checked="checked" style="pointer-events:none; opacity:0.5" />
+                                <span><?= $block->escapeHtml(__('Included Price Tag')) ?></span>
+                                </td><?php } else { ?>
+                                    <td></td>
+                            <?php }} ?>
+                </tr>
+                <?php } ?>
+                <?php
+                foreach ($priceTagItems as $pricesku) {
+                    if (!in_array($pricesku->getSku(), $block->getFirstOrderPriceTag())) {
+                        ?>
+                    <tr>
+                        <td>
+                            <?= /* @noEscape */$block->escapeHtmlAttr('Price Tag'); ?>
+                        </td>
+                        <td>
+                            <?= /* @noEscape */$block->escapeHtmlAttr($pricesku->getName()); ?>
+                        </td>
+                        <td>
+                            <?= /* @noEscape */$block->escapeHtmlAttr($pricesku->getSku()); ?>
+                        </td>
+                        <?php foreach ($childData as $outlet) {
+                            $outletData = explode(':', $outlet);
+                            if (($qtyParams != '') && isset($qtyParams[$outletData[0]][$pricesku->getSku()])
+                                && ($qtyParams[$outletData[0]][$pricesku->getSku()] == 'on')) {
+                                $value = 'checked=checked';
+                            } else {
+                                $value = '';
+                            } ?>
+                            <td>
+                                <?php if ((!$block->isAllowedPriceTag($outletData[0]))) {  ?>
+                                <input type="checkbox" 
+                                name="qty[<?= $block->escapeHtml(__($outletData[0].']['.$pricesku->getSku().']')) ?>" 
+                                val="" <?= $block->escapeHtml(__($value)) ?> />
+                                </td>
+                                <?php } ?> 
+                        <?php } ?>
+                        
+                    </tr>
+                <?php } }?>
+            </table>
+        </div>
+        <input id="submitButton" type="submit" class="action-default scalable save primary ui-button ui-corner-all ui-widget" 
+            value="<?= $block->escapeHtml(__('Submit Products')) ?>" />
+    </form>
+<?php } ?>
+
+<script>
+    require([
+        'jquery',
+        'jquery/ui',
+        'jquery/validate',
+        'mage/mage',
+        'domReady!'// wait for dom ready
+    ], function ($) {
+        $(".outlet_sku").keypress(function(e){
+         var charCode = (e.which) ? e.which : event.keyCode    
+                if (String.fromCharCode(charCode).match(/[^0-9]/g)){
+                    //alert('Only allowed integer value');  
+                    $(this).val('');
+                }              
+        });
+        $(document).on('change','.outlet_sku',function(){  console.log('entering change');
+            var value = $(this).val();
+            var price = $(this).attr('data-value');
+            var id = $(this).attr('data-skuvalue');
+            var outletId = $(this).attr('data-outlet');
+            $('#'+id).text('');
+            var total = id.split('_');
+            $('#'+total[0]+'_total').text('');
+            $('#'+total[0]+'_amount').text('');console.log('enter');
+            if(value != '' && value%10 == 0) {
+                var subtotal = price * value;
+                $('#'+id).text((subtotal.toLocaleString('ko-KR') + ' KRW'));
+                $("span[data-subtotal='"+ id +"']").text(subtotal); console.log(subtotal);
+                
+            } else {
+                $(this).val('');
+                alert('Quantity allows multiple of 10 only');
+                $(this).focus();
+               // return false;
+            } 
+
+            var a = 0;
+                $(".outlet_sku[data-outlet='"+outletId+"']").each(function() { 
+                    if($(this).val()) {
+                        a += parseInt($(this).val());
+                    }
+                }); 
+            $('#'+total[0]+'_total').text(a);
+                var b = 0;
+                $(".outlet_amount[data-outlet='"+outletId+"']").each(function() { 
+                    if($(this).text()) {
+                        b += parseInt($(this).text());
+                    }
+                });
+                $('#'+total[0]+'_amount').text(b.toLocaleString('ko-KR') + ' KRW');
+            
+        })
+
+        $('#productSelectionForm').on('submit', function() {
+            var qty = 0;
+            var valid = 0;
+            var minQty = $("input[name='min_qty']").val(); 
+            var maxQty = $("input[name='max_qty']").val(); 
+            $(".outlet_total_qty").each(function(){
+                var totalvalue = parseInt($(this).text()); //console.log(value);
+                var outlet = $(this).attr('data-outlet'); //console.log(outlet);
+                console.log(outlet +'-'+ totalvalue +'-'+minQty+'-'+maxQty);
+                if(isNaN(totalvalue) || (totalvalue < minQty)) {
+                    alert('The Outlet Id '+ outlet +' is below the minimum required quantity '+minQty);
+                    valid = 1;
+                }
+                if(totalvalue > maxQty) {
+                    alert('The Outlet Id '+ outlet +' is exceeded the maximum allowable quantity '+maxQty);
+                    valid = 1;
+                }
+                if($(this).text()) {
+                    qty += parseInt($(this).text());
+                }
+                console.log(qty);
+            });  
+            if(qty == 0) {
+                alert('Please add products to proceed');
+                valid = 1;
+            }
+            if(valid == 1) {
+                return false;
+            }
+            $('#submitButton').prop('disabled', true);
+            $('.go_back_button').css('display','none');
+        })
+       
+    });
+</script>   

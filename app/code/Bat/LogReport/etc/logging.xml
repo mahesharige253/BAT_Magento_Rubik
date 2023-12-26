@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<logging xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Logging:etc/logging.xsd">
+    <groups>
+        <group name="customer_consent_form">
+            <label translate="true">BAT Consent Forms</label>
+            <expected_models>
+                <expected_model class="Bat\CustomerConsentForm\Model\ConsentForm" />
+            </expected_models>
+            <events>
+                <event controller_action="customerconsentform_create_index" action_alias="index" />
+                <event controller_action="customerconsentform_create_edit" action_alias="edit" />
+                <event controller_action="customerconsentform_create_delete" action_alias="delete" />
+                <event controller_action="customerconsentform_create_new" action_alias="new" />
+                <event controller_action="customerconsentform_create_massDelete" action_alias="massDelete" />
+                <event controller_action="customerconsentform_create_save" action_alias="save" />
+            </events>
+        </group>
+        <group name="virtual_bank">
+            <label translate="true">BAT Virtual Bank</label>
+            <expected_models>
+                <expected_model class="Bat\VirtualBank\Model\BankModel" />
+            </expected_models>
+            <events>
+                <event controller_action="vba_virtualbank_index" action_alias="index" />
+                <event controller_action="vba_virtualbank_edit" action_alias="edit" />
+                <event controller_action="vba_virtualbank_addnew" action_alias="addnew" />
+                <event controller_action="vba_virtualbank_save" action_alias="save" />
+                <event controller_action="vba_virtualbank_delete" action_alias="delete" />
+                <event controller_action="vba_virtualbank_massdelete" action_alias="massdelete" />
+                <event controller_action="vba_virtualaccount_new" action_alias="new" />
+                <event controller_action="vba_virtualaccount_importpost" action_alias="importpost" />
+                <event controller_action="vba_customer_updatevba" action_alias="updatevba" />
+            </events>
+        </group>
+        <group name="admin_requisition_list">
+            <label translate="true">BAT Admin Requisition List</label>
+            <expected_models>
+                <expected_model class="Bat\RequisitionList\Model\RequisitionListAdmin" />
+            </expected_models>
+            <events>
+                <event controller_action="requisitionlist_requisitionlist_index" action_alias="index" />
+                <event controller_action="requisitionlist_requisitionlist_addnew" action_alias="addnew" />
+                <event controller_action="requisitionlist_requisitionlist_edit" action_alias="edit" />
+                <event controller_action="requisitionlist_requisitionlist_products" action_alias="products" />
+                <event controller_action="requisitionlist_requisitionlist_productsgrid" action_alias="productsgrid" />
+                <event controller_action="requisitionlist_requisitionlist_save" action_alias="save" />
+                <event controller_action="requisitionlist_requisitionlist_delete" action_alias="delete" />
+                <event controller_action="requisitionlist_requisitionlist_massdelete" action_alias="massdelete" />
+            </events>
+        </group>
+        <group name="admin_bulk_order">
+            <label translate="true">BAT Admin Bulk Order</label>
+            <expected_models>
+                <expected_model class="Bat\BulkOrder\Model\BulkOrder" />
+            </expected_models>
+            <events>
+                <event controller_action="bulkorder_bulkorder_index" action_alias="index" />
+                <event controller_action="bulkorder_bulkorder_validoutlet" action_alias="validoutlet" />
+                <event controller_action="bulkorder_bulkorder_productsubmit" action_alias="productsubmit" />
+                <event controller_action="bulkorder_bulkorder_placeorder" action_alias="placeorder" />
+            </events>
+        </group>
+        <group name="new_recommended_products">
+            <label translate="true">BAT New/Recommended Products</label>
+            <expected_models>
+                <expected_model class="Bat\NewProduct\Model\NewProductModel" />
+            </expected_models>
+            <events>
+                <event controller_action="newproduct_newproduct_index" action_alias="index" />
+                <event controller_action="newproduct_newproduct_addnew" action_alias="addnew" />
+                <event controller_action="newproduct_newproduct_edit" action_alias="edit" />
+                <event controller_action="newproduct_newproduct_save" action_alias="save" />
+                <event controller_action="newproduct_newproduct_products" action_alias="products" />
+                <event controller_action="newproduct_newproduct_productsgrid" action_alias="productsgrid" />
+                <event controller_action="newproduct_newproduct_delete" action_alias="delete" />
+                <event controller_action="newproduct_newproduct_massdelete" action_alias="massdelete" />
+            </events>
+        </group>
+        <group name="kakao_message_template">
+            <label translate="true">BAT Kakao Message Template</label>
+            <expected_models>
+                <expected_model class="Bat\Kakao\Model\KakaoTemplate" />
+            </expected_models>
+            <events>
+                <event controller_action="kakao_kakao_index" action_alias="index" />
+            </events>
+        </group>
+        <group name="forgot_outletid_pin_password">
+            <label translate="true">BAT Forget OutletID/PIN/Password</label>
+            <expected_models>
+                <expected_model class="Bat\Customer\Model\EdaCustomers" />
+            </expected_models>
+            <events>
+                <event controller_action="batcustomer_customer_forgetpassword" action_alias="forgetpassword" />
+                <event controller_action="batcustomer_customer_forgotoutletid" action_alias="forgotoutletid" />
+            </events>
+        </group>
+        <group name="joker_order">
+            <label translate="true">BAT Joker Order</label>
+            <expected_models>
+                <expected_model class="Magento\Customer\Model\Customer" />
+            </expected_models>
+            <events>
+                <event controller_action="jokerorder_customer_action_attribute_ecall" action_alias="ecall" />
+                <event controller_action="jokerorder_customer_action_attribute_npi" action_alias="npi" />
+                <event controller_action="jokerorder_customer_action_attribute_save" action_alias="save" />
+            </events>
+        </group>
+        <group name="admin_account_closure">
+            <label translate="true">BAT Admin Account Closure</label>
+            <expected_models>
+                <expected_model class="Bat\AccountClosure\Model\AccountClosureAdmin" />
+            </expected_models>
+            <events>
+                <event controller_action="accountclosure_accountclosure_addnew" action_alias="addnew" />
+                <event controller_action="accountclosure_accountclosure_edit" action_alias="edit" />
+                <event controller_action="accountclosure_accountclosure_index" action_alias="index" />
+                <event controller_action="accountclosure_accountclosure_searchoutlet" action_alias="searchoutlet" />
+                <event controller_action="accountclosure_accountclosure_save" action_alias="save" />
+                <event controller_action="accountclosure_accountclosure_validateoutlet" action_alias="validateoutlet" />
+            </events>
+        </group>
+    </groups>
+</logging>

@@ -1,0 +1,15 @@
+<?php
+ $options = $block->getSwiftCodes();
+?>
+<div class="return-reason-swift-code">
+    <select name="return_swift_code" required id="return_swift_code" class="admin__control-select required"
+            style="max-width: 40rem">
+        <?php foreach ($options as $option): ?>
+            <?php if ($option['value'] != 10): ?>
+                <option value="<?= $block->escapeHtml($option['value']) ?>">
+                    <?= $block->escapeHtml($option['label']) ?>
+                </option>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </select>
+</div>

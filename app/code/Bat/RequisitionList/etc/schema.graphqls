@@ -1,0 +1,54 @@
+type Customer {
+    admin_requisition_lists: AdminRequisitionLists
+        @resolver(
+            class: "Bat\\RequisitionList\\Model\\Resolver\\RequisitionList"
+        )
+        @doc(
+            description: "An object that contains the customer's requisition lists."
+        )
+    adminRequisitionItems(
+        requisition_list_id: Int
+            @doc(description: "Id of the Admin Requisition List")
+    ): [AdminRequistionListItemsDetails]
+        @resolver(class: "Bat\\RequisitionList\\Model\\Resolver\\AdminItems")
+}
+
+type AdminRequisitionLists @doc(description: "Defines Admin created requisition lists.") {
+    items: [AdminRequisitionListData]
+    total: AdminRlTotal
+
+}
+
+type AdminRlTotal {
+    total_rl_count: Int
+    admin_max_limit: Int
+}
+
+type RequisitionLists @doc(description: "Defines customer requisition lists.") {
+    max_limit: Int
+        @doc(description: "The number of maximum requisition list for Customer")
+        @resolver(
+            class: "Bat\\RequisitionList\\Model\\Resolver\\GetCustomerRlLimit"
+        )
+}
+type AdminRequistionListItems @doc( description: "Contains an array of items added to a requisition list.") {
+    name: String
+}
+
+type AdminRequisitionListData {
+    uid: Int
+    name: String
+    rl_type: String
+    product_count: Int
+    first_product_name: String
+}
+
+type AdminRequistionListItemsDetails {
+    subtotal: Float
+    quantity: Float
+    adminitemsdata: ProductInterface
+}
+
+type StoreConfig {
+    transactional_rl_required_qty : String @doc(description: "Returns Required Quantity for Transactional RL")
+}

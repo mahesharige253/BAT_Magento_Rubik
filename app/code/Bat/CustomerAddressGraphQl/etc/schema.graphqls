@@ -1,0 +1,9 @@
+type Cart {
+    shipping_additional_details: ShippingAdditionalDetails! @doc(description: "shipping Additional Details") @resolver(class: "Bat\\CustomerAddressGraphQl\\Model\\Resolver\\ShippingAdditionalDetails")
+}
+
+type ShippingAdditionalDetails {
+    outlet_name: String
+    outlet_owner_name: String
+    phone_number: String
+}

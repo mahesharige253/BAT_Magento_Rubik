@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+   <system>
+      <section id="bat_adminuserrestriction" translate="label" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="0">
+         <class>separator-top</class>
+         <label>Admin User Restriction</label>
+         <tab>bat_general_config</tab>
+         <resource>Bat_AdminUserRestriction::adminuserrestriction</resource>
+         <group id="adminuserrestriction" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Admin User Restriction</label>
+            <field id="enabled" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="0" sortOrder="10" canRestore="1">
+               <label>Enabled</label>
+               <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            </field>
+            <field id="module_restrictions" translate="label" type="textarea" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+               <label>Module Restrictions List</label>
+               <depends>
+                  <field id="enabled">1</field>
+               </depends>
+            </field>
+            <field id="Restricted_admin_user" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1" sortOrder="30" translate="label" type="multiselect">
+               <label>Restricted Admin User</label>
+                  <source_model>Bat\AdminUserRestriction\Model\Config\AdminUserList</source_model>
+               <depends>
+                  <field id="enabled">1</field>
+               </depends>
+            </field>
+         </group>
+      </section>
+   </system>
+</config>

@@ -1,0 +1,154 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+$data = $block->getRegisterData();
+$parentId = ($block->getParentOutlet()) ? trim($block->getParentOutlet()) : '';
+$selectedOutlets = $block->getSelectedOutlets();
+$errorOutlet = $block->getErrorOutlet();
+$selectedAll = ($errorOutlet != '')?'':'checked=checked';
+if(($errorOutlet == '') && (count($selectedOutlets) >0)) {
+    if ($data && (count($data) == count($selectedOutlets))) {
+        $selectedAll = 'checked=checked';
+    } else {
+        $selectedAll = '';
+    }
+}
+?>
+
+<div class="reports-content">
+    <?php //echo $block->getChildHtml('bulkorder.filter.form1') ?>
+    <form id="parentOutletForm" action="<?= /* @noEscape */
+        $block->escapeHtml($block->getOutletInfoUrl()) ?>" method="post" enctype="multipart/form-data">
+
+        <input type="hidden" name="form_key" value="<?= /* @noEscape */$block->getFormKey() ?>">
+        <table>
+        <tr>
+            <td style="vertical-align: top; padding-top:5px"><label><?= $block->escapeHtml(__('Parent Outlet Id')) ?></label></td>
+            <td>
+                <div class="field required" style="display:inline-block; margin-left: 10px;">
+                    <input type="text" name="parent_outlet"
+                        class="input-text input-text admin__control-text" 
+                        data-validate="{required:true, 'validate-digits': 
+                            true, 'validate-length':true, 
+                            'validate-outlet-id':true}" value="<?= $block->escapeHtml(__($parentId)) ?>"
+                             style="width: 300px;" />
+                </div>
+            </td>
+            <td style="vertical-align: top;">
+                <div class="field required admin__field-control control" 
+                    style="display:inline-block; margin-left: 10px;">
+                    <input type="submit" class="action-default scalable save primary ui-button ui-corner-all ui-widget" 
+                                    value="<?= $block->escapeHtml(__('Search Outlet')) ?>" />
+                </div>
+            </td>
+        </tr>
+        </table>
+    </form>
+</div>
+
+<div>
+    <?php
+
+    if ($data) {
+        ?>
+        <form id="childOutletform" action="<?= /* @noEscape */
+            $block->escapeHtml($block->getOutletSubmitUrl()) ?>" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="form_key" value="<?= /* @noEscape */$block->getFormKey() ?>">
+            <div class="admin__data-grid-wrap admin__data-grid-wrap-static">
+                <table class="data-grid">
+                    <thead>
+                        <tr>
+                            <th class="data-grid-th col-period no-link col-period"><span>
+                                <input type="checkbox" id="outlet_select" style="margin-right:5px" 
+                                <?= $selectedAll ?> />
+                                  Select </span></th>
+                            <th class="data-grid-th col-period no-link col-period"><span>Outlet Id</span></th>
+                            <th class="data-grid-th col-period no-link col-period"><span>Outlet Name</span></th>
+                            <th class="data-grid-th col-period no-link col-period"><span>Is Parent Outlet</span></th>
+                        </tr>
+                        <?php $i = 0;
+                        if (count($data) > 0) {
+                            foreach ($data as $key => $value) {
+                                $parent = ($i == 0) ? "Yes" : "No";
+                                $checked = ($errorOutlet != '')?'':'checked=checked';
+                                if(($errorOutlet == '') && count($selectedOutlets) >0 ) {
+                                    if (in_array($key, $selectedOutlets)) {
+                                        $checked = "checked=checked";
+                                    } else {
+                                        $checked = '';
+                                    }
+                                }
+                                if ($parent == 'Yes') { ?>
+                                    <input type="hidden" value="<?= /* @noEscape */$block->escapeHtmlAttr($key); ?>
+                                    " name="parent_id" /> <?php } ?>
+                                <tr>
+                                    <td class="col-period">
+                                        <input type="checkbox" name="outlet[]" value="<?= /* @noEscape */
+                                            $block->escapeHtmlAttr($key . ':' . $value) ?>" <?= $checked ?> />
+                                    </td>
+                                    <td class="col-period">
+                                        <?= /* @noEscape */$block->escapeHtmlAttr($key); ?>
+                                    </td>
+                                    <td class="col-period">
+                                        <?= /* @noEscape */$block->escapeHtmlAttr($value); ?>
+                                    </td>
+                                    <td class="col-period">
+                                        <?= /* @noEscape */$block->escapeHtmlAttr($parent) ?>
+                                    </td>
+                                </tr>
+                                <?php $i++;
+                            }
+                        } else { ?>
+                            <tr class="data-grid-tr-no-data even">
+                                <td class="empty-text" colspan="5">We couldn't find any records.</td>
+                            </tr>
+                        <?php } ?>
+                    </thead>
+                </table>
+            </div>
+    </div>
+    <input type="submit"  class="action-default scalable save primary ui-button ui-corner-all ui-widget" 
+                value="Submit Outlet" />
+    </form>
+<?php } ?>
+
+<script>
+    require([
+        'jquery',
+        'jquery/ui',
+        'jquery/validate',
+        'mage/mage'
+    ], function ($) {
+        var dataForm = $('#parentOutletForm');
+        dataForm.mage('validation', {});
+
+        $(document).on('click','#outlet_select',function(){
+            var value = $(this).prop('checked');
+            if(value) {
+                $('input[name="outlet[]"]').prop('checked', true);
+                
+            } else {
+                $('input[name="outlet[]"]').prop('checked', false);
+               
+            }
+        })
+
+        $(document).on('click','input[name="outlet[]"]',function(){
+            var inputLength = $('input[name="outlet[]"]').length;
+            var checked = 0;
+            $('input[name="outlet[]"]').each(function(){
+                var checkValue = $(this).prop('checked');
+                if(checkValue) {
+                    checked++;
+                }
+            })
+            
+            $('#outlet_select').prop('checked',checked == inputLength);
+            
+        })
+       
+
+    });
+</script>

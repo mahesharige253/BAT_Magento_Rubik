@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="bat_order_delivery_failed">
+        <job instance="Bat\ShipmentUpdate\Cron\OrderDeliveryFailed" method="execute" name="bat_order_delivery_failed">
+           <config_path>payment_deadline/bat_order_delivery_failed/order_failed_cron_config</config_path>
+        </job>
+    </group>
+</config>

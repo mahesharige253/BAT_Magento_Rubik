@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Bat\ShipmentUpdate\Api\OrderShipmentUpdateInterface" type="Bat\ShipmentUpdate\Model\Api\ShipmentUpdate"/>
+    <preference for="Bat\ShipmentUpdate\Api\OrderDeliveryUpdateInterface" type="Bat\ShipmentUpdate\Model\Api\DeliveryUpdate"/>
+    <preference for="Bat\ShipmentUpdate\Api\OrderGoodsReceivedInterface" type="Bat\ShipmentUpdate\Model\Api\GoodsReceived"/>
+</config>

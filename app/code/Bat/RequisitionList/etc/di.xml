@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="admin_requisitionlist_data_source" xsi:type="string">BatRequisitionListCollection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="BatRequisitionListCollection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">requisition_list_admin</argument>
+            <argument name="resourceModel" xsi:type="string">Bat\RequisitionList\Model\ResourceModel\RequisitionListAdmin</argument>
+        </arguments>
+    </virtualType>
+</config>
+

@@ -1,0 +1,39 @@
+{
+    "requisition_list_admin": {
+        "column": {
+            "entity_id": true,
+            "name": true,
+            "description": true,
+            "rl_type": true,
+            "seasonal_percentage":true,
+            "status": true,
+            "updated_at": true,
+            "is_enabled": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "requisition_list_item_admin": {
+        "column": {
+            "item_id": true,
+            "requisition_list_id": true,
+            "product_id": true,
+            "sku": true,
+            "store_id": true,
+            "added_at": true,
+            "qty": true,
+            "options": true
+        },
+        "index": {
+            "REQUISITION_LIST_ITEM_ADMIN_REQUISITION_LIST_ID": true,
+            "REQUISITION_LIST_ITEM_ADMIN_SKU": true,
+            "REQUISITION_LIST_ITEM_ADMIN_STORE_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FK_7FFA3301B8AF35958F09C2237D2E7537": true,
+            "REQUISITION_LIST_ITEM_ADMIN_STORE_ID_STORE_STORE_ID": true
+        }
+    }
+}

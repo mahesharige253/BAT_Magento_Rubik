@@ -1,0 +1,4 @@
+type StoreConfig {
+    min_qty_in_cart : String @doc(description: "Minimum Qty In Cart")
+    max_qty_in_cart : String @doc(description: "Maximum Qty In Cart")
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\QuoteGraphQl\Model\Cart\UpdateCartItem">
+        <plugin name="bat_validatecartqty"
+            type="Bat\GetCartGraphQl\Plugin\ValidateCartQty"
+            sortOrder="1" disabled="false" />
+    </type>
+    <type name="Magento\QuoteGraphQl\Model\Cart\AddProductsToCart">
+        <plugin name="bat_validate_addtocart_qty"
+            type="Bat\GetCartGraphQl\Plugin\ValidateAddToCartQty"
+            sortOrder="1" disabled="false" />
+    </type>
+    <type name="Magento\StoreGraphQl\Model\Resolver\Store\StoreConfigDataProvider">
+        <arguments>
+            <argument name="extendedConfigData" xsi:type="array">
+                <item name="min_qty_in_cart" xsi:type="string">general_settings/general/minimum_qty_per_cart</item>
+                <item name="max_qty_in_cart" xsi:type="string">general_settings/general/maximum_qty_per_cart</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

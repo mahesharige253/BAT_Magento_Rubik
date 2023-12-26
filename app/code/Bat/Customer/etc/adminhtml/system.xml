@@ -1,0 +1,286 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="customer_approval_status" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="0">
+            <class>separator-top</class>
+            <label>Customer Approval Status</label>
+            <tab>bat_general_config</tab>
+            <resource>Bat_Customer::status_message_configuration</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>General Configuration</label>
+                <field id="customer_under_review_heading" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Customer Under Review Heading</label>
+                </field>
+                <field id="customer_under_review_message" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Customer Under Review Message</label>
+                </field>
+                <field id="customer_application_notfound_heading" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Customer Not Found Heading</label>
+                </field>
+                <field id="customer_application_notfound_message" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Customer Not Found Message</label>
+                </field>
+                <field id="customer_application_approved_heading" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Customer Approved Heading</label>
+                </field>
+                <field id="customer_application_approved_message" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Customer Approved Message</label>
+                </field>
+                <field id="customer_application_rejected_heading" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Customer Rejected Heading</label>
+                </field>
+                <field id="customer_application_rejected_message" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Customer Rejected Message</label>
+                </field>
+                <field id="customer_callcenter_number" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Customer Call Center Number</label>
+                </field>
+            </group>
+        </section>
+        <section id="bat_customer" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="0">
+            <class>separator-top</class>
+            <label>Customers</label>
+            <tab>bat_general_config</tab>
+            <resource>Bat_Customer::customer_configuration</resource>
+            <group id="registration" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>Registration</label>
+                <field id="mobile_number_available_message" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Mobile Number Available Message</label>
+                </field>
+                <field id="payment_overdue_message" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Payment Overdue Message</label>
+                </field>
+                <field id="setpinpassword_url" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Set Pin/Password Url</label>
+                </field>
+                <field id="setpinpassword_url_time" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Set Password/Pin URL Valid Upto (in Days)</label>
+                </field>
+                <field id="sales_representative" translate="label" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Sales Representative</label>
+                    <source_model>Magento\Company\Model\Company\Source\SalesRepresentatives</source_model>
+                </field>
+            </group>
+            <group id="forgotpasswordpin_url" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="40">
+                <label>Forgot Password/Pin URL</label>
+                <field id="url" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Forgot Password/Pin URL</label>
+                </field>
+                <field id="forgotpinpassword_url_time" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Forgot Password/Pin URL Valid Upto (in hours)</label>
+                </field>
+            </group>
+            <group id="registration_resubmit_url" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="50">
+                <label>Registration Re-submit URL</label>
+                <field id="resubmit_url" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Re-submit URL</label>
+                </field>
+            </group>
+            <group id="changeaddress_url" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="40">
+                <label>Change Address URL</label>
+                <field id="address_url" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Change Address URL</label>
+                </field>
+                 <field id="address_url_time" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Change Address URL Valid Upto (in hours)</label>
+                </field>
+            </group>
+             <group id="customer_refreshsegment" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30">
+            <label>Customer Refresh Segment Data</label>
+                <field id="customer_refresh_segment" translate="label" type="select" sortOrder="10" showInDefault="6" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Enable Customer Refresh Segment Cron</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="customer_refresh_segment_cron_config" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Customer Refresh Segment Data Cron Schedule</label>
+                    <validate>required-entry</validate>
+                </field>
+            </group>
+        </section>
+        <section id="bat_customer_disclosure" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="0">
+            <class>separator-top</class>
+            <label>Customer Disclosure Messages</label>
+            <tab>bat_general_config</tab>
+            <resource>Bat_Customer::disclosure_message_configuration</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>Disclosure Status Message</label>
+                <field id="account_disclosure_approved_message" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Account Disclosure Approved Message</label>
+                </field>
+                <field id="account_disclosure_rejected_message" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Account Disclosure Rejected Message</label>
+                </field>
+            </group>
+        </section>
+        <section id="bat_customer_termination" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="0">
+            <class>separator-top</class>
+            <label>Customer Account Termination</label>
+            <tab>bat_general_config</tab>
+            <resource>Bat_Customer::customer_account_termination</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>Account Termination</label>
+                <field id="account_termination_cron_schedule" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Cron Schedule</label>
+                </field>
+                <field id="account_termination_required_duration" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Required duration for Account Termination</label>
+                    <validate>required-entry validate-digits validate-not-negative-number validate-digits-range digits-range-1-100</validate>
+                    <comment>In Months.</comment>
+                </field>
+            </group>
+            <group id="delete_terminate_account" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>Delete Terminate Account</label>
+                <field id="enabled" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Cron Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="log_enabled" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Log Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="account_terminate_cron_schedule" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Cron Schedule</label>
+                </field>
+                <field id="account_terminate_required_duration" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Required duration for Delete Termination Customer Data</label>
+                    <validate>required-entry validate-digits validate-not-negative-number</validate>
+                    <comment>In Years.</comment>
+                </field>
+                <field id="account_terminate_required_duration_payment" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Required duration for Delete Termination Payment Data</label>
+                    <validate>required-entry validate-digits validate-not-negative-number</validate>
+                    <comment>In Years.</comment>
+                </field>
+            </group>
+        </section>
+        <section id="bat_customer_rejection" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="0">
+            <class>separator-top</class>
+            <label>Rejected Customer Deletion</label>
+            <tab>bat_general_config</tab>
+            <resource>Bat_Customer::customer_account_termination</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>Delete Rejected Accounts</label>
+                <field id="enabled" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Cron Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="log_enabled" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Log Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="account_rejection_cron_schedule" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Cron Schedule</label>
+                </field>
+                <field id="account_rejection_required_duration" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Required duration for Delete Rejection Data</label>
+                    <validate>required-entry validate-digits validate-not-negative-number</validate>
+                    <comment>In Days.</comment>
+                </field>
+            </group>
+        </section>
+        <section id="bat_integrations" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="0">
+            <resource>Bat_Customer::integrations</resource>
+            <group id="bat_customer" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>EDA Customer Integration Configuration</label>
+                <field id="eda_customer_cron_schedule" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Create/Update Customer Cron Schedule</label>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="eda_customer_endpoint" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Create/Update Customer endpoint</label>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="eda_customer_log" translate="label" type="select" sortOrder="30" showInDefault="6" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Enable Customer Update Logs</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="eda_customer_max_failures_allowed" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Maximum Failure Attempts Allowed</label>
+                    <validate>required-entry validate-digits validate-not-negative-number validate-digits-range digits-range-1-100</validate>
+                </field>
+            </group>
+        </section>
+        <section id="order_frequency" showInDefault="1" showInWebsite="1" showInStore="1" type="text" translate="Order Frequency" sortOrder="200">
+                        <group id="customer_default_order_frequency" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="25">
+                 <label>Customer Default Order Frequency</label>
+                <field id="default_order_frequency" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Default Order Frequency</label>
+                    <source_model>Bat\Customer\Model\Entity\Attribute\Source\OrderFrequencyOptions</source_model>
+                </field>
+                 <field id="default_order_frequency_month" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Default Order Frequency Month</label>
+                    <source_model>Bat\Customer\Model\Entity\Attribute\Source\OrderMonthOptions</source_model>
+                </field>
+                <field id="default_order_frequency_week" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Default Order Frequency Week</label>
+                    <source_model>Bat\Customer\Model\Entity\Attribute\Source\OrderWeekOptions</source_model>
+                </field>
+                <field id="default_order_frequency_day" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Default Order Frequency Day</label>
+                    <source_model>Bat\Customer\Model\Entity\Attribute\Source\OrderFrequencyDayOptions</source_model>
+                </field>
+                <field id="default_order_frequency_fix_or_flexible" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Default Order Frequency Fix or Flexible</label>
+                    <source_model>Bat\Customer\Model\Entity\Attribute\Source\FixFlexibleOrderDayOptions</source_model>
+                </field>
+                <field id="default_order_frequency_time_from" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Default Order Frequency Time From</label>
+                    <source_model>Bat\Customer\Model\Entity\Attribute\Source\OrderFrequencyTimeOptions</source_model>
+                </field>
+                <field id="default_order_frequency_time_to" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Default Order Frequency Time To</label>
+                    <source_model>Bat\Customer\Model\Entity\Attribute\Source\OrderFrequencyTimeOptions</source_model>
+                </field>
+            </group>
+            <group id="order_day" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30">
+                <label>Order day cron</label>
+                <field id="enabled" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Cron Log Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="full_cron_expression" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Cron Time</label>
+                    <comment>0 0 * * * it should be in this format. this will run every night at midnight.</comment>
+                </field>
+            </group>
+        </section>
+        <section id="bat_general" showInDefault="1" showInWebsite="1" showInStore="1" type="text" translate="Unit Test Customer Credentials" sortOrder="10">
+            <label>General</label>
+            <tab>bat_general_config</tab>
+            <resource>Bat_Customer::unit_test_customer_credential</resource>
+            <group id="frontend_base_url" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20">
+                <label>Frontend Base Url</label>
+                <field id="base_url" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Base URL</label>
+                </field>
+            </group>
+        </section>
+        <section id="marketingconsent_time" showInDefault="1" showInWebsite="1" showInStore="1" type="text" translate="Unit Test Customer Credentials" sortOrder="200">
+            <label>Marketing Consent Acceptance Notification Time</label>
+            <tab>bat_general_config</tab>
+            <resource>Bat_Customer::config_marketingconsent_time</resource>
+            <group id="general" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20">
+                <label>General Settings</label>
+                <field id="consent_time" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Consent Acceptance Notification Time Period in numbers</label>
+                </field>
+                <field id="select" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Consent Acceptance Notification Time Period</label>
+                    <source_model>Bat\Customer\Model\Entity\Attribute\Source\MarketingConsentNotification</source_model>
+                    <validate>validate-select</validate>
+                </field>
+            </group>
+            <group id="consent_notification" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30">
+                <label>Consent Acceptance Notification Cron</label>
+                <field id="enabled" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Cron Log Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="full_cron_expression" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Cron Time</label>
+                    <comment>0 0 * * * it should be in this format. this will run every night at midnight.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

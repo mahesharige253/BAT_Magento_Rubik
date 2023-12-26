@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="bat_bulkorder" resource="default" engine="innodb" comment="Bulk order Table">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true"
+                comment="Bulk Order ID"/>
+        <column xsi:type="varchar" name="bulkorder_id" nullable="true" length="50" comment="Bulk order increment id"/>
+        <column xsi:type="varchar" name="increment_id" nullable="true" length="50" comment="Sales order increment id"/>
+        <column xsi:type="varchar" name="parent_outlet_id" nullable="true" length="20" comment="Parent Outlet id"/>
+        <column xsi:type="varchar" name="bankname" nullable="true" length="50" comment="Bank Name"/>
+        <column xsi:type="varchar" name="virtual_account" nullable="true" length="50" comment="VBA account number"/>
+        <column xsi:type="varchar" name="store_id" nullable="true" length="50" comment="Store Id"/>
+        <column xsi:type="timestamp" name="created_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Created date"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+    <table name="sales_order" resource="sales" engine="innodb" comment="Sales Flat Order">
+        <column xsi:type="int" name="is_bulk_order" padding="11" unsigned="false" nullable="true" default="0" comment="Is bulk order"/>
+         <column xsi:type="int" name="bulkorder_id" padding="19" unsigned="false" nullable="true"  comment="Bulk order id"/>
+    </table>
+</schema>

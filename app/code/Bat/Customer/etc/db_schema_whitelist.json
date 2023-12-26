@@ -1,0 +1,64 @@
+{
+    "customer_entity": {
+        "column": {
+            "mobilenumber": true,
+            "outlet_id": true,
+            "outlet_pin": true,
+            "parent_outlet_id": true,
+            "deactivated_at": true,
+            "secondary_email": true
+        }
+    },
+    "bat_eda_pending_customers": {
+        "column": {
+            "entity_id": true,
+            "customer_id": true,
+            "update_type": true,
+            "failure_attempts": true,
+            "customer_sent": true,
+            "channel": true
+        },
+        "index": {
+            "BAT_EDA_PENDING_CUSTOMERS_ENTITY_ID": true,
+            "BAT_EDA_PENDING_CUSTOMERS_CUSTOMER_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "BAT_EDA_PENDING_CUSTOMERS_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID": true
+        }
+    },
+    "bat_singungu_code": {
+        "column": {
+            "entity_id": true,
+            "sigungu_code": true,
+            "depot": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "bat_sigungu_code": {
+        "column": {
+            "entity_id": true,
+            "sigungu_code": true,
+            "depot": true,
+            "city": true,
+            "tax_code": true,
+            "area_code": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "bat_url": {
+        "column": {
+            "entity_id": true,
+            "outlet_id": true,
+            "url_type": true,
+            "created_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

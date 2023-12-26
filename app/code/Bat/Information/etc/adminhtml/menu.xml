@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+   <menu>
+       <add id="Bat_Information::help_information"
+           title="Help and Information" module="Bat_Information"
+           sortOrder="101"
+           resource="Bat_Information::Information"
+           parent="Bat_CustomerConsentForm::menu"
+           />
+           <add id="Bat_Information::notice"
+           title="Manage Notice" module="Bat_Information"
+           sortOrder="101" parent="Bat_Information::help_information"
+           action="informationform/createnotice/index"
+           resource="Bat_Information::menu_notice"
+           />
+           <add id="Bat_Information::faq"
+           title="Manage Faq" module="Bat_Information"
+           sortOrder="102" parent="Bat_Information::help_information"
+           action="informationform/createfaq/index"
+           resource="Bat_Information::menu_faq"
+           />
+           <add id="Bat_Information::brand"
+           title="Manage Brand" module="Bat_Information"
+           sortOrder="103" parent="Bat_Information::help_information"
+           action="informationform/createbrand/index"
+           resource="Bat_Information::menu_brand"
+           />
+           <add id="Bat_Information::barcode"
+           title="Manage Product Barcode" module="Bat_Information"
+           sortOrder="102" parent="Bat_Information::help_information"
+           action="informationform/create/index"
+           resource="Bat_Information::menu_productbarcode"
+           />
+            <add id="Bat_Information::ordermanual"
+           title="Manage Order Manual" module="Bat_Information"
+           sortOrder="103" parent="Bat_Information::help_information"
+           action="informationform/ordermanual/edit"
+           resource="Bat_Information::menu_ordermanual"
+           />
+   </menu>
+</config>

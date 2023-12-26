@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="bat_general_config" translate="label" sortOrder="10">
+            <label>BAT</label>
+        </tab>
+        <section id="payment_deadline" showInDefault="1" showInWebsite="1" showInStore="1" type="text" translate="Payment Deadline" sortOrder="200">
+            <label>Payment Deadline</label>
+            <tab>bat_general_config</tab>
+            <resource>Bat_OrderProducts::config_payment_deadline</resource>
+            <group id="general" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20">
+                <label>General Settings</label>
+                <field id="payment_deadline" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Payment deadline in Days</label>
+                    <comment>No. of Payment Chance</comment>
+                    <validate>required-entry validate-digits</validate>
+                </field>
+                <field id="payment_overdue_message_time" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Payment Overdue Message Time</label>
+                    <comment>Time when overdue message will show to customer if order status is pending</comment>
+                </field>
+            </group>
+            <group id="bat_order_cancel" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Sales Order Cron</label>
+
+            <field id="sales_order_cron_enable" translate="label" type="select" sortOrder="10" showInDefault="6" showInWebsite="1" showInStore="0" canRestore="1">
+               <label>Enable Order Cancel Cron</label>
+               <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            </field>
+            <field id="sales_order_cron_config" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+               <label>Order Cancel Cron Schedule</label>
+               <validate>required-entry</validate>
+            </field>
+            <field id="sales_order_cron_log_enable" translate="label" type="select" sortOrder="30" showInDefault="6" showInWebsite="1" showInStore="0" canRestore="1">
+               <label>Enable Order Cancel Cron Log</label>
+               <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            </field>
+         </group>
+         <group id="bat_order_payment_reminder" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Order Payment Reminder</label>
+
+            <field id="order_payment_reminder_cron_enable" translate="label" type="select" sortOrder="10" showInDefault="6" showInWebsite="1" showInStore="0" canRestore="1">
+               <label>Enable Order Payment Reminder Cron</label>
+               <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            </field>
+            <field id="order_payment_reminder_cron_config" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+               <label>Payment Reminder Cron Schedule</label>
+               <validate>required-entry</validate>
+            </field>
+            <field id="order_payment_reminder_cron_log_enable" translate="label" type="select" sortOrder="30" showInDefault="6" showInWebsite="1" showInStore="0" canRestore="1">
+               <label>Enable Order Payment Reminder Cron Log</label>
+               <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            </field>
+            </group>
+             <group id="bat_order_delivery_failed" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Order Delivery Failed Cron</label>
+
+            <field id="order_failed_cron_enable" translate="label" type="select" sortOrder="10" showInDefault="6" showInWebsite="1" showInStore="0" canRestore="1">
+               <label>Enable Order Failed Cron</label>
+               <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            </field>
+            <field id="order_failed_cron_config" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+               <label>Order Failed Cron Schedule</label>
+               <validate>required-entry</validate>
+            </field>
+            </group>
+        </section>
+    </system>
+</config>

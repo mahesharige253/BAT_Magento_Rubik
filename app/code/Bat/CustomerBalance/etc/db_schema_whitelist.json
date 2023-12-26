@@ -1,0 +1,26 @@
+{
+    "magento_customerbalance": {
+        "column": {
+            "credit_exposure": true,
+            "overdue_flag": true,
+            "overdue_amount": true,
+            "credit_limit": true,
+            "amount": true
+        }
+    },
+    "bat_orderbalance": {
+        "column": {
+            "entity_id": true,
+            "created_at": true,
+            "updated_at": true,
+            "customer_id": true,
+            "available_balance": true,
+            "balance_changed": true,
+            "action": true,
+            "comment": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head><css src="Bat_BulkOrder::css/custom.css"/></head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Bat\BulkOrder\Block\Adminhtml\BulkOrderForm" name="bulkorder_form" template="Bat_BulkOrder::container.phtml">
+                <block class="Bat\BulkOrder\Block\Adminhtml\Filter\Form" name="bulkorder.filter.form1">
+                    <action method="setFieldVisibility">
+                        <argument name="field" xsi:type="string">bulkorder_type</argument>
+                        <argument name="visibility" xsi:type="string">1</argument>
+                    </action>
+                </block>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

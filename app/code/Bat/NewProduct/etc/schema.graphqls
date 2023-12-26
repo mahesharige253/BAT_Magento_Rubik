@@ -1,0 +1,14 @@
+type Query {
+    getNewProducts(areaCode: String): NewProductRecommendations
+    @resolver(class: "Bat\\NewProduct\\Model\\Resolver\\NewProductList")
+    @doc(description: "Returns new or recommended product list")
+}
+
+type NewProductRecommendations @doc(description: "Returns new or recommended product list") {
+    title : String @doc(description: "Returns Carousel Title")
+    items: [ProductInterface] @doc(description: "Returns array of Products")
+}
+
+type StoreConfig {
+    new_products_carousel_title : String @doc(description: "Returns New products carousel title")
+}

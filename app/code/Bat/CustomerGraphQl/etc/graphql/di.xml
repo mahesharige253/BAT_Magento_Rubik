@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\StoreGraphQl\Model\Resolver\Store\StoreConfigDataProvider">
+        <arguments>
+            <argument name="extendedConfigData" xsi:type="array">
+                <item name="pin_password_url_valid_days" xsi:type="string">bat_customer/registration/setpinpassword_url_time</item>
+                <item name="address_change_valid_hours" xsi:type="string">bat_customer/changeaddress_url/address_url_time</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
+

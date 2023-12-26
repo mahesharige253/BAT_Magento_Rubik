@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="customer_entity" resource="default" engine="innodb">
+        <column xsi:type="varchar" name="mobilenumber" nullable="true" default="NULL" length="255" comment="Customer Mobile Number"/>
+        <column xsi:type="varchar" name="outlet_id" nullable="true" length="255" comment="Outlet Id"/>
+        <column xsi:type="varchar" name="outlet_pin" nullable="false" length="255" comment="Outlet Pin"/>
+        <column xsi:type="varchar" name="parent_outlet_id" nullable="true" length="255" comment="Parent Outlet Id"/>
+        <column xsi:type="varchar" name="secondary_email" nullable="false" length="255" comment="Secondary Email"/>
+        <column xsi:type="timestamp" name="deactivated_at" nullable="true" default="0"
+                                comment="Deactivated At"/>
+        <column xsi:type="timestamp" name="registration_rejected_at" nullable="true" default="0"
+                                comment="Registration Rejected At"/>
+        <column xsi:type="timestamp" name="customer_termination_at" nullable="true"
+                                comment="Customer Termination At"/>
+    </table>
+    <table name="bat_eda_pending_customers" resource="default" engine="innodb">
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
+        <column xsi:type="int" name="customer_id" nullable="false" unsigned="true" comment="Customer Id"/>
+        <column xsi:type="varchar" name="update_type" nullable="true" default="" comment="Customer Update Type" length="10" />
+        <column xsi:type="int" name="failure_attempts" nullable="true" default="0" unsigned="true" comment="No of Failures"/>
+        <column xsi:type="boolean" name="customer_sent" nullable="true" default="0" comment="Customer Created In EDA"/>
+        <column xsi:type="varchar" name="channel" nullable="true" default="" comment="EDA Update Type"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="BAT_EDA_PENDING_CUSTOMERS_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID"
+                            table="customer_entity" column="customer_id" referenceTable="customer_entity"
+                            referenceColumn="entity_id" onDelete="CASCADE"/>
+        <index referenceId="BAT_EDA_PENDING_CUSTOMERS_ENTITY_ID" indexType="btree">
+            <column name="entity_id"/>
+        </index>
+        <index referenceId="BAT_EDA_PENDING_CUSTOMERS_CUSTOMER_ID" indexType="btree">
+            <column name="customer_id"/>
+        </index>
+    </table>
+    <table name="bat_sigungu_code" resource="default" engine="innodb">
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
+        <column xsi:type="varchar" name="sigungu_code" nullable="false" default="" comment="Sigungu code"/>
+        <column xsi:type="varchar" name="city" nullable="false" default="" comment="City"/>
+        <column xsi:type="varchar" name="tax_code" nullable="false" default="" comment="Tax Code"/>
+        <column xsi:type="varchar" name="depot" nullable="false" default="" comment="Depot"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+    </table>
+     <table name="bat_url" resource="default" engine="innodb">
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
+        <column xsi:type="varchar" name="outlet_id" nullable="false" default="" comment="Outlet Id"/>
+        <column xsi:type="varchar" name="url_type" nullable="false" default="" comment="Url Type"/>
+        <column xsi:type="varchar" name="urlkey" nullable="true" default="" comment="Encoded URL Key"/>
+        <column xsi:type="timestamp" name="created_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Created date"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <index referenceId="BAT_URL_OUTLET_ID" indexType="btree">
+            <column name="outlet_id"/>
+        </index>
+        <index referenceId="BAT_URL_URL_TYPE" indexType="btree">
+            <column name="url_type"/>
+        </index>
+        <index referenceId="BAT_URL_URLKEY" indexType="btree">
+            <column name="urlkey"/>
+        </index>
+    </table>
+</schema>

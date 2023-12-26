@@ -1,0 +1,83 @@
+.bulkorder-bulkorder-productsubmit .store-details {
+    padding: 10px;
+    background-color: #fff;
+    font-weight: 600px;
+}
+.bulkorder-bulkorder-productsubmit .store-details table {
+    text-align: center;
+    width: 20%;
+    font-size: 16px;
+}
+.bulkorder-bulkorder-productsubmit .go-back {
+    float:right;
+    margin-top: 5px;
+} 
+
+.bulkorder-bulkorder-productsubmit .outlet_initial_section .outlet_shipping_section {
+    float:left;
+    width:40%
+}
+
+.bulkorder-bulkorder-productsubmit .outlet_initial_section .outlet_virtual_section {
+    float:right;
+    width:40%
+} 
+
+.bulkorder-bulkorder-productsubmit .order-account-information {
+    width:70%;
+    margin:auto;
+} 
+
+.bulkorder-bulkorder-productsubmit .edit-order-table {
+    margin-bottom: 1rem;
+} 
+
+.bulkorder-bulkorder-productsubmit .admin__page-section-title {
+    background-color: #000;
+    margin-top: 20px;
+    text-indent: 10px;
+    padding: 10px 0px;
+    margin-bottom: 5px;
+    color: white;
+} 
+.bulkorder-bulkorder-productsubmit .admin__page-section-title span {
+    color: white;
+}
+.bulkorder-bulkorder-productsubmit .outlet_initial_section {
+    float: left;
+    width: 100%;
+    padding-bottom: 20px;
+} 
+
+.bulkorder-bulkorder-productsubmit .page-title {
+    padding-left: 23%;
+} 
+.bulkorder-bulkorder-productsubmit .submit-form {
+    margin: 0 auto;
+    width: 20%;
+    padding-top: 20px;
+} 
+.bulkorder-bulkorder-productsubmit .outlet-section {
+    padding: 15px;
+    background-color: #fff;
+    border-bottom: 1px solid gray;
+} 
+.bulkorder-bulkorder-productsubmit .parent-virtual-section {
+    margin-top:20px;
+    margin-bottom: 15px;
+}
+
+.bulkorder-bulkorder-index .page-content {
+    min-height: 500px;
+} 
+
+.bulkorder-bulkorder-productsubmit tr.total-amount-bold th, .bulkorder-bulkorder-productsubmit tr.total-amount-bold td {
+    font-weight: 1000;
+}
+.bulkorder-bulkorder-productsubmit .overpayment-text {
+    color: green;
+} 
+.bulkorder-bulkorder-productsubmit .bulk-order-discount-message {
+    color:green;
+    font-weight: 600;
+}

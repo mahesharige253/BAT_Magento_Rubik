@@ -1,0 +1,13 @@
+type Mutation {
+    registerDevice(input: DeviceInput): DeviceOutput
+        @resolver(class: "\\Bat\\ConcurrentSessions\\Model\\Resolver\\RegisterNewDevice")
+        @doc(description: "Register mew device")
+}
+
+type DeviceOutput @doc(description: "Register new device output") {
+    success: Boolean @doc(description: "Status")
+}
+
+input DeviceInput {
+    device_id: String!
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <virtualType name="additionalFieldsProviderForElasticsearch" type="Magento\AdvancedSearch\Model\Adapter\DataMapper\AdditionalFieldsProvider">
+        <arguments>
+            <argument name="fieldsProviders" xsi:type="array">
+                <item name="instock_field_for_sorting" xsi:type="object">Bat\CatalogGraphQl\Model\Adapter\BatchDataMapper\PlpSortStockDataProvider</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magento\Catalog\Model\Config">
+        <plugin name="Bat_CatalogGraphQl::addCustomOptions" type="Bat\CatalogGraphQl\Plugin\Model\Config"/>
+    </type>
+    <type name="Magento\Catalog\Block\Product\ProductList\Toolbar">
+        <plugin name="catalog_productlist_toolbar_plugin" type="Bat\CatalogGraphQl\Plugin\Product\ProductList\Toolbar"/>
+    </type>
+    <preference for="Magento\CatalogGraphQl\Model\Resolver\Products\Query\Search" type="Bat\CatalogGraphQl\Model\Resolver\Product\Query\Search"/>
+</config>

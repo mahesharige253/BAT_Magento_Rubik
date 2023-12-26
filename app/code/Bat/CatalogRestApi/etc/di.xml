@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Catalog\Model\ProductRepository">
+        <plugin name="bat_product_repository"
+            type="Bat\CatalogRestApi\Plugin\SaveProductRepositoryPlugin"
+            sortOrder="1" disabled="false" />
+    </type>
+     <type name="Magento\Catalog\Model\Product\Price\BasePriceStorage">
+        <plugin name="bat_product_base_price"
+            type="Bat\CatalogRestApi\Plugin\UpdateBasePriceStoragePlugin"
+            sortOrder="1" disabled="false" />
+    </type>
+</config>

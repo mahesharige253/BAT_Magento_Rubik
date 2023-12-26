@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="adminhtml_customer_prepare_save">
+        <observer name="bat_customer_before_save" instance="Bat\Customer\Observer\CustomerSaveBefore" />
+        <observer name="validate_day_time_order_frequency" instance="Bat\Customer\Observer\ValidateDayTimeOrderFrequency" />
+    </event>
+    <event name="customer_save_after_data_object">
+        <observer name="customer_send_order_frequency_update" instance="Bat\Customer\Observer\SendOrderFrequencyUpdate" />
+    </event>
+</config>

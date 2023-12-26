@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="bat_concurrent_sessions" resource="default" engine="innodb" comment="Bat Price Master Table">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true"
+                comment="Concurrent Sessions ID"/>
+        <column xsi:type="varchar" name="customer_id" nullable="true" length="255" comment="Customer Id"/>
+        <column xsi:type="varchar" name="current_device" nullable="true" length="255" comment="Current Device"/>
+        <column xsi:type="text" name="device_history" nullable="false" comment="Device History"/>
+<!--        <column xsi:type="varchar" name="ip" nullable="true" length="255" comment="IP"/>-->
+<!--        <column xsi:type="varchar" name="device" nullable="true" length="255" comment="Device"/>-->
+<!--         <column xsi:type="varchar" name="browser" nullable="true" length="255" comment="Browser"/>-->
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Last updated date"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <index referenceId="BAT_CONCURRENT_SESSIONS_CUSTOMER_ID" indexType="btree">
+            <column name="customer_id"/>
+        </index>
+    </table>
+</schema>

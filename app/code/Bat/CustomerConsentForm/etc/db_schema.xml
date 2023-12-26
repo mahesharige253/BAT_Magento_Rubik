@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2021 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="customer_consent_forms" resource="default" engine="innodb" comment="Customer Consent Forms">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="varchar" name="title" nullable="false" length="255" comment="Form Title"/>
+        <column xsi:type="varchar" name="linktitle" nullable="false" length="255" comment="Link Title"/>
+        <column xsi:type="mediumtext" name="content" nullable="false" comment="Content"/>
+        <column xsi:type="varchar" name="cms_url" nullable="false" length="255" comment="Cms Page Url"/>
+        <column xsi:type="varchar" name="enable_link" nullable="false"  comment="Enable Link"/>
+        <column xsi:type="varchar" name="identifier" nullable="false"  comment="Identifier"/>
+        <column xsi:type="varchar" name="consent_required" nullable="false"  comment="Consent Required"/>
+        <column xsi:type="varchar" name="position" nullable="false" length="255" comment="Position"/>
+        <column xsi:type="varchar" name="consent_type" nullable="false" length="255" comment="Consent Type"/>
+        <column xsi:type="varchar" name="validation" nullable="false" length="255" comment="Validation Message"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>

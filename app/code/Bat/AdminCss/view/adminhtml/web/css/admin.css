@@ -1,0 +1,15 @@
+.customer-index-edit .file-uploader-area {
+    display: none;
+}
+
+.customer-index-edit .file-uploader-preview .action-remove:before {
+    display: none;
+}
+
+.customer-index-edit .page-actions-buttons #resetPassword,
+.customer-index-edit .page-actions-buttons #customer-delete-button,
+.customer-index-edit .page-actions-buttons #manage_quote,
+.customer-index-edit .page-actions-buttons #quote {
+    display: none;
+}
+

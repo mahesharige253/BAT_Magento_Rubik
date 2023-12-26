@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Bat\PasswordHistory\Api\Data\UsedPasswordInterface" type="Bat\PasswordHistory\Model\UsedPassword"/>
+    <preference for="Bat\PasswordHistory\Api\UsedPasswordRepositoryInterface" type="Bat\PasswordHistory\Model\UsedPasswordRepository"/>
+    <preference for="Bat\PasswordHistory\Api\UsedPasswordManagementInterface" type="Bat\PasswordHistory\Model\UsedPasswordManagement"/>
+
+    <!--<type name="Bat\CustomerGraphQl\Model\Resolver\ChangePassword">
+        <plugin name="bat_password_history_plugin" type="Bat\PasswordHistory\Plugin\ChangePasswordPlugin" />
+    </type>-->
+    <type name="Bat\CustomerGraphQl\Model\OutletIdPinPasswordCheck">
+        <plugin name="bat_newset_pinpassword_history" type="Bat\PasswordHistory\Plugin\OutletIdPinPasswordPlugin" />
+    </type>
+</config>

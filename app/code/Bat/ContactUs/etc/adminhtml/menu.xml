@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+   <menu>
+           <add id="Bat_ContactUs::contactus"
+           title="Manage Contact Us" module="Bat_ContactUs"
+           sortOrder="200" parent="Bat_Information::help_information"
+           action="contactusform/create/new"
+           resource="Bat_Information::menu_contactus"
+           />
+   </menu>
+</config>

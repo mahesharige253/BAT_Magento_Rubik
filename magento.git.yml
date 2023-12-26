@@ -1,0 +1,27 @@
+trigger:
+  branches:
+    include:
+    - none
+stages:
+- stage: __default
+  jobs:
+  - job: PushToGitHub
+    displayName: 'Push to GitHub'
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+    - task: 6d15af64-176c-496d-b583-fd2ae21d4df4@1
+      inputs:
+        repository: self
+    - task: CmdLine@2
+      displayName: 'Push to GitHub'
+      inputs:
+        script: |
+            git config --global user.email "swetha.yalamanchili@itcinfotech.com"
+            git config --global user.name "yswetha1"
+            git remote remove origin || true
+            git remote add origin https://github.com/BritishAmericanTobacco/magento-git.git
+            git remote set-url --add --push origin  git@github.com:yswetha1/magento-git.git
+            git remote -v
+            git pull --rebase origin main
+            git push origin HEAD:main --force

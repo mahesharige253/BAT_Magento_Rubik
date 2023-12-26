@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Bat\Kakao\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="Bat\Kakao\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">kakaoLogger</argument>
+            <argument name="handlers"  xsi:type="array">
+                <item name="system" xsi:type="object">Bat\Kakao\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="kakao_templates_data_source" xsi:type="string">BatKakaoCollection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="BatKakaoCollection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">bat_kakao_template</argument>
+            <argument name="resourceModel" xsi:type="string">Bat\Kakao\Model\ResourceModel\KakaoTemplate</argument>
+        </arguments>
+    </virtualType>
+    <preference for="Bat\Kakao\Api\TemplateInterface" type="Bat\Kakao\Model\TemplateRepository"/>
+</config>

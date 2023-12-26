@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <bat_integrations>
+            <bat_order>
+                <eda_order_log>1</eda_order_log>
+                <eda_order_max_failures_allowed>5</eda_order_max_failures_allowed>
+                <order_status_required_to_update_eda>processing</order_status_required_to_update_eda>
+                <eda_order_cron_schedule>*/5 * * * *</eda_order_cron_schedule>
+                <delivery_date_order_push_eda>4</delivery_date_order_push_eda>
+                <eda_return_order_log>1</eda_return_order_log>
+                <eda_return_order_cron_schedule>*/5 * * * *</eda_return_order_cron_schedule>
+                <eda_return_order_max_failures_allowed>5</eda_return_order_max_failures_allowed>
+                <eda_return_order_create_cron>1</eda_return_order_create_cron>
+            </bat_order>
+        </bat_integrations>
+        <cataloginventory>
+            <item_options>
+                <auto_return>1</auto_return>
+            </item_options>
+        </cataloginventory>
+        <bat_sales>
+            <delivery_delay>
+                <cron_enable>0</cron_enable>
+                <cron_expression>0 0 * * *</cron_expression>
+                <days>4</days>
+                <log_enable>1</log_enable>
+            </delivery_delay>
+        </bat_sales>
+    </default>
+</config>

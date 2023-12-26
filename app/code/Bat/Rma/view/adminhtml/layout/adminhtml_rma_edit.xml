@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="left">
+            <referenceBlock name="magento_rma_edit_tab_general" remove="true"/>
+        </referenceContainer>
+        <referenceBlock name="magento_rma_edit_tab_items">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Bat_Rma::edit/items.phtml</argument>
+            </action>
+            <block class="Bat\Rma\Block\Adminhtml\Rma\NewRma\Tab\Items\SwiftReturnReason" name="rma_items_grid_swift_code" template="Bat_Rma::edit/returnreason.phtml" />
+        </referenceBlock>
+    </body>
+</page>

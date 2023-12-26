@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="informationform_listing_grid_data_source" xsi:type="string">Bat\Information\Model\ResourceModel\InformationForm\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="Bat\Information\Model\ResourceModel\InformationForm\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">bat_information_barcode</argument>
+            <argument name="resourceModel" xsi:type="string">Bat\Information\Model\ResourceModel\InformationForm\Collection</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="informationform_notice_listing_grid_data_source" xsi:type="string">Bat\Information\Model\ResourceModel\InformationNoticeForm\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="Bat\Information\Model\ResourceModel\InformationNoticeForm\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">bat_information_notice</argument>
+            <argument name="resourceModel" xsi:type="string">Bat\Information\Model\ResourceModel\InformationNoticeForm\Collection</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="informationform_brand_listing_grid_data_source" xsi:type="string">Bat\Information\Model\ResourceModel\InformationBrandForm\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="Bat\Information\Model\ResourceModel\InformationBrandForm\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">bat_information_brand</argument>
+            <argument name="resourceModel" xsi:type="string">Bat\Information\Model\ResourceModel\InformationBrandForm\Collection</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="informationform_faq_listing_grid_data_source" xsi:type="string">Bat\Information\Model\ResourceModel\InformationFaqForm\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="Bat\Information\Model\ResourceModel\InformationFaqForm\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">bat_information_faq</argument>
+            <argument name="resourceModel" xsi:type="string">Bat\Information\Model\ResourceModel\InformationFaqForm\Collection</argument>
+        </arguments>
+    </virtualType>
+</config>
+
+

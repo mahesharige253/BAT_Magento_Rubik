@@ -1,0 +1,24 @@
+trigger:
+  branches:
+    include:
+    - none
+stages:
+- stage: __default
+  jobs:
+  - job: PushToGitHub
+    displayName: 'Push to GitHub'
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+    - task: CmdLine@2
+      displayName: 'Push to GitHub'
+      inputs:
+        script: |
+          git config --global user.email "arige.mahesh@itcinfotech.com"
+          git config --global user.name "mahesharige253"
+          git remote remove origin || true
+          git remote add origin https://github.com/mahesharige253/BAT_Magento_Rubik.git
+          git remote set-url --add --push origin https://mahesharige253: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@github.com/mahesharige253/BAT_Magento_Rubik.git
+          git remote -v
+          git pull --rebase origin main
+          git push origin HEAD:main --force

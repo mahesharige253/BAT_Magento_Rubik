@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="bat_general_config" translate="label" sortOrder="10">
+            <label>BAT</label>
+        </tab>
+        <section id="best_sellers" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="0">
+            <class>separator-top</class>
+            <label>Best Sellers</label>
+            <tab>bat_general_config</tab>
+            <resource>Bat_BestSeller::Bat_ProductCarousel</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>General Configuration</label>
+                <field id="best_seller_carousel" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Enable BestSellers Carousel</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="best_seller_carousel_limit" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>BestSellers Carousel Limit</label>
+                </field>
+                <field id="best_seller_rlproduct_limit" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>BestSellers product in RequisitionList limit</label>
+                </field>
+                <field id="plp_best_seller_record_range_in_month" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>PLP BestSellers Record range</label>
+                    <comment>In month</comment>
+                </field>
+            </group>
+            <group id="bestseller_cron" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>Cron Configuration</label>
+                <field id="is_active" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Cron Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="cron_expression" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Bulkorder Cron Time</label>
+                    <comment>0 0 * * * it should be in this format. this will run every night at midnight.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

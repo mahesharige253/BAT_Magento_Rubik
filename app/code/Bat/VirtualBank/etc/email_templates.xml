@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="vba_config_general_vba_accounts_notify_admin" label="Virtual Accounts Availability Notify" file="virtual_account_notify.html" type="html" module="Bat_VirtualBank" area="frontend"/>
+</config>

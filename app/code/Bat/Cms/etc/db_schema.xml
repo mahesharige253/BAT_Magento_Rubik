@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+		<table name="cms_page" resource="default" engine="innodb">
+            <column xsi:type="float" name="page_version" default="1.0" nullable="true" comment="Cms Page Version"/>
+            <column xsi:type="varchar" name="version_title" nullable="true" length="255" comment="Page Content Version Title"/>
+		</table>
+        <table name="bat_cms_page_version" resource="default" engine="innodb">
+            <column xsi:type="int" name="page_id" unsigned="true" nullable="false" identity="true" comment=" Cms Page Version Id"/>
+            <column xsi:type="int" name="page_reference_id" nullable="false" comment="Cms Page Parent Id"/>
+            <column xsi:type="varchar" name="content_heading" nullable="true" length="255" comment="Page Content Heading"/>
+            <column xsi:type="mediumtext" name="content" nullable="true" comment="Page Content"/>
+            <column xsi:type="float" name="page_version" default="1.0" nullable="true" comment="Cms Page Version"/>
+            <column xsi:type="varchar" name="version_title" nullable="true" length="255" comment="Page Content Version Title"/>
+            <column xsi:type="timestamp" name="updated_at" nullable="false" comment="Version last updated at"/>
+            <constraint xsi:type="primary" referenceId="PRIMARY">
+                <column name="page_id"/>
+            </constraint>
+        </table>
+</schema>

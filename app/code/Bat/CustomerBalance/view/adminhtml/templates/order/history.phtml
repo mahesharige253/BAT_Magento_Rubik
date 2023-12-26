@@ -1,0 +1,44 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php
+$availableBalance = $block->getAvailableBalanceForPlaceOrder();
+$unpaidOrderTotal = $block->getUnpaidOrdersTotal();
+$unconfirmedOrderTotal = $block->getUnconfirmedOrdersTotal();
+?>
+<div class="fieldset-wrapper">
+    <div class="fieldset-wrapper-title">
+        <span class="title"><?= $block->escapeHtml(__('M2 Credit Snapshot')) ?></span>
+    </div>
+    <table class="data-grid" id="custom-available-order-balance">
+        <thead>
+        <tr>
+            <th class="data-grid-th  no-link col-amount">
+                <span><?= $block->escapeHtml(__('Available Balance for Place Order')) ?></span>
+            </th>
+            <th class="data-grid-th  no-link col-amount">
+                <span><?= $block->escapeHtml(__('Unpaid Orders Total')) ?></span>
+            </th>
+            <th class="data-grid-th  no-link col-amount">
+                <span><?= $block->escapeHtml(__('Unconfirmed Orders Total')) ?></span>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-role="row" title="#" class="_clickable">
+            <td data-column="col-amount" class="col-amount">
+                <?= $block->escapeHtml(__($availableBalance)) ?>
+            </td>
+            <td data-column="col-amount" class="col-amount">
+                <?= $block->escapeHtml(__($unpaidOrderTotal)) ?>
+            </td>
+            <td data-column="col-amount" class="col-amount">
+                <?= $block->escapeHtml(__($unconfirmedOrderTotal)) ?>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+            <best_sellers>
+            	<general>
+                	<best_seller_carousel>1</best_seller_carousel>
+                	<best_seller_carousel_limit>5</best_seller_carousel_limit>
+                	<best_seller_rlproduct_limit>5</best_seller_rlproduct_limit>
+                    <plp_best_seller_record_range_in_month>3</plp_best_seller_record_range_in_month>
+            	</general>
+                <bestseller_cron>
+                    <is_active>1</is_active>
+                    <cron_expression>0 0 * * *</cron_expression>
+                </bestseller_cron>
+            </best_sellers>
+    </default>
+</config>

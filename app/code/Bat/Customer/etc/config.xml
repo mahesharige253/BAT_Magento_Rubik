@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <bat_customer>
+            <registration>
+                <mobile_number_available_message>Mobile number is already associated with another outlet.</mobile_number_available_message>
+                <payment_overdue_message>You have an overdue payment. Complete your previous order payment, to unlock new orders.</payment_overdue_message>
+                <order_cancelled_message>Your order was canceled as payment was not received.</order_cancelled_message>
+            </registration>
+            <forgotpasswordpin_url>
+                <url>customer/account/forgotpassword</url>
+            </forgotpasswordpin_url>
+            <registration_resubmit_url>
+                <resubmit_url>customer/account/login?danal=checkstatus</resubmit_url>
+            </registration_resubmit_url>
+        </bat_customer>
+        <bat_integrations>
+            <bat_customer>
+                <eda_customer_log>1</eda_customer_log>
+                <eda_customer_max_failures_allowed>5</eda_customer_max_failures_allowed>
+                <eda_customer_cron_schedule>* * * * *</eda_customer_cron_schedule>
+            </bat_customer>
+        </bat_integrations>
+        <bat_customer_termination>
+            <general>
+                <account_termination_cron_schedule>0 0 1 * *</account_termination_cron_schedule>
+                <account_termination_required_duration>12</account_termination_required_duration>
+            </general>
+            <delete_terminate_account>
+                <account_terminate_cron_schedule>0 0 1 * *</account_terminate_cron_schedule>
+                <account_terminate_required_duration>1</account_terminate_required_duration>
+                <account_terminate_required_duration_payment>5</account_terminate_required_duration_payment>
+            </delete_terminate_account>
+        </bat_customer_termination>
+        <bat_customer_rejection>
+            <general>
+                <account_rejection_cron_schedule>0 0 1 * *</account_rejection_cron_schedule>
+                <account_rejection_required_duration>14</account_rejection_required_duration>
+            </general>    
+        </bat_customer_rejection>
+        <order_frequency>
+            <order_day>
+                <full_cron_expression>0 0 * * *</full_cron_expression>
+            </order_day>
+            <customer_default_order_frequency>
+                <default_order_frequency>1</default_order_frequency>
+                <default_order_frequency_month>every</default_order_frequency_month>
+                <default_order_frequency_week>even</default_order_frequency_week>
+                <default_order_frequency_day>Monday</default_order_frequency_day>
+                <default_order_frequency_fix_or_flexible>fix</default_order_frequency_fix_or_flexible>
+                <default_order_frequency_time_from>12am</default_order_frequency_time_from>
+                <default_order_frequency_time_to>10pm</default_order_frequency_time_to>
+            </customer_default_order_frequency>
+        </order_frequency>
+        <bat_general>
+            <frontend_base_url>
+                <base_url>http://www.orderbat.co.kr/</base_url>
+            </frontend_base_url>
+        </bat_general>
+        <marketingconsent_time>
+            <general>
+                <select>0</select>
+                <consent_time>2</consent_time>
+            </general>
+        </marketingconsent_time>
+        <bat_customer>
+                <general>
+                    <enabled>3</enabled>
+                </general>
+                <customer_refreshsegment>
+                    <customer_refresh_segment>0</customer_refresh_segment>
+                    <customer_refresh_segment_cron_config>0 9 * * *</customer_refresh_segment_cron_config>
+                    <customer_refresh_segment>0</customer_refresh_segment>
+                </customer_refreshsegment>
+                <general>
+                    <bat_customer>2</bat_customer>
+                </general>
+        </bat_customer>
+    </default>
+</config>

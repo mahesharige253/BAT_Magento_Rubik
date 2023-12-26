@@ -1,0 +1,156 @@
+trigger:
+- Dev
+
+
+variables:
+  composerName: "orba/test-module"
+  composerVersion: "1.0.0-dev"
+  composerOverride: '{}'
+
+jobs:
+- job: InstallAndPrepare
+  displayName: 'Install Composer Dependencies and Magento Code Preparation'
+  strategy:
+    matrix:
+      magento_2_3_2_php_7_2:
+        phpVersion: '7.2'
+        magentoVersion: '2.3.2'
+        phpunitVersion: '6.2.0'
+        databaseName: 'magento_2_3_2_7_2'
+  steps:
+  - script: |
+      mkdir -p ../magento_$(magento)_$(phpVersion)
+      ln -s $PWD ../module
+      cd ../magento_$(magento)_$(phpVersion)
+      composer init --name=$(composerName) --type=project --require magento/product-community-edition:$(magento) --require $(composerName):$(composerVersion) --require-dev phpunit/phpunit:$(phpunitVersion) --repository '{"type":"composer","url":"https://repo.magento.com/"}' --repository '{"type": "path", "url": "../module", "options": {"symlink": true}}' -s alpha -n
+      composer config use-include-path true
+      php -r 'file_put_contents("composer.json", json_encode(array_merge_recursive(json_decode(file_get_contents("composer.json"), true), json_decode("{\"extra\": {\"magento-force\": \"override\"}, \"autoload\": {\"psr-4\": {\"Magento\\\\Framework\\\\\": \"lib/internal/Magento/Framework/\", \"Magento\\\\Setup\\\\\": \"setup/src/Magento/Setup/\", \"Magento\\\\\": \"app/code/Magento/\"}, \"psr-0\": {\"\": [\"app/code/\"]},\"files\": [\"app/etc/NonComposerComponentRegistration.php\"]}}", true), json_decode("$(composerOverride)", true)), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));'
+      echo '{"_comment": "These credentials were set up using some dummy Magento account", "http-basic": {"repo.magento.com": {"username": "7830c2f645e21175655f103ec7ccf5db", "password": "6facd42d017a332f90267fb28d4e46f9"}}}' > auth.json
+      composer install --no-interaction --no-progress --no-scripts --prefer-dist
+      mkdir -p var vendor pub/static pub/media app/etc
+      find var vendor pub/static pub/media app/etc -type d -exec chmod 777 {} \;
+    displayName: 'Install Composer Dependencies and Magento Code Preparation'
+  
+
+- job: ModuleUnitTesting
+  displayName: 'Module Unit Testing'
+  dependsOn: InstallAndPrepare
+  strategy:
+    matrix:
+      magento_2_3_2_php_7_2:
+        phpVersion: '7.2'
+        magentoVersion: '2.3.2'
+        phpunitVersion: '6.2.0'
+        databaseName: 'magento_2_3_2_7_2'
+#   steps:
+#   - script: |
+#       cd ../magento_$(magento)_$(phpVersion)
+#       composer self-update --1
+#       composer install --no-interaction --no-progress --no-scripts --prefer-dist
+#       php -r "copy(realpath('dev/tests/unit/phpunit.xml.dist'), realpath('dev/tests/unit/phpunit.xml'));" || true
+#       ls -la
+#       ls -la ./vendor/bin/
+#       ./vendor/bin/phpunit --testsuite Magento_Test
+#     displayName: 'Module Unit Testing'
+
+# - job: PublishUnitTestResults
+#   displayName: 'Publish Unit Test Results'
+#   dependsOn: ModuleUnitTesting
+#   steps:
+#   - task: PublishTestResults@2
+#     inputs:
+#       testResultsFormat: 'JUnit'
+#       testResultsFiles: '**/TESTS-*.xml'
+#       searchFolder: '$(System.DefaultWorkingDirectory)'
+#     condition: always()
+
+- job: MagentoDatabaseCreation
+  displayName: 'Magento Database Creation'
+  dependsOn: InstallAndPrepare
+  strategy:
+    matrix:
+      magento_2_3_2_php_7_2:
+        phpVersion: '7.2'
+        magentoVersion: '2.3.2'
+        phpunitVersion: '6.2.0'
+        databaseName: 'magento_2_3_2_7_2'
+  steps:
+  - script: |
+      # mysql -uroot -p<password> -e "CREATE DATABASE $(databaseName);"
+    displayName: 'Magento Database Creation'
+
+- job: MagentoInstallationTesting
+  displayName: 'Magento Installation Testing'
+  dependsOn: [InstallAndPrepare, MagentoDatabaseCreation]
+  strategy:
+    matrix:
+      magento_2_3_2_php_7_2:
+        phpVersion: '7.2'
+        magentoVersion: '2.3.2'
+        phpunitVersion: '6.2.0'
+        databaseName: 'magento_2_3_2_7_2'
+  steps:
+  - script: |
+      #  php bin/magento setup:install --base-url=http://localhost/magento2/ \
+      #   --db-host=localhost --db-name=$(databaseName) --db-user=root --db-password=<password> \
+      #   --admin-firstname=Admin --admin-lastname=User --admin-email=admin@example.com \
+      #   --admin-user=admin --admin-password=admin123 --backend-frontname=admin
+    displayName: 'Magento Installation Testing'
+
+- job: MagentoProductionModeTesting
+  displayName: 'Magento Production Mode Testing'
+  dependsOn: [InstallAndPrepare, MagentoDatabaseCreation]
+  strategy:
+    matrix:
+      magento_2_3_2_php_7_2:
+        phpVersion: '7.2'
+        magentoVersion: '2.3.2'
+        phpunitVersion: '6.2.0'
+        databaseName: 'magento_2_3_2_7_2'
+  steps:
+  - script: |
+      # ../magento_$(magentoVersion)_$(phpVersion)/bin/magento deploy:mode:set production
+    displayName: 'Magento Production Mode Testing'
+- job: PublishArtifacts
+  displayName: 'Publish Artifacts'
+  dependsOn:
+      - MagentoInstallationTesting
+      - MagentoProductionModeTesting
+  steps:
+      - task: PublishPipelineArtifact@1
+        inputs:
+          targetPath: '$(Pipeline.Workspace)'
+          artifact: 'magento-artifacts'
+        displayName: 'Publish Artifacts'
+      
+  
+  # - job: DeployToAdobeCloud
+  #   displayName: 'Deploy to Adobe Cloud'
+  #   dependsOn: PublishArtifacts
+  #   pool:
+  #     vmImage: 'ubuntu-latest'
+  #   steps:
+  #     - task: AzureCLI@2
+  #       inputs:
+  #         azureSubscription: 'YOUR_AZURE_SUBSCRIPTION'
+  #         scriptType: 'bash'
+  #         scriptLocation: 'inlineScript'
+  #         inlineScript: |
+  #           # Authenticate to Adobe Cloud
+  #           # Replace the placeholders with the appropriate values
+  #           az login --service-principal --tenant YOUR_TENANT_ID --username YOUR_SP_CLIENT_ID --password YOUR_SP_CLIENT_SECRET
+
+  #           # Select the Adobe Cloud subscription
+  #           # Replace YOUR_ADOBE_CLOUD_SUBSCRIPTION_ID with the appropriate value
+  #           az account set --subscription YOUR_ADOBE_CLOUD_SUBSCRIPTION_ID
+
+  #           # Deploy the Magento application to Adobe Cloud
+  #           # Replace the placeholders with the appropriate values
+  #           # Use the appropriate deployment method/API provided by Adobe Cloud
+  #           echo "Deploying to Adobe Cloud..."
+  #       displayName: 'Deploy to Adobe Cloud'
+
+
+
+
+    

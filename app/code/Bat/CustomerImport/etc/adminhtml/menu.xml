@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Bat_CustomerImport::batimport" title="BAT Customer Import" translate="title" module="Bat_CustomerImport" sortOrder="100" parent="Magento_Backend::system_convert" action="batimport/import/customerImport" resource="Bat_CustomerImport::batimport"/>
+    </menu>
+</config>

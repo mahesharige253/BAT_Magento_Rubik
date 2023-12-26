@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="account_closure_product_return" resource="default" engine="innodb" comment="RequisitionList main Table">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true"
+                comment="Closure Product Return Id"/>
+        <column xsi:type="int" name="customer_id" padding="11" unsigned="false" nullable="false"  comment="Customer Id"/>
+        <column xsi:type="int" name="outlet_id" padding="11" unsigned="false" nullable="false" comment="Outlet Id"/>
+        <column xsi:type="int" name="product_id" padding="11" unsigned="false" nullable="false" comment="Product Id"/>
+        <column xsi:type="int" name="qty" padding="11" unsigned="false" nullable="false" comment="Quantity"/>
+        <column xsi:type="int" name="product_returned" padding="11" unsigned="false" nullable="true" default="0" comment="Product Return"/>
+        <column xsi:type="int" name="returnOrderId" padding="11" unsigned="false" nullable="true" comment="Return OrderId"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Last updated date"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+    <table name="bat_account_closure" resource="default" engine="innodb" comment="BAT Account Closure">
+        <column xsi:type="int" name="entity_id" nullable="false" identity="true"  comment="Entity ID"/>
+        <column xsi:type="int" name="customer_id" unsigned="true" nullable="false" identity="false"
+                comment="Customer ID"/>
+        <column xsi:type="timestamp" name="created_at" nullable="false" on_update="false" default="CURRENT_TIMESTAMP" comment="Closing Request Date"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="BAT_ACCOUNT_CLOUSURE_CUSTOMER_ID">
+            <column name="customer_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="BAT_ACCOUNT_CLOUSURE_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID" table="bat_account_closure"
+                    column="customer_id" referenceTable="customer_entity" referenceColumn="entity_id"
+                    onDelete="CASCADE"/>
+   </table>
+</schema>

@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="bat_general_config" translate="label" sortOrder="10">
+            <label>BAT</label>
+        </tab>
+        <section id="kakao" translate="label" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="0">
+            <class>separator-top</class>
+            <label>Kakao</label>
+            <tab>bat_general_config</tab>
+            <resource>Bat_Kakao::config</resource>
+            <group id="setting" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>General Config</label>
+                <field id="is_active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Module Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="api_url" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>API Base URL</label>
+                </field>
+                <field id="usercode" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>User Code</label>
+                </field>
+                <field id="deptcode" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Dept Code</label>
+                </field>
+                <field id="yellow_id" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Yellow ID</label>
+                </field>
+                <field id="log_active" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Log Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="sms_sender_number" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>SMS Sender Number</label>
+                </field>
+                <field id="error_message" translate="label" type="text" sortOrder="125" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>General Error Message</label>
+                </field>
+                <field id="test_mode" translate="label" type="select" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Test Mode Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="test_receiver_number" translate="label" type="text" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Test SMS Receiver Number</label>
+                </field>
+                <field id="restrict_numbers" translate="label" type="textarea" sortOrder="230" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Send kakao message to only this numbers</label>
+                    <comment>Add comma seperated numbers here. If any number is added here then kakao message will send to this numbers only, If no number here then it will send to any number</comment>
+                </field>
+                <field id="mask_number_enabled" translate="label" type="select" sortOrder="250" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Mask Mobile Number Enabled?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="leading_digit" translate="label" type="text" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Leading Digits to Remove</label>
+                    <depends>
+                        <field id="mask_number_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="update_digit_with" translate="label" type="text" sortOrder="350" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Leading Digits to Update With</label>
+                    <depends>
+                        <field id="mask_number_enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="kakao_templates" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>Cron</label>
+                <field id="enabled" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="full_cron_expression" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <label>Kakao Template Cron Time</label>
+                    <comment>0 0 * * * it should be in this format. this will run every night at midnight.</comment>
+                </field>
+         </group>
+        </section>
+    </system>
+</config>

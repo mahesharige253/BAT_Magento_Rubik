@@ -1,0 +1,44 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * @var $block Magento\Shipping\Block\Adminhtml\Order\Tracking\View
+ * @var \Magento\Framework\View\Helper\SecureHtmlRenderer $secureRenderer
+ */
+
+/** @var \Magento\Shipping\Helper\Data $shippingHelper */
+$shippingHelper = $block->getData('shippingHelper');
+$order = $block->getShipment()->getOrder();
+?>
+<div class="admin__control-table-wrapper">
+    <form id="tracking-shipping-form" data-mage-init='{"validation": {}}'>
+        <table class="data-table admin__control-table" id="shipment_tracking_info">
+            <thead>
+                <tr class="headings">
+                    <th class="col-carrier"><?= $block->escapeHtml(__('Carrier Code')) ?></th>
+                    <th class="col-title"><?= $block->escapeHtml(__('Carrier Name')) ?></th>
+                    <th class="col-number"><?= $block->escapeHtml(__('AWB Number')) ?></th>
+                    <th class="col-delete last"><?= $block->escapeHtml(__('Tracking Url')) ?></th>
+                </tr>
+            </thead>
+        <?php if ($order): ?>
+            <tbody>
+            <tr class="">
+                <td class="col-carrier"><?= $block->escapeHtml($order->getCarrierCode()) ?></td>
+                <td class="col-title"><?= $block->escapeHtml($order->getCarrierName()) ?></td>
+                <td class="col-title"><?= $block->escapeHtml($order->getAwbNumber()) ?></td>
+                <td class="col-title">
+                    <a href="<?= $block->escapeUrl($order->getTrackingUrl()) ?>"
+                       target="_blank">
+                        <span><?= $block->escapeHtml(__('Track Order')) ?></span>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        <?php endif; ?>
+        </table>
+    </form>
+</div>

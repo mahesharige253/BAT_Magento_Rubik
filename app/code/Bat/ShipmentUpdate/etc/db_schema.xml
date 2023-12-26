@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="sales_order">
+        <column xsi:type="varchar" name="message_id" nullable="true" comment="Message Id"/>
+        <column xsi:type="varchar" name="message_date" nullable="true" comment="Message Date"/>
+        <column xsi:type="varchar" name="carrier_code" nullable="true" comment="Carrier Code"/>
+        <column xsi:type="varchar" name="carrier_name" nullable="true" comment="Carrier Name"/>
+        <column xsi:type="varchar" name="awb_number" nullable="true" comment="AWB number"/>
+        <column xsi:type="varchar" name="tracking_url" nullable="true" comment="Tracking Url"/>
+        <column xsi:type="varchar" name="shipping_status_code" nullable="true" comment="Shipping Status Code"/>
+        <column xsi:type="varchar" name="shipping_status_message" nullable="true" comment="Shipping Status Message"/>
+        <column xsi:type="varchar" name="ship_date" nullable="true" comment="Ship Date"/>
+        <column xsi:type="varchar" name="action_date" nullable="true" comment="Action Date"/>
+        <column xsi:type="varchar" name="action_time" nullable="true" comment="Action Time"/>
+        <column xsi:type="varchar" name="action" nullable="true" comment="Action status"/>
+        <column xsi:type="varchar" name="action_local" nullable="true" comment="Action Description"/>
+        <column xsi:type="boolean" name="is_shipment_available" nullable="true" comment="Is Shipment Information Available"/>
+    </table>
+    <table name="eda_failed_order" resource="default" engine="innodb">
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
+        <column xsi:type="varchar" name="customer_id" nullable="false" default="" comment="Customer Id"/>
+        <column xsi:type="varchar" name="order_id" nullable="false" default="" comment="Order Id"/>
+        <column xsi:type="boolean" name="order_created" nullable="false" default="0" comment="Order Created Status"/>
+        <column xsi:type="timestamp" name="created_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Created date"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+    </table>
+</schema>

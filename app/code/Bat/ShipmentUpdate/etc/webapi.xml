@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../app/code/Magento/Webapi/etc/webapi.xsd">
+    <route method="POST" url="/V1/order/shipmentUpdate/">
+        <service class="Bat\ShipmentUpdate\Api\OrderShipmentUpdateInterface" method="shipmentUpdate"/>
+        <resources>
+            <resource ref="Magento_Sales::sales_order"/>
+        </resources>
+    </route>
+    <route method="POST" url="/V1/order/delivery/update/">
+        <service class="Bat\ShipmentUpdate\Api\OrderDeliveryUpdateInterface" method="deliveryUpdate"/>
+        <resources>
+            <resource ref="Magento_Sales::sales_order"/>
+        </resources>
+    </route>
+    <route method="POST" url="/V1/order/goods/received">
+        <service class="Bat\ShipmentUpdate\Api\OrderGoodsReceivedInterface" method="goodsReceived"/>
+        <resources>
+            <resource ref="Magento_Sales::sales_order"/>
+        </resources>
+    </route>
+</routes>

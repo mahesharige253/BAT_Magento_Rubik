@@ -1,0 +1,141 @@
+/**
+ * Navigate
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Navigate.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.navigate.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Navigate
+ * @package     Navigate_BannerSlider
+ * @copyright   Copyright (c) Navigate (http://www.navigate.com/)
+ * @license     https://www.navigate.com/LICENSE.txt
+ */
+
+
+& when (@media-common = true) {
+  
+    .cms-index-index {
+        .blocks-promo{
+            display: none;
+        }
+
+        .nav-sections,
+        .page-header{
+            margin-bottom: 0;
+        }
+
+    }
+
+    .main_home_slider-img{
+        position: relative;
+
+        img{
+            height: 450px;
+            object-fit: cover;
+        }
+
+    }
+
+    .main_home_slider{
+        &.owl-theme {
+            .owl-dots{
+                position: absolute;
+                bottom: 20px;
+                text-align: center;
+                width: 100%;
+            }
+
+            .owl-nav button{
+                &.owl-prev,
+                &.owl-next{
+                    position: absolute;
+                    top: 40%;
+                    left: 20px;
+                    font-size: 50px;
+                    color: #fff;
+                    font-weight: 300;
+                }
+
+                &.owl-next{
+                    right: 20px;
+                    left: unset;
+                }
+
+            }
+        }
+    }
+
+    .main_home_slider-info{
+        position: absolute;
+        top: 0px;
+        left: 0%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: ~'calc(100% - 40px)';
+        width: ~'calc(100% - 40px)';
+        padding: 20px;
+
+        &-inner{
+            text-align: center;
+        }
+
+        &-title{
+            margin: 0 0 25px 0;
+            font-size: 28px;
+            color: #fff;
+        }
+
+        &-button {
+            font-size: 1.8rem;
+            background-image: none;
+            background: #1979c3;
+            padding: 7px 15px;
+            color: #fff;
+            border: 1px solid #1979c3;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 1.4rem;
+            font-weight: 700;
+            box-sizing: border-box;
+            vertical-align: middle;
+            border-radius: 3px;
+            text-decoration: none;
+            padding: 10px 15px;
+            &:hover,
+            &:visited{
+                color: #fff;
+                text-decoration: none;
+            }
+        }
+
+        .top-left &{
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+
+        .top-right &{
+            justify-content: flex-end;
+            align-items: flex-start;
+        }
+
+        .bottom-left &{
+            justify-content: flex-start;
+            align-items: flex-end;
+        }
+
+        .bottom-right &{
+            justify-content: flex-end;
+            align-items: flex-end;
+        }
+
+    }
+
+}

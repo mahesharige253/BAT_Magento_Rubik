@@ -1,0 +1,259 @@
+<?php
+$parentData = $block->getBulkOrderParentDetails();
+$outletsdata = $block->getBulkOrderOutletDetails();
+
+$firstPaymentyear = date('Y', strtotime($parentData['first_payment_deadline_date']));
+$firstPaymentmonth = date('m', strtotime($parentData['first_payment_deadline_date']));
+$firstPaymentdate = date('d', strtotime($parentData['first_payment_deadline_date']));
+
+$firstPaymentText = $firstPaymentyear.'년 '.$firstPaymentmonth.'월 '.$firstPaymentdate.'일, 오후 11시';
+
+$nextPaymentyear = date('Y', strtotime($parentData['payment_deadline_date']));
+$nextPaymentmonth = date('m', strtotime($parentData['payment_deadline_date']));
+$nextPaymentdate = date('d', strtotime($parentData['payment_deadline_date']));
+
+$nextPaymentText = '('.$nextPaymentyear.'년 '.$nextPaymentmonth.'월 '.$nextPaymentdate.'일 오후 11시까지 미입금시 주문이 자동 취소됩니다.)';
+
+?>
+
+<div class="admin__page-section-item order-account-information store-details">
+<div><span class="action-default scalable save primary go-back ui-button ui-corner-all ui-widget">
+    <a href="<?= $block->escapeHtml($block->getUrl('bulkorder/bulkorder/productedit')) ?>">
+    <?= $block->escapeHtml(__('Go Back')) ?></a></span></div>
+        <div class="admin__page-section-item-content">
+                <table class="order-account-information-table">
+                    <tr>
+                        <th><?= $block->escapeHtml(__('Total Stores:')) ?></th>
+                        <td><?= $block->escapeHtml(__($parentData['total_stores'])) ?></td>
+                    </tr>
+                    <tr>
+                        <th><?= $block->escapeHtml(__('Total Quantity:')) ?></th>
+                        <td><?= $block->escapeHtml(__($parentData['total_qty'])) ?></td>
+                    </tr>
+                </table>
+        </div>
+</div>
+
+<div class="admin__page-section-item order-account-information">
+    <?php 
+    foreach ($outletsdata as $outlet) {
+        $cartData = $outlet['cartData'];
+        $shipping = $cartData->getShippingAddress();
+        $cartItems = $cartData->getAllItems(); ?>
+        <div class="admin__page-section-title">
+                <span class="title"><?= $block->escapeHtml(__($outlet['companyName'])) ?></span>
+        </div>
+        <div class="outlet-section">
+        <div class="outlet_initial_section">
+        <div class="outlet_shipping_section">
+        <div class="admin__page-section-item-title">
+                <span class="title">Shipping Address</span>
+        </div>
+        <div class="admin__page-section-item-content">
+            <div class="order-payment-method-title"><p>
+                <?= $block->escapeHtml(__($shipping->getData('firstname'))) ?></p></div>
+            <div class="order-payment-currency"><?= $block->escapeHtml(__($shipping->getData('street'))) ?></div>
+            <div class="order-payment-currency"><?= $block->escapeHtml(__($shipping->getData('postcode'))) ?></div>
+            <div class="order-payment-currency"><?= $block->escapeHtml(__($shipping->getData('country'))) ?></div>
+            <div class="order-payment-currency"><?= $block->escapeHtml(__($shipping->getData('telephone'))) ?></div>
+        </div>
+    </div>
+    <div class="outlet_virtual_section">
+        <div class="admin__page-section-item-title">
+                <span class="title">Virtual Bank Account</span>
+        </div>
+        <div class="admin__page-section-item-content">
+            <div class="order-payment-method-title"><p>
+                <?= $block->escapeHtml(__($outlet['bankCode'].$outlet['bankName'])) ?></p></div>
+            <div class="order-payment-currency">
+                <?= $block->escapeHtml(__($outlet['accountNumber'].' '.'로스만_ '.$outlet['accountHolderName'])) ?></div>
+        </div>
+    </div>
+    </div>
+    <div>
+        <div class="admin__page-section-item-title">
+                <span class="title">Item Details</span>
+        </div>
+        <div class="admin__page-section-item-content">
+        <table class="data-table admin__table-primary edit-order-table">
+            <thead>
+                <tr class="headings">
+                    <th class="col-product"><span><?= $block->escapeHtml(__('Product')) ?></span></th>
+                    <th class="col-product"><span><?= $block->escapeHtml(__('Quantity')) ?></span></th>
+                    <th class="col-product"><span><?= $block->escapeHtml(__('Subtotal')) ?></span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php 
+                foreach ($cartItems as $item) {
+                    if (!$item->getIsPriceTag()) {
+                        $subtotal = $item->getPrice() * $item->getQty();
+                         ?>
+                    <tr>
+                        <td><?= $block->escapeHtml(__($item->getName())) ?></td>
+                        <td><?= $block->escapeHtml(__($item->getQty())) ?></td>
+                        <td><?= $block->escapeHtml(__(number_format($subtotal).' KRW')) ?></td>
+                        
+                    </tr>
+                    <?php $message = $block->getItemMessage($item->getId(),$item->getSku()); ?>
+                        <tr>
+                        <td><span class="bulk-order-discount-message"><?php print_r($message) ?></span></td>
+                    </tr>
+                   <?php  ?>
+                    
+                <?php } }
+                ?>
+            </tbody>
+        </table>
+        </div>
+        </div>
+        <div class="admin__page-section-item-content">
+        <?php $i = 0; foreach ($cartItems as $item) {
+            if ($item->getIsPriceTag()) {
+                if ($i == 0) {?>
+            <div class="admin__page-section-item-title">
+                <span class="title">Price Tags</span>
+             </div> 
+             <?php } ?>
+            <div class="order-payment-method-title"><p><?= $block->escapeHtml(__($item->getName())) ?></p></div>
+            <?php $i++; }
+        } ?>
+        </div>
+        <?php $discountMessage = $outlet['bulk_discount_message'];
+                foreach($discountMessage as $messages) { ?>
+        <div class="bulk-order-discount-message"><p><?php echo $messages ?></p></div>
+        <?php } ?>
+        <div class="admin__page-section-item-title">
+                <span class="title">Summary</span>
+        </div>
+        <div class="admin__page-section-item-content">
+                <table class="admin__table-secondary order-account-information-table">
+                    <tr>
+                        <th><?= $block->escapeHtml(__('Items:')) ?></th>
+                        <td><?= $block->escapeHtml(__($outlet['cartItems'])) ?></td>
+                    </tr>
+                    <tr>
+                        <th><?= $block->escapeHtml(__('Qty :')) ?></th>
+                        <td><?= $block->escapeHtml(__($outlet['cartItemsQty'])) ?></td>
+                    </tr>
+                    <tr>
+                        <th><?= $block->escapeHtml(__('SubTotal:')) ?></th>
+                        <td><?= $block->escapeHtml(__(number_format($outlet['subtotal']).' KRW')) ?></td>
+                    </tr>
+                    <tr>
+                        <th><?= $block->escapeHtml(__('Discount :')) ?></th>
+                        <td><?= $block->escapeHtml(__(number_format($outlet['discount']).' KRW')) ?></td>
+                    </tr>
+                    <tr>
+                        <th><?= $block->escapeHtml(__('Net :')) ?></th>
+                        <td><?= $block->escapeHtml(__(number_format($outlet['net']).' KRW')) ?></td>
+                    </tr>
+                    <tr>
+                        <th><?= $block->escapeHtml(__('VAT :')) ?></th>
+                        <td><?= $block->escapeHtml(__(number_format($outlet['vat']).' KRW')) ?></td>
+                    </tr>
+                    <tr>
+                        <th><?= $block->escapeHtml(__('Remaining AR :')) ?></th>
+                        <td><?= $block->escapeHtml(__(number_format($outlet['remaining_ar']).' KRW')) ?></td>
+                    </tr>
+                    <tr>
+                        <th><?= $block->escapeHtml(__('OverPayment :')) ?></th>
+                        <?php if ($outlet['overpayment'] == 0) { ?>
+                            <td><?= $block->escapeHtml(__(number_format($outlet['overpayment']).' KRW')) ?></td>
+                        <?php } else { ?>
+                            <td class="overpayment-text">
+                                <?= $block->escapeHtml(__(number_format($outlet['overpayment']).' KRW')) ?>
+                            </td>
+                        <?php } ?>
+                    </tr>
+                    <tr class="total-amount-bold">
+                        <th><span><?= $block->escapeHtml(__('Total:')) ?></span></th>
+                        <td><span><?= $block->escapeHtml(__(number_format($outlet['order_grand_total']).' KRW')) ?></span></td>
+                    </tr>
+                </table>
+        </div>
+        
+    </div>    
+    <?php } ?>
+</div>
+
+<div class="admin__page-section-item order-account-information">
+    <div class="admin__page-section-item-title">
+                <span class="title"><?= $block->escapeHtml(__('Total Order Summary')) ?></span>
+            </div>
+        <div class="admin__page-section-item-content">
+                <table class="admin__table-secondary order-account-information-table">
+                    <tr>
+                        <th><?= $block->escapeHtml(__('Total Item:')) ?></th>
+                        <td><?= $block->escapeHtml(__($parentData['total_count'])) ?></td>
+                    </tr>
+                    <tr>
+                        <th><?= $block->escapeHtml(__('Total Quantity:')) ?></th>
+                        <td><?= $block->escapeHtml(__($parentData['total_qty'])) ?></td>
+                    </tr>
+                    <tr>
+                        <th><?= $block->escapeHtml(__('SubTotal:')) ?></th>
+                        <td><?= $block->escapeHtml(__(number_format($parentData['subtotal']).' KRW')) ?></td>
+                    </tr>
+                    <tr>
+                        <th><?= $block->escapeHtml(__('Total Discount :')) ?></th>
+                        <td><?= $block->escapeHtml(__(number_format($parentData['total_discount']).' KRW')) ?></td>
+                    </tr>
+                    <tr>
+                        <th><?= $block->escapeHtml(__('Net :')) ?></th>
+                        <td><?= $block->escapeHtml(__(number_format($parentData['bulk_net_amount']).' KRW')) ?></td>
+                    </tr>
+                    <tr>
+                        <th><?= $block->escapeHtml(__('VAT :')) ?></th>
+                        <td><?= $block->escapeHtml(__(number_format($parentData['bulk_vat_amount']).' KRW')) ?></td>
+                    </tr>
+                    
+                    <tr class="total-amount-bold">
+                        <?php $total = $parentData['subtotal'] - $parentData['total_discount']; ?>
+                        <th><span><?= $block->escapeHtml(__('Total:')) ?></span></th>
+                        <td><span><?= $block->escapeHtml(__(number_format($total).' KRW')) ?></span></td>
+                    </tr>
+                </table>
+        </div>
+</div>
+<div class="admin__page-section-item order-account-information">
+    <div class="admin__page-section-item-title">
+                <span class="title"><?= $block->escapeHtml(__('Payment Deadline')) ?></span>
+            </div> 
+        <div class="admin__page-section-item-content">
+                <table class="admin__table-secondary order-account-information-table">
+                    <tr>
+                        <td><?= $block->escapeHtml(__($firstPaymentText))?></td>
+                    </tr>
+                    <tr>
+                        <td><?= $block->escapeHtml(__($nextPaymentText))?></td>
+                    </tr>
+                </table>
+        </div>
+        <div class="submit-form">
+<form id="adminbulkorderSubmit" action="<?= $block->escapeHtml(__($block->getPlaceOrderUrl())) ?>" 
+                                                method="post" enctype="multipart/form-data" >
+<input type="hidden" name="form_key" value="<?= $block->escapeHtml(__($block->getFormKey())) ?>" />
+<?php foreach ($outletsdata as $value) { ?>
+    
+    <input type="hidden" name="placeorder[]" 
+            value="<?= $block->escapeHtml(__($value['outlet_id'].'_'.$value['maskedCartId'])) ?>" />
+    <?php } ?>
+    <input id="placeOrderButton" type="submit" class="action-default scalable save primary ui-button ui-corner-all ui-widget" 
+            value="Place Order" />
+</form>
+</div>
+</div>
+<script>
+    require([
+        'jquery',
+        'jquery/ui',
+        'jquery/validate',
+        'mage/mage',
+        'domReady!'// wait for dom ready
+    ], function ($) {
+        $('#adminbulkorderSubmit').on('submit', function() {
+            $('#placeOrderButton').prop('disabled', true);
+        })
+    });
+</script> 

@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="bat_bestseller" resource="default" engine="innodb" comment="Bat BastSeller Table">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true"
+                comment="Bestseller Entity ID"/>
+        <column xsi:type="varchar" name="sku" nullable="false" length="255" comment="Item SKU"/>
+        <column xsi:type="varchar" name="product_id" nullable="false" length="255" comment="Product Id"/>
+        <column xsi:type="varchar" name="sigungu_code" nullable="false" length="255" comment="Sigungu Code"/>
+        <column xsi:type="int" name="qty" nullable="true" comment="Item QTY"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+    <table name="bat_bestseller_products" resource="default" engine="innodb" comment="Bat BastSeller Products Table">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true" comment="Entity ID"/>
+        <column xsi:type="varchar" name="sigungu_code" nullable="false" length="255" comment="Sigungu Code"/>
+        <column xsi:type="varchar" name="product_ids" nullable="true" length="255" comment="Product IDs"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false"
+                default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false"
+                default="CURRENT_TIMESTAMP" comment="Last updated date"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <index referenceId="BAT_BESTSELLER_PRODUCT_SIGUNGU_CODE" indexType="btree">
+            <column name="sigungu_code"/>
+        </index>
+        <index referenceId="BAT_BESTSELLER_PRODUCT_PRODUCT_IDS" indexType="btree">
+            <column name="product_ids"/>
+        </index>
+    </table>
+    <table name="bat_bestseller_products_rl" resource="default" engine="innodb" comment="Bat BastSeller RL Products Table">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true" comment="Entity ID"/>
+        <column xsi:type="varchar" name="sigungu_code" nullable="false" length="255" comment="Sigungu Code"/>
+        <column xsi:type="varchar" name="product_ids" nullable="true" length="255" comment="Product IDs"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false"
+                default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false"
+                default="CURRENT_TIMESTAMP" comment="Last updated date"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <index referenceId="BAT_BESTSELLER_PRODUCT_SIGUNGU_CODE" indexType="btree">
+            <column name="sigungu_code"/>
+        </index>
+        <index referenceId="BAT_BESTSELLER_PRODUCT_PRODUCT_IDS" indexType="btree">
+            <column name="product_ids"/>
+        </index>
+    </table>
+</schema>

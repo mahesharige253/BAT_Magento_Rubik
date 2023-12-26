@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="bat_general_config" translate="label" sortOrder="10">
+            <label>BAT</label>
+        </tab>
+        <section id="product_carousel" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="0">
+            <class>separator-top</class>
+            <label>New/Recommended Products</label>
+            <tab>bat_general_config</tab>
+            <resource>Bat_NewProduct::configuration</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>New/Recommended Products Carousel</label>
+                <field id="new_products_carousel" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Enable New/Recommended Products Carousel</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="new_products_carousel_title" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Carousel Title</label>
+                    <depends>
+                        <field id="new_products_carousel">1</field>
+                    </depends>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="new_products_carousel_limit" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Products Carousel Limit</label>
+                    <depends>
+                        <field id="new_products_carousel">1</field>
+                    </depends>
+                    <validate>required-entry validate-digits validate-not-negative-number validate-digits-range digits-range-1-100</validate>
+                    <comment>Enter value from 1 to 100.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

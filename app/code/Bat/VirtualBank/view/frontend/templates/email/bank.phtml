@@ -1,0 +1,21 @@
+<?php $items = $block->getItems() ?>
+<table class="email-items">
+    <thead>
+    <tr>
+        <th class="item-info">
+            <?= $block->escapeHtml(__('Bank Name')); ?>
+        </th>
+        <th class="item-qty">
+            <?= $block->escapeHtml(__('Remaining')); ?>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($items as $key => $value): ?>
+        <tr>
+            <td><?= $block->escapeHtml($key) ?></td>
+            <td style="text-align: center"><?= $block->escapeHtml($value['remaining']) ?></td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>

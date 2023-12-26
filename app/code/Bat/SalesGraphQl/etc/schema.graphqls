@@ -1,0 +1,237 @@
+type OrderTotal @doc(description: "Contains details about the sales total amounts used to calculate the final price.") {
+    remaining_ar: Float @doc(description: "Credit customer remaining Ar") @resolver(class: "Bat\\SalesGraphQl\\Model\\Resolver\\RemainingAr")
+    overpayment: Float @doc(description: "Customer advance payment.")  @resolver(class: "Bat\\SalesGraphQl\\Model\\Resolver\\Overpayment")
+    minimum_amount: Float @doc(description: "Minimum Amount Which Customer Needs To Pay.")  @resolver(class: "Bat\\SalesGraphQl\\Model\\Resolver\\MinimumAmount")
+}
+
+type DeliveryDetails {
+    delivery_date: String
+    tracking_number: String
+    tracking_url: String
+    is_shipment_available: Boolean
+    delivered_date: String
+}
+
+type ReturnDetails {
+    return_date: String
+    tracking_number: String
+    tracking_url: String
+    is_shipment_available: Boolean
+    returned_date: String
+}
+
+type OrderAmountNetVatOutput {
+    net: Float
+    vat: Float
+    total: Float
+    subtotal: Float
+}
+
+type Customer {
+    orders (
+        filter: CustomerOrdersFilterInput @doc(description: "Defines the filter to use for searching customer orders."),
+        currentPage: Int = 1 @doc(description: "Specifies which page of results to return. The default value is 1."),
+        pageSize: Int = 5 @doc(description: "Specifies the maximum number of results to return at once. The default value is 20."),
+        sort: CustomerOrderSortInput @doc(description: "Specifies which field to sort on, and whether to return the results in ascending or descending order.")
+        scope: ScopeTypeEnum @doc(description: "Specifies the scope to search for customer orders. The Store request header identifies the customer's store view code. The default value of STORE limits the search to the value specified in the header. Specify WEBSITE to expand the search to include all customer orders assigned to the website that is defined in the header, or specify GLOBAL to include all customer orders across all websites and stores."),
+    ): CustomerOrders @resolver(class: "Bat\\SalesGraphQl\\Model\\Resolver\\CustomerOrders") @cache(cacheable: false)
+
+    parentOrders (
+        filter: CustomerOrdersFilterInput @doc(description: "Defines the filter to use for searching customer orders."),
+        currentPage: Int = 1 @doc(description: "Specifies which page of results to return. The default value is 1."),
+        pageSize: Int = 5 @doc(description: "Specifies the maximum number of results to return at once. The default value is 20."),
+        sort: CustomerOrderSortInput @doc(description: "Specifies which field to sort on, and whether to return the results in ascending or descending order.")
+        scope: ScopeTypeEnum @doc(description: "Specifies the scope to search for customer orders. The Store request header identifies the customer's store view code. The default value of STORE limits the search to the value specified in the header. Specify WEBSITE to expand the search to include all customer orders assigned to the website that is defined in the header, or specify GLOBAL to include all customer orders across all websites and stores."),
+    ): ParentCustomerOrders @resolver(class: "Bat\\SalesGraphQl\\Model\\Resolver\\ParentCustomerOrders") @cache(cacheable: false)
+}
+
+type ParentCustomerOrders @doc(description: "Contains details about each of the customer's orders.") {
+    items: ParentItemsDataOutput @doc(description: "Parent child order list")
+}
+
+type ParentItemsDataOutput {
+    order_date: String  @doc(description: "Parent order date")
+    message: String @doc(description: "Successful Order Placed message")
+    order_type: String  @doc(description: "Parent Order Type")
+    bulk_order_id: String  @doc(description: "Bulk Order id")
+    items_count: String  @doc(description: "Child items count")
+    first_payment_deadline_date: String  @doc(description: "First Payment deadline of order")
+    payment_deadline_date: String  @doc(description: "Payment deadline")
+    order_amount: OrderAmount  @doc(description: "Order amount")
+    parent_order_quantity: ParentOrderQtyOutput  @doc(description: "Parent order's outlet,items and qty count")
+    virtual_bank_account: VBAOutput  @doc(description: "Virtual bank account")
+    child_order_list: [ChildOrderListOutput] @doc(description: "Child order list")
+    total: ParentOrderPriceSummery  @doc(description: "Parent order price summery")
+    is_credit_customer: Boolean @doc(description: "Returns whether Parent Is Credit Customer or not")
+    is_shipment_available: Boolean @doc(description: "Returns whether Shipment information is available or not")
+}
+
+type OrderAmount {
+    net: String
+    vat: String
+    discounts: String
+    total: String
+    subtotal: Float
+}
+
+type ParentOrderQtyOutput {
+    outlet_count: Int
+    items_count: Int
+    items_quantity: Int
+}
+
+type VBAOutput {
+    bank_name: String
+    account_number: String
+    account_holder_name: String
+}
+
+type ParentOrderPriceSummery {
+    subtotal: Float
+    remaining_ar: Float
+    overpayment: Float
+    minimum_amount: Float
+    grand_total: Float
+}
+
+
+input CustomerOrdersFilterInput @doc(description: "Identifies the filter to use for filtering orders.") {
+    number: FilterStringTypeInput @doc(description: "Filters by order number.")
+    status: String @doc(description: "Filters by order status.")
+    order_type: FilterStringTypeInput @doc(description: "Filters by order type.")
+    date_from: String @doc(description: "Filters by order created date range.")
+    date_to: String @doc(description: "Filters by order created date range.")
+    sort: String @doc(description: "Sort order data by ASC / DESC.")
+    filter_type: String @doc(description: "Filter By EDA Order Type")
+}
+
+type CustomerOrder @doc(description: "Contains details about each of the customer's orders.") {
+    order_type: String @doc(description: "Order Type") @resolver(class: "Bat\\SalesGraphQl\\Model\\Resolver\\OrderType")
+    item_name: String @doc(description: "This will return first item name and total number of order.")
+    order_created_date: String @doc(description: "Order Date") @resolver(class: "Bat\\SalesGraphQl\\Model\\Resolver\\OrderPlacedDate")
+    total_outlets: Int @doc(description: "Total Outlets")
+    order_date: String @doc(description: "Order Date")
+    payment_deadline_date: String @doc(description: "payment deadline") @resolver(class: "Bat\\SalesGraphQl\\Model\\Resolver\\PaymentDeadline")
+    delivery_details: DeliveryDetails @doc(description: "Order Delivery Detail") @resolver(class: "Bat\\SalesGraphQl\\Model\\Resolver\\DeliveryDetails")
+    return_details: ReturnDetails @doc(description: "Order Return Detail") @resolver(class: "Bat\\SalesGraphQl\\Model\\Resolver\\ReturnDetails")
+    order_amount: OrderAmountNetVatOutput @doc(description: "payment deadline") @resolver(class: "Bat\\SalesGraphQl\\Model\\Resolver\\OrderAmountNetVat")
+    virtual_bank_account: VirtualBankAccountOutput @doc(description: "payment deadline") @resolver(class: "Bat\\SalesGraphQl\\Model\\Resolver\\VirtualBankAccount")
+    items_count: Int @doc(description: "Order item count") @resolver(class: "Bat\\SalesGraphQl\\Model\\Resolver\\OrderItem")
+    is_first_order: Boolean @doc(description: "isFirstOrder status") @resolver(class: "Bat\\SalesGraphQl\\Model\\Resolver\\IsFirstOrder")
+    outlet_owner_name: String @doc(description: "Order Type") @resolver(class: "Bat\\SalesGraphQl\\Model\\Resolver\\OutletOwnerName")
+    parent_order_quantity: ParentOrderQuantityOutput @doc(description: "payment deadline") @resolver(class: "Bat\\SalesGraphQl\\Model\\Resolver\\ParentOrderOutLetsAndItems")
+    is_parent: Int @doc(description: "Is customer is parent")
+    is_bulk_order: Boolean @doc(description: "Is order is bulk order")
+    status: String @doc(description: "Order Status") @resolver(class: "Bat\\SalesGraphQl\\Model\\Resolver\\OrderStatus")
+    delivery_status_details: DeliveryDetails @doc(description: "Order Delivery Status Detail for delivery status API") @resolver(class: "Bat\\SalesGraphQl\\Model\\Resolver\\DeliveryStatusDetails")
+    order_grand_total: Float @doc(description: "Order Grand Total") @resolver(class: "Bat\\SalesGraphQl\\Model\\Resolver\\OrderGrandTotal")
+}
+
+type Query {
+    cancelledOrder: CancelledOrderOutput
+        @resolver(
+            class: "Bat\\SalesGraphQl\\Model\\Resolver\\OrderCancelledNotification"
+        )
+        @doc(description: "This API will show cancelled order.")
+
+    orderShipping: OrderShippingOutput
+        @resolver(
+            class: "Bat\\SalesGraphQl\\Model\\Resolver\\OrderShippingNotification"
+        )
+        @doc(description: "This API will show order shipping/arrival notification.")
+}
+
+type CancelledOrderOutput {
+    customer_id: Int @doc(description: "Customer id of the login customer")
+    message: String @doc(description: "Message for cancelled order as per status")
+    status: Int @doc(description: "status")
+}
+
+type OrderShippingOutput {
+    customer_id: Int @doc(description: "Customer id of the login customer")
+    message: String @doc(description: "Message for cancelled order as per status")
+    status: Int @doc(description: "status")
+}
+
+type VirtualBankAccountOutput {
+    bank_name: String
+    account_number: String
+    account_holder_name: String
+}
+
+type ParentOrderQuantityOutput {
+    outlet_count: Int
+    items_count: Int
+    items_quantity: Int
+}
+
+type ChildOrderListOutput {
+    id: Int
+    increment_id: String
+    outlet_name: String
+    order_type: String
+    order_date: String
+    status: String
+    item_name: String
+    discounts: String
+    grand_total: String
+    overpayment: Float
+    remaining_ar: Float
+    minimum_amount: Float
+    subtotal: Float
+    childItems_count: Int
+    total_qty: Int
+    items: [Items]
+    virtual_bank_account: VBAOutput
+    shipping_addresses: ShippingAddressOutput
+    is_first_order: Boolean
+    delivery_details: DeliveryDetails @doc(description: "Order Delivery Detail")
+    return_details: ReturnDetails @doc(description: "Order Return Detail")
+    is_credit_customer: Boolean
+    net: Float
+    vat: Float
+}
+
+interface OrderItemInterface @doc(description: "Order item details.") @typeResolver(class: "Magento\\SalesGraphQl\\Model\\TypeResolver\\OrderItem") {
+ product_image: String @doc(description: "Product image encrypt") @resolver(class: "Bat\\SalesGraphQl\\Model\\Resolver\\ProductImage")
+ default_attribute: String @doc(description: "Product default attribute") @resolver(class:"Bat\\SalesGraphQl\\Model\\Resolver\\ProductDefaultAttributeValue")
+ is_price_tag: Boolean @doc(description: "Product default attribute") @resolver(class:"Bat\\SalesGraphQl\\Model\\Resolver\\PriceTag")
+ short_prod_nm: String @doc(description: "Product Short Prod Nm attribute") @resolver(class:"Bat\\SalesGraphQl\\Model\\Resolver\\ProductShortProdNm")
+}
+type ShippingAddressOutput {
+    firstname: String
+    lastname: String
+    street: StreetOutput
+    postcode: String
+    city: String
+    region: String
+    country: CountryOutput
+    telephone: String
+}
+
+type CountryOutput {
+    code: String
+    label: String
+}
+
+type StreetOutput {
+    street1: String
+    street2: String
+}
+
+type Mutation {
+    cancelOrder(input: CancelOrderInput!): CancelOrderOutPut
+        @resolver(
+            class: "\\Bat\\SalesGraphQl\\Model\\Resolver\\CancelOrder"
+        )
+        @doc(description: "This API will cancel order by order id")
+}
+
+input CancelOrderInput {
+    order_id : String
+}
+
+type CancelOrderOutPut {
+    success : Boolean
+    message : String
+}

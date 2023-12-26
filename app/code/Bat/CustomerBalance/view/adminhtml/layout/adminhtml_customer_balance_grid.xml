@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+   <body>
+      <referenceBlock name="customer.balance.grid.columnSet">
+          <block class="Magento\Backend\Block\Widget\Grid\Column" name="customer.balance.grid.columnSet.credit_limit" as="credit_limit">
+             <arguments>
+                <argument name="header" xsi:type="string" translate="true">Credit Limit</argument>
+                <argument name="sortable" xsi:type="string">0</argument>
+                <argument name="width" xsi:type="string">50</argument>
+                <argument name="renderer" xsi:type="string">Magento\CustomerBalance\Block\Adminhtml\Widget\Grid\Column\Renderer\Currency</argument>
+                <argument name="index" xsi:type="string">credit_limit</argument>
+             </arguments>
+          </block>
+         <block class="Magento\Backend\Block\Widget\Grid\Column" name="customer.balance.grid.columnSet.credit_exposure" as="credit_exposure">
+            <arguments>
+               <argument name="header" xsi:type="string" translate="true">Credit Exposure</argument>
+               <argument name="sortable" xsi:type="string">0</argument>
+               <argument name="width" xsi:type="string">50</argument>
+               <argument name="type" xsi:type="string">options</argument>
+               <argument name="renderer" xsi:type="string">Magento\CustomerBalance\Block\Adminhtml\Widget\Grid\Column\Renderer\Currency</argument>
+               <argument name="index" xsi:type="string">credit_exposure</argument>
+            </arguments>
+         </block>
+         <block class="Magento\Backend\Block\Widget\Grid\Column" name="customer.balance.grid.columnSet.overdue_flag" as="overdue_flag">
+            <arguments>
+               <argument name="header" xsi:type="string" translate="true">Is Overdue</argument>
+               <argument name="sortable" xsi:type="string">0</argument>
+               <argument name="width" xsi:type="string">50</argument>
+               <argument name="type" xsi:type="string">options</argument>
+               <argument name="options" xsi:type="options" model="Bat\CustomerBalance\Ui\Component\Column\Status" />
+               <argument name="index" xsi:type="string">overdue_flag</argument>
+            </arguments>
+         </block>
+         <block class="Magento\Backend\Block\Widget\Grid\Column" name="customer.balance.grid.columnSet.overdue_amount" as="overdue_amount">
+            <arguments>
+               <argument name="header" xsi:type="string" translate="true">Overdue Amount</argument>
+               <argument name="sortable" xsi:type="string">0</argument>
+               <argument name="width" xsi:type="string">50</argument>
+               <argument name="renderer" xsi:type="string">Magento\CustomerBalance\Block\Adminhtml\Widget\Grid\Column\Renderer\Currency</argument>
+               <argument name="index" xsi:type="string">overdue_amount</argument>
+            </arguments>
+         </block>
+      </referenceBlock>
+   </body>
+</page>

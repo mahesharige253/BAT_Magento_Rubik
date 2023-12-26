@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework-message-queue:etc/consumer.xsd">
+    <consumer 
+        name="jokerorder_customer_npiupdate"
+        queue="jokerorder_customer_npiupdate"
+        connection="amqp" 
+        handler="Bat\JokerOrder\Model\Attribute\Backend\Consumer::process" />    
+</config>

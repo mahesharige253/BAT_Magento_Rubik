@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2021 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="bannerslider" resource="default" engine="innodb" comment="Banner Slider">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="varchar" name="title" nullable="false" length="255" comment="Title"/>
+        <column xsi:type="varchar" name="slidertitle" nullable="false" length="255" comment="Slider Title"/>
+        <column xsi:type="varchar" name="buttontitle" nullable="false" length="255" comment="Button Title"/>
+        <column xsi:type="varchar" name="url_key" nullable="false" length="255" comment="Slider Url"/>
+        <column xsi:type="varchar" name="banner_url_key" nullable="false" length="255" comment="Banner Slider Url"/>
+        <column xsi:type="varchar" name="imagename" nullable="false" length="255" comment="Image Name"/>
+        <column xsi:type="varchar" name="mobileimagename" nullable="false" length="255" comment="Image Name"/>
+        <column xsi:type="varchar" name="status" nullable="false" length="10" comment="Status"/>
+        <column xsi:type="varchar" name="position" nullable="false" length="255" comment="Position"/>
+        <column xsi:type="varchar" name="text_position" nullable="false" length="255" comment="Text Position"/>
+
+        <column xsi:type="int" name="enable_button" nullable="false"  comment="Enable Button"/>
+        <column xsi:type="int" name="open_new_tab" default="0" nullable="false"  comment="Open Link In New Tab"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>

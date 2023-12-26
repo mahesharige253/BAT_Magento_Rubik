@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Bat_BulkOrder::bulkorder" title="Bulk Order" translate="title" module="Bat_BulkOrder" sortOrder="20" parent="Bat_CustomerConsentForm::menu" dependsOnModule="Bat_CustomerConsentForm" resource="Bat_BulkOrder::bulkorder"/>
+        <add id="Bat_BulkOrder::createbulkorder" title="Create Bulk Order" module="Bat_BulkOrder" sortOrder="20" action="bulkorder/bulkorder/index" resource="Bat_BulkOrder::createbulkorder" parent="Bat_BulkOrder::bulkorder"/>
+    </menu>
+</config>

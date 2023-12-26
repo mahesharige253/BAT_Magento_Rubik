@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Bat_VirtualBank::vba" title="VBA" translate="title" module="Bat_CustomerConsentForm" sortOrder="10" parent="Bat_CustomerConsentForm::menu" dependsOnModule="Bat_CustomerConsentForm" resource="Bat_VirtualBank::vba"/>
+        <add id="Bat_VirtualBank::banks" title="Manage Banks" module="Bat_VirtualBank" sortOrder="10" action="vba/virtualbank/index" resource="Bat_VirtualBank::banks" parent="Bat_VirtualBank::vba"/>
+        <add id="Bat_VirtualBank::accounts" title="Import Bank Accounts" module="Bat_VirtualBank" sortOrder="20" action="vba/virtualaccount/new" resource="Bat_VirtualBank::accounts" parent="Bat_VirtualBank::vba"/>
+    </menu>
+</config>

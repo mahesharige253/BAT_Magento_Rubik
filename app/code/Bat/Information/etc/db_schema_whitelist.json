@@ -1,0 +1,73 @@
+{
+    "information_data": {
+        "column": {
+            "id": true,
+            "information_title": true,
+            "content": true,
+            "enable_link": true,
+            "information_type": true,
+            "brandimage": true,
+            "brand_type": true,
+            "productimage": true,
+            "packbarcode": true,
+            "cartonbarcode": true,
+            "consumer_price": true,
+            "created_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "bat_information_faq": {
+        "column": {
+            "id": true,
+            "information_title": true,
+            "content": true,
+            "enable_link": true,
+            "created_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "bat_information_notice": {
+        "column": {
+            "id": true,
+            "information_title": true,
+            "content": true,
+            "enable_link": true,
+            "created_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "bat_information_brand": {
+        "column": {
+            "id": true,
+            "information_title": true,
+            "enable_link": true,
+            "brandimage": true,
+            "created_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "bat_information_barcode": {
+        "column": {
+            "id": true,
+            "information_title": true,
+            "enable_link": true,
+            "brand_type": true,
+            "productimage": true,
+            "packbarcode": true,
+            "cartonbarcode": true,
+            "consumer_price": true,
+            "created_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

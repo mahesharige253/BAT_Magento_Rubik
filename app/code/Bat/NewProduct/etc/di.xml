@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="newproduct_newproduct_index_data_source" xsi:type="string">BatNewProductCollection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="BatNewProductCollection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">bat_new_recommended_products</argument>
+            <argument name="resourceModel" xsi:type="string">Bat\NewProduct\Model\ResourceModel\NewProductResource</argument>
+        </arguments>
+    </virtualType>
+</config>
+
+
+
+
+
+
+
+

@@ -1,0 +1,48 @@
+type Query {
+    informationData(
+        information_type: String
+            @doc(description: "The information about norice and faq")
+    ): [InformationDataOutput]
+        @resolver(
+            class: "\\Bat\\Information\\Model\\Resolver\\GetInformationData"
+        )
+        @doc(description: "Return information about the notice and faq")
+        @cache(cacheable: false)
+
+      orderManual: OrderManualOutput
+        @resolver(
+            class: "\\Bat\\Information\\Model\\Resolver\\GetOrderManualData"
+        )
+        @doc(description: "Return information about the Order Manual Data")
+        @cache(cacheable: false)
+}
+
+type InformationDataOutput
+    @doc(
+        description: "Information data output gather information about the Information forms"
+    ) {
+    information_title: String
+        @doc(description: "Return the title of the Information")
+    id: String
+        @doc(description: "Returns the id of the Information")
+    content: String @doc(description: "Returns the content of the Information")
+    consumer_price: String
+    brand_image: String
+    brand_type: String
+    product_image: String
+    packbarcode_image: String
+    cartonbarcode_image: String
+    position: String
+    created_date: String
+        @doc(description: "Returns the Created Date of the Information")
+    
+}
+
+type OrderManualOutput
+@doc(
+        description: "Information data output gather information about the Information forms"
+    ) {
+    title: String @doc(description: "Returns the content of the Information")
+    pdf: String
+    banner_image: String
+    }

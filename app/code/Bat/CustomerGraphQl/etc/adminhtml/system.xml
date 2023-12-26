@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="bat_general_config" translate="label" sortOrder="10">
+            <label>BAT</label>
+        </tab>
+        <section id="order_frequency" showInDefault="1" showInWebsite="1" showInStore="1" type="text" translate="Order Frequency" sortOrder="200">
+            <label>Order Frequency</label>
+            <tab>bat_general_config</tab>
+            <resource>Bat_CustomerGraphQl::config_order_frequency</resource>
+            <group id="general" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20">
+                <label>General Settings</label>
+                <field id="order_frequency_weekly" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Order Frequency of Weekly</label>
+                    <validate>required-entry validate-digits</validate>
+                </field>
+                 <field id="order_frequency_biweekly" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Order Frequency of Bi-Weekly</label>
+                    <validate>required-entry validate-digits</validate>
+                </field>
+                <field id="order_frequency_monthly" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Order Frequency of Monthly</label>
+                    <validate>required-entry validate-digits</validate>
+                </field>
+                <field id="order_frequency_bimonthly" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Order Frequency of Bi-Monthly</label>
+                    <validate>required-entry validate-digits</validate>
+                </field>
+                <field id="allow_saturday_sunday" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1" sortOrder="10" translate="label" type="multiselect">
+                    <label>Allow Saturday Sunday</label>
+                    <source_model>Bat\CustomerGraphQl\Model\Config\SaturdaySunday</source_model>
+                </field>
+            </group>
+        </section>
+         <section id="customer_credentials" showInDefault="1" showInWebsite="1" showInStore="1" type="text" translate="Unit Test Customer Credentials" sortOrder="200">
+            <label>Unit Test Customer Credentials</label>
+            <tab>bat_general_config</tab>
+            <resource>Bat_CustomerGraphqQl::config_customer_credentials</resource>
+            <group id="general" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20">
+                <label>General Settings</label>
+                <field id="customer_email" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Customer Email</label>
+                </field>
+            </group>
+        </section>
+        <section id="bat_customer">
+            <group id="token_renew" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20">
+                <label>Token Renew Setting</label>
+                <field id="minutes" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Renew Customer Token After Minutes</label>
+                    <validate>validate-digits</validate>
+                    <comment>Add minutes in number</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Integration\Model\AdminTokenService">
+        <plugin name="admin_token_request_decrypt" type="Bat\Integration\Plugin\Integration\Model\AdminTokenService" sortOrder="1" />
+    </type>
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="admin_credentials_encrypt" xsi:type="object">Bat\Integration\Console\Command\EncryptAdminCredentials</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\Webapi\Rest\Response">
+        <plugin name="bat_integration_log_webapi_rest" type="Bat\Integration\Plugin\Magento\Webapi\Controller\RestPlugin"/>
+    </type>
+</config>

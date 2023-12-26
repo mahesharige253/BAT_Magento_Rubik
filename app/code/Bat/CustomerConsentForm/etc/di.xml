@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="customerconsentform_listing_grid_data_source" xsi:type="string">Bat\CustomerConsentForm\Model\ResourceModel\ConsentForm\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="Bat\CustomerConsentForm\Model\ResourceModel\ConsentForm\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">customer_consent_forms</argument>
+            <argument name="resourceModel" xsi:type="string">Bat\CustomerConsentForm\Model\ResourceModel\ConsentForm\Collection</argument>
+        </arguments>
+    </virtualType>
+</config>
+
+

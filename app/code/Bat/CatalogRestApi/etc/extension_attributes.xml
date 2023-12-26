@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Api/etc/extension_attributes.xsd">
+    <extension_attributes for="Magento\Catalog\Api\Data\BasePriceInterface">
+        <attribute code="batch_id" type="string" />
+        <attribute code="company_code" type="string" />
+        <attribute code="created_at" type="string" />
+        <attribute code="country_code" type="string" />
+        <attribute code="idoc_reference_number" type="string" />
+        <attribute code="uom" type="string" />
+        <attribute code="price_group_number" type="string" />
+        <attribute code="customer_group_code" type="string" />
+        <attribute code="customer_group_id" type="string" />
+        <attribute code="currency_code" type="string" />
+        <attribute code="effective_date" type="string" />
+        <attribute code="condition_sequence" type="string" />
+        <attribute code="customer_group" type="string" />
+        <attribute code="condition_name" type="string" />
+        <attribute code="condition_value" type="string" />
+        <attribute code="total_price_item" type="string" />
+        <attribute code="base_to_secondary_uom" type="string" />
+        <attribute code="consumer_price" type="string" />
+    </extension_attributes>
+</config>

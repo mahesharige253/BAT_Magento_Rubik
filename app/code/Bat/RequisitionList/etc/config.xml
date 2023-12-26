@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <requisitionlist_bat>
+            <requisitionlist>
+                <requisitionlist_admin>5</requisitionlist_admin>
+                <requisitionlist_customer>5</requisitionlist_customer>
+                <transactional_rl_required_qty>10</transactional_rl_required_qty>
+            </requisitionlist>
+        </requisitionlist_bat>
+    </default>
+</config>

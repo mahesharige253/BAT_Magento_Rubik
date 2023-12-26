@@ -1,0 +1,31 @@
+<div class="reports-content">
+    <form id="OutletForm" action="<?= /* @noEscape */
+        $block->escapeHtml($block->getOutletSubmitUrl()) ?>" method="post" enctype="multipart/form-data">
+
+        <input type="hidden" name="form_key" value="<?= /* @noEscape */$block->getFormKey() ?>">
+        <table>
+        <tr>
+            <td style="vertical-align: top; padding-top:5px">
+                <label><?= $block->escapeHtml(__('Outlet Id')) ?></label>
+            </td>
+            <td>
+                <div class="field required" style="display:inline-block; margin-left: 10px;">
+                    <input type="text" name="outlet"
+                        class="input-text input-text admin__control-text" 
+                        data-validate="{required:true, 'validate-digits': 
+                            true, 'validate-length':true, 
+                            'validate-outlet-id':true}" value=""
+                             style="width: 300px;" ></input>
+                </div>
+            </td>
+            <td style="vertical-align: top;">
+                <div class="field required admin__field-control control" 
+                    style="display:inline-block; margin-left: 10px;">
+                    <input type="submit" class="action-default scalable save primary ui-button ui-corner-all ui-widget" 
+                                    value="<?= $block->escapeHtml(__('Submit Outlet')) ?>" />
+                </div>
+            </td>
+        </tr>
+        </table>
+    </form>
+</div>

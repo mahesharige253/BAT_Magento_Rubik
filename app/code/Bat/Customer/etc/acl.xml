@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Bat_Customer::address_change_by_admin"
+                            title="Address Change By Admin" sortOrder="50"/>
+                        <resource id="Bat_Customer::push_to_swift"
+                            title="Push Customer To Swift" sortOrder="51"/>
+                        <resource id="Magento_Config::config">
+                            <resource id="Bat_Customer::status_message_configuration"  title="Customer Status Message" translate="title" sortOrder="40" />
+                            <resource id="Bat_Customer::disclosure_message_configuration"  title="Customer Disclosure Status" translate="title" sortOrder="50" />
+                            <resource id="Bat_Customer::store_frontend_url"  title="Frontend Base URL" translate="title" sortOrder="10" />
+                            <resource id="Bat_Customer::customer_configuration"  title="Customer Configuration" translate="title" sortOrder="60" />
+                            <resource id="Bat_Customer::customer_account_termination"  title="Customer Account Termination" translate="title" sortOrder="70" />
+                            <resource id="Bat_Customer::integrations"  title="BAT Integrations" translate="title" sortOrder="80" />
+                            <resource id="Bat_Customer::config_marketingconsent_time"  title="Marketing Consent Configuration" translate="title" sortOrder="90" />
+                            <resource id="Bat_Customer::unit_test_customer_credential"  title="Unit Test Customer Credential" translate="title" sortOrder="100" />
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>
+

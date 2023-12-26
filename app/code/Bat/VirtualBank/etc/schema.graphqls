@@ -1,0 +1,14 @@
+type Query {
+    getVirtualBanks: GetVirtualBanks
+    @resolver(class: "Bat\\VirtualBank\\Model\\Resolver\\VirtualBankList")
+    @doc(description: "Returns Available Banks")
+}
+
+type GetVirtualBanks @doc(description: "Returns Available Banks as an array") {
+    bank_details : [BankDetails]
+}
+
+type BankDetails @doc(description: "Returns Bank name and code") {
+    bank_name : String
+    bank_code : String
+}

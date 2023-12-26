@@ -1,0 +1,7 @@
+type Query {
+    getBestSellers (areaCode: String!, requestFrom: String): BestSellerProducts @doc(description: "Get BestSellerProducts.") @resolver(class: "Bat\\BestSellers\\Model\\Resolver\\BestSellers")
+} 
+
+type BestSellerProducts {
+    items: [ProductInterface] @doc(description: "An array of products.")
+}

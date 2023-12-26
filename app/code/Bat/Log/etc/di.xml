@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <!-- API custom logging handler -->
+    <virtualType name="BatDebugHandler" type="Magento\Framework\Logger\Handler\Base">
+        <arguments>
+            <argument name="fileName" xsi:type="string">/var/log/bat-logging.log</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="BatLogger" type="Magento\Framework\Logger\Monolog">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="debug" xsi:type="object">BatDebugHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- API Plugins for Rest Logging-->
+    <type name="Magento\Webapi\Controller\Rest">
+        <plugin name="bat_log_magento_webapi_rest" type="Bat\Log\Plugin\Magento\Webapi\Controller\RestPlugin"/>
+    </type>
+
+    <!-- Set API Logger-->
+    <type name="Bat\Log\Plugin\Magento\Webapi\Controller\RestPlugin">
+        <arguments>
+            <argument name="logger" xsi:type="object">BatLogger</argument>
+        </arguments>
+    </type>
+
+    <!-- GraphQl Logging -->
+    <type name="Magento\GraphQl\Helper\Query\Logger\LogData">
+        <plugin name="bat_log_add_graphql_log" type="Bat\Log\Plugin\Magento\GraphQl\Helper\Query\Logger\LogDataPlugin"/>
+    </type>
+    <type name="Magento\GraphQl\Model\Query\Logger\LoggerPool">
+        <arguments>
+            <argument name="loggers" xsi:type="array">
+                <item name="bat_es_logger" xsi:type="object">Bat\Log\Model\GraphQlLogger</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Bat\Log\Model\GraphQlLogger">
+        <arguments>
+            <argument name="logger" xsi:type="object">BatLogger</argument>
+        </arguments>
+    </type>
+</config>

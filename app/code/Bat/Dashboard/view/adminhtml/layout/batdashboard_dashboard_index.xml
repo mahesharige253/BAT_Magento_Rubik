@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block name="batdashboardindex" template="Bat_Dashboard::Dashboard/index.phtml">
+                <block class="Magento\Framework\View\Element\Template" name="vba_summary_dashboard" as="batVbaStats"
+                        template="Bat_Dashboard::Dashboard/vba_summary_dashboard.phtml">
+                    <arguments>
+                     <argument name="view_model" xsi:type="object">Bat\Dashboard\ViewModel\VbaSummary</argument>
+                    </arguments>
+                </block>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

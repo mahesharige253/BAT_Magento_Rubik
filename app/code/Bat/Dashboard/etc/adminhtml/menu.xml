@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+<!--         <add id="Bat_Dashboard::batdashboard" title="BAT Dashboard" translate="title" module="Bat_Dashboard" -->
+<!--         sortOrder="20" action="batdashboard/dashboard/index" resource="Bat_Dashboard::batdashboard" /> -->
+    </menu>
+</config>

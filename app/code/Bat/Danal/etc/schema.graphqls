@@ -1,0 +1,25 @@
+type Query {
+    danalAuthenticate (
+        targetQuery: String! @doc(description: "Target Query for successfull attempt.")
+        backQuery: String! @doc(description: "Back Query for un-successfull attempt.")
+    ): DanalAuthenticateOutput @resolver(class: "Bat\\Danal\\Model\\Resolver\\Authenticate")
+    @doc(description: "Danal authenticate")
+    danalConfirm (
+        tid: String! @doc(description: "TID of danal authentication.")
+    ): DanalConfirmOutput @resolver(class: "Bat\\Danal\\Model\\Resolver\\Confirm") @doc(description: "DANAL Confirm after danal verify from interface.")
+}
+
+type DanalAuthenticateOutput @doc(description: "Danal authenticate output") {
+    success: Boolean @doc(description: "Status")
+    message: String @doc(description: "Message")
+    data: String @doc(description: "JSON Data")
+    danal_url: String @doc(description: "Danal URL")
+}
+
+type DanalConfirmOutput @doc(description: "Danal confirm output") {
+    success: Boolean @doc(description: "Status")
+    message: String @doc(description: "Message")
+    mobilenumber: String @doc(description: "Customer phone number")
+    dob: String @doc(description: "Customer DOB")
+    gender: Int @doc(description: "Customer gender")
+}

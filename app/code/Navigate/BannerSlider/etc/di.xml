@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="bannerslider_listing_grid_data_source" xsi:type="string">Navigate\BannerSlider\Model\ResourceModel\Bannerslider\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="Navigate\BannerSlider\Model\ResourceModel\Bannerslider\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">bannerslider</argument>
+            <argument name="resourceModel" xsi:type="string">Navigate\BannerSlider\Model\ResourceModel\Bannerslider\Collection</argument>
+        </arguments>
+    </virtualType>
+</config>
+
+

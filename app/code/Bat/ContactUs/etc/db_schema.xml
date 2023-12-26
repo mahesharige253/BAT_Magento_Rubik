@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2021 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="contactus_data" resource="default" engine="innodb" comment="Contact Us Data">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="varchar" name="page_title" nullable="false" length="255" comment="Page Title"/>
+        <column xsi:type="varchar" name="bannerimage" nullable="false" length="255" comment="Banner Image"/>
+        <column xsi:type="varchar" name="operating_hours_label" nullable="false" length="255" comment="Operating Hours Label"/>
+        <column xsi:type="varchar" name="operating_hours_value" nullable="false" length="255" comment="Operating Hours Value"/>
+        <column xsi:type="varchar" name="operating_hours_value_two" nullable="false" length="255" comment="Operating Hours Value two"/>
+        <column xsi:type="varchar" name="contact_number" nullable="false" length="255" comment="Contact Number"/>
+        <column xsi:type="varchar" name="company_name_label" nullable="false" length="255" comment="Company name Label"/>
+        <column xsi:type="varchar" name="company_name_value" nullable="false" length="255" comment="Company name Value"/>
+        <column xsi:type="varchar" name="company_address_label" nullable="false" length="255" comment="Company Address Label"/>
+        <column xsi:type="varchar" name="company_address_value" nullable="false" length="255" comment="Company Address Value"/>
+        <column xsi:type="varchar" name="business_license_label" nullable="false" length="255" comment="Business License Label"/>
+        <column xsi:type="varchar" name="business_license_value" nullable="false" length="255" comment="Business License Value"/>
+        <column xsi:type="varchar" name="representative_label" nullable="false" length="255" comment="Representative Label"/>
+        <column xsi:type="varchar" name="representative_value" nullable="false" length="255" comment="Representative Value"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>

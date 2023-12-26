@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="sales_order" resource="default" engine="innodb" comment="Sales Order">
+       <column xsi:type="varchar" name="order_type" nullable="true" comment="Order Type" />
+       <column xsi:type="varchar" name="batch_id" nullable="true" comment="Batch Id" />
+       <column xsi:type="varchar" name="updated_date" nullable="true" comment="Updated date" />
+       <column xsi:type="varchar" name="country_code" nullable="true" comment="Country code" />
+       <column xsi:type="varchar" name="sap_country_code" nullable="true" comment="Sap Country code" />
+       <column xsi:type="varchar" name="sap_order_number" nullable="true" comment="Sap order number" />
+       <column xsi:type="varchar" name="sap_credit_status" nullable="true" comment="Sap credit status" />
+       <column xsi:type="varchar" name="sap_order_status" nullable="true" comment="Sap order status" />
+       <column xsi:type="int" name="outlet_id" nullable="true" comment="Outlet Id" />
+       <column xsi:type="int" name="parent_outlet_id" nullable="true" comment="Parent Outlet Id" />
+       <column xsi:type="varchar" name="order_reject_reason" nullable="true" comment="Order Reject Reason" />
+       <column xsi:type="varchar" name="order_reject_desc" nullable="true" comment="Order Reject Description" />
+       <column xsi:type="decimal" name="over_payment" nullable="true" scale="4" precision="20" comment="Over Payment"/>
+       <column xsi:type="decimal" name="order_grand_total" nullable="true" scale="4" precision="20" comment="Order Grand Total"/>
+       <column xsi:type="decimal" name="remaining_ar" nullable="true" scale="4" precision="20" comment="Remaining AR"/>
+       <column xsi:type="boolean" name="is_return_order_created" nullable="true" default="0" comment="Return Order Created Status"/>
+    </table>
+    <table name="sales_order_item" resource="default" engine="innodb" comment="Sales Order Item">
+       <column xsi:type="varchar" name="uom" nullable="true" comment="Uom" />
+       <column xsi:type="text" name="product_image" nullable="true" comment="Product Image" />
+       <column xsi:type="varchar" name="default_attribute" nullable="true" comment="Default Attribute" />
+       <column xsi:type="varchar" name="short_prod_nm" nullable="true" comment="Short prod nm Attribute" />
+       <column xsi:type="varchar" name="base_to_secondary_uom" nullable="true" comment="Base to Secondary Uom" />
+    </table>
+    <table name="quote_item" resource="default" engine="innodb" comment="Sales Order Item">
+       <column xsi:type="varchar" name="uom" nullable="true" comment="Uom" />
+       <column xsi:type="varchar" name="base_to_secondary_uom" nullable="true" comment="Base to Secondary Uom" />
+    </table>
+    <table name="quote" resource="default" engine="innodb" comment="Sales Order">
+       <column xsi:type="int" name="outlet_id" nullable="true" comment="Outlet Id" />
+       <column xsi:type="int" name="parent_outlet_id" nullable="true" comment="Parent Outlet Id" />
+    </table>
+    <table name="bat_eda_pending_orders" resource="default" engine="innodb">
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
+        <column xsi:type="int" name="order_id" nullable="false" unsigned="true" comment="Order Id"/>
+        <column xsi:type="varchar" name="order_increment_id" nullable="true" default="" comment="Order Increment Id"/>
+        <column xsi:type="varchar" name="order_type" nullable="true" default="" comment="Order Type No" length="10" />
+        <column xsi:type="int" name="failure_attempts" nullable="true" default="0" unsigned="true" comment="No of Failures"/>
+        <column xsi:type="varchar" name="channel" nullable="true" default="" comment="EDA Update Type"/>
+        <column xsi:type="boolean" name="order_sent" nullable="true" default="0" comment="Order Created In EDA"/>
+        <column xsi:type="timestamp" name="created_at" default="CURRENT_TIMESTAMP" on_update="false" nullable="false" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" default="CURRENT_TIMESTAMP" on_update="true" nullable="false" comment="Updated At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <index referenceId="BAT_EDA_PENDING_ORDERS_ENTITY_ID" indexType="btree">
+            <column name="entity_id"/>
+        </index>
+        <index referenceId="BAT_EDA_PENDING_ORDERS_ORDER_ID" indexType="btree">
+            <column name="order_id"/>
+        </index>
+    </table>
+</schema>

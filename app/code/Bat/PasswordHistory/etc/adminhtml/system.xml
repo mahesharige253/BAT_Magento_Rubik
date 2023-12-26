@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="bat_customer" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="0">
+             <group id="password_history" translate="label" type="text" sortOrder="200" showInDefault="1" showInWebsite="1">
+                <label>Password History Restriction</label>
+                <field id="history_enabled" translate="label comment" type="select" sortOrder="200" showInDefault="1" showInWebsite="1">
+                    <label>Enable Password History Restriction</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Disallow customers to use their old passwords]]></comment>
+                </field>
+                 <field id="allowed_hours" translate="label comment" type="text" sortOrder="210" showInDefault="1" showInWebsite="1" canRestore="1">
+                    <label>Allowed Password Change Hours</label>
+                    <depends>
+                        <field id="history_enabled">1</field>
+                    </depends>
+                    <comment><![CDATA[Number of Hours]]></comment>
+                    <validate>validate-number</validate>
+                </field>
+                <field id="history_size" translate="label comment" type="text" sortOrder="210" showInDefault="1" showInWebsite="1" canRestore="1">
+                    <label>Password History Size</label>
+                    <depends>
+                        <field id="history_enabled">1</field>
+                    </depends>
+                    <comment><![CDATA[Number of password hashes stored per customer]]></comment>
+                    <validate>validate-number</validate>
+                </field>
+                <field id="history_message" translate="label comment" type="text" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Password History Message</label>
+                    <depends>
+                        <field id="history_enabled">1</field>
+                    </depends>
+                    <comment><![CDATA[Message shown to customer when they try to use old password]]></comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

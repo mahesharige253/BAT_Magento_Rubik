@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\RequisitionListGraphQl\Model\RequisitionList\Item\AddItemsToRequisitionList">
+        <plugin name="BatQuantityValidator"
+                type="Bat\RequisitionList\Plugin\AddProductRlQuantityValidator"/>
+    </type>
+     <type name="Magento\RequisitionListGraphQl\Model\Resolver\RequisitionList\DeleteItems">
+        <plugin name="BatDeleteItemQuantityValidate"
+                type="Bat\RequisitionList\Plugin\BatDeleteItemValidate"/>
+    </type>
+    <type name="Magento\RequisitionListGraphQl\Model\Resolver\RequisitionList\AddToCart">
+        <plugin name="BatAddCartQuantityValidator"
+                type="Bat\RequisitionList\Plugin\AddCartProductRlQuantityValidator"/>
+    </type>
+     <type name="Magento\RequisitionListGraphQl\Model\Resolver\RequisitionList\UpdateItems">
+        <plugin name="BatUpdateItemQuantityValidate"
+                type="Bat\RequisitionList\Plugin\UpdateItemValidate"/>
+    </type>
+    <type name="Magento\RequisitionListGraphQl\Model\Resolver\RequisitionList\CopyItems">
+        <plugin name="BatCopyitemsQuantityValidator"
+                type="Bat\RequisitionList\Plugin\BatCopyitemsValidator"/>
+    </type>
+     <type name="Magento\RequisitionList\Model\RequisitionListRepository">
+        <plugin name="CreateDuplicateRl"
+                type="Bat\RequisitionList\Plugin\CreateDuplicateRl"/>
+    </type>
+     <type name="Magento\RequisitionListGraphQl\Model\Resolver\CreateRequisitionList">
+        <plugin name="CreateRlValidate"
+                type="Bat\RequisitionList\Plugin\CreateRlValidate"/>
+    </type>
+    <type name="Magento\StoreGraphQl\Model\Resolver\Store\StoreConfigDataProvider">
+        <arguments>
+            <argument name="extendedConfigData" xsi:type="array">
+                <item name="transactional_rl_required_qty" xsi:type="string">requisitionlist_bat/requisitionlist/transactional_rl_required_qty</item>
+            </argument>
+        </arguments>
+    </type>
+   <preference for="Magento\RequisitionListGraphQl\Model\Resolver\RequisitionList\Items" type="Bat\RequisitionList\Model\Resolver\RequisitionList\Items" />
+   <type name="Magento\RequisitionListGraphQl\Model\RequisitionList\GetRequisitionList">
+        <plugin name="BatGetRequisitionList"
+                type="Bat\RequisitionList\Plugin\GetRequisitionList"/>
+    </type>
+</config>

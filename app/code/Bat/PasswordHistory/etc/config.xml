@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <bat_customer>
+            <password_history>
+                <history_size>10</history_size>
+                <allowed_hours>24</allowed_hours>
+                <history_message><![CDATA[Please choose a password that you haven't used before.]]></history_message>
+            </password_history>
+        </bat_customer>
+    </default>
+</config>

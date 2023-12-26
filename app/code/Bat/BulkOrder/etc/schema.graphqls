@@ -1,0 +1,264 @@
+type Mutation {
+    validateAndCreateQuote(orderItems: [ChildOutletData]): BulkOrderQuoteData
+        @resolver(
+            class: "\\Bat\\BulkOrder\\Model\\Resolver\\BulkOrderValidateData"
+        )
+        @doc(description: "Validate and create bulk order quote")
+
+    placeBulkOrder(input: BulkOrderData): BulkOrderOutput
+        @resolver(class: "\\Bat\\BulkOrder\\Model\\Resolver\\CreateBulkOrder")
+        @doc(description: "Create bulk order")
+
+    removeBulkOrderStore(input: RemoveCartDetails): RemoveCartOutput
+        @resolver(
+            class: "\\Bat\\BulkOrder\\Model\\Resolver\\RemoveBulkOrderCart"
+        )
+        @doc(description: "Remove BulkOrder Store")
+
+    removeBulkOrderCartItem(
+        input: RemoveBulkOrderCartItem!
+    ): RemoveBulkCartItemOutput
+        @resolver(
+            class: "\\Bat\\BulkOrder\\Model\\Resolver\\RemoveBulkCartItem"
+        )
+        @doc(description: "Remove BulkOrder Store")
+
+    addBulkOrderPriceTagItems(
+        input: AddBulkOrderPriceTagItems!
+    ): [BulkOrderPriceTagOutput]
+        @resolver(
+            class: "\\Bat\\BulkOrder\\Model\\Resolver\\AddUpdateBulkPriceTag"
+        )
+        @doc(description: "Add Update Bulk Order Price Tag")
+
+    updateBulkOrderCartItem(
+        input: UpdateBulkOrderCartItem
+    ): UpdateBulkCartItemOutput
+        @resolver(
+            class: "\\Bat\\BulkOrder\\Model\\Resolver\\UpdateBulkCartItem"
+        )
+        @doc(description: "Update BulkOrder CartItem")
+
+    addBulkOrderCartItem(input: AddBulkOrderCartItem): AddBulkCartItemOutput
+        @resolver(class: "\\Bat\\BulkOrder\\Model\\Resolver\\AddBulkCartItem")
+        @doc(description: "Add BulkOrder CartItem")
+}
+
+input ChildOutletData {
+    outlet_id: String!
+    is_parent: Boolean
+    parent_outlet_id: String!
+    items: [ItemBulkData]
+}
+
+input ItemBulkData {
+    sku: String!
+    quantity: String!
+}
+
+type BulkOrderQuoteData {
+    success: Boolean
+    error_message: [String]
+    bulkorder_data: [OutletCartData]
+}
+
+type OutletCartData {
+    outlet_id: String
+    masked_cart_id: String
+}
+
+input BulkOrderData {
+    order_consent: Boolean
+    bulkOrderItem: [BulkOrderItems]
+}
+
+input BulkOrderItems {
+    outlet_id: String
+    masked_cart_id: String
+}
+
+type BulkOrderOutput {
+    bulkorder_id: String
+}
+
+input AddBulkOrderPriceTagItems
+    @doc(
+        description: "Defines the simple and group products to add to the cart."
+    ) {
+    cart_id: String! @doc(description: "The unique ID of a `Cart` object.")
+    outlet_id: String! @doc(description: "Customer outlet_id .")
+    pricetag_items: [BulkOrderPriceTagCartItemInput]
+        @doc(description: "An array of simple and group items to add.")
+}
+
+input BulkOrderPriceTagCartItemInput
+    @doc(description: "Defines a single product to add to the cart.") {
+    data: BulkOrderPriceTagItemInput
+        @doc(
+            description: "An object containing the `sku`, `quantity`, and other relevant information about the product."
+        )
+}
+
+input BulkOrderPriceTagItemInput
+    @doc(description: "Defines an item to be added to the cart.") {
+    sku: String! @doc(description: "The SKU of the price tag product.")
+    quantity: Float!
+        @doc(description: "The amount or number of an item to add.")
+}
+
+type BulkOrderPriceTagOutput {
+    priceTagImage: String
+    priceTagName: String
+    priceTagSku: String
+}
+
+type Query {
+    getBulkOrderDetails(
+        input: BulkOrderInput
+            @doc(description: "The unique ID of the cart to query.")
+    ): CartDetails
+        @resolver(class: "\\Bat\\BulkOrder\\Model\\Resolver\\CartData")
+        @doc(
+            description: "Return information about the specified shopping cart."
+        )
+        @cache(cacheable: false)
+
+   validateParentOutlet(parentOutletId: String!): ParentOutletOutput
+    @resolver(
+        class: "\\Bat\\BulkOrder\\Model\\Resolver\\ParentOutlet"
+    )
+    @doc(description: "Validate Parent outlet ID") 
+
+    getOutletsForBulkOrder(parentOutletId: String!): [ChildOutletDataOutput]
+        @resolver(class: "\\Bat\\BulkOrder\\Model\\Resolver\\GetChildOutletData")
+        @doc(description: "Get Child Outlet Data")
+} 
+
+type ChildOutletDataOutput {
+    outlet_id: String
+    outlet_name: String
+    status: Int
+    status_label: String
+}
+
+input BulkOrderInput {
+    parent_outlet: String
+}
+
+type CartDetails {
+    cartDetails: [CartDetailsOuput]
+    outletDetails: OutletDetailsOutput
+}
+
+interface CartItemInterface @typeResolver(class: "Magento\\QuoteGraphQl\\Model\\Resolver\\CartItemTypeResolver") @doc(description: "An interface for products in a cart.") {
+     bulk_item_message: String @resolver(class: "Bat\\BulkOrder\\Model\\Resolver\\GetBulkItemDiscountMessage")
+}
+
+type CartDetailsOuput {
+    vbaBulkDetails: VbaBulkDetailsOutput
+    outletName: String
+    cartItemsCount: Int
+    cartItemsQty: Int
+    is_active: Boolean
+    is_parent: Boolean
+    is_credit_customer: Boolean
+    is_first_order: Boolean
+    discount: String
+    masked_cart_id: String
+    outlet_id: Int
+    cartData: Cart
+    overpayment: String
+    order_grand_total: Float
+    remaining_ar: String
+    minimum_payment: String
+    bulk_discount_message: [String]
+    net: Float
+    vat: Float
+}
+
+type OutletDetailsOutput {
+    total_stores: Int
+    total_qty: String
+    total_count: String
+    subtotal: String
+    total_discount: String
+    total: String
+    overpayment: String
+    remaining_ar: String
+    minimum_payment: String
+    is_credit_customer: Boolean
+    vbaBulkDetails: VbaBulkDetailsOutput
+    payment_deadline_date: String,
+    first_payment_deadline_date: String
+    bulk_net_amount: Float
+    bulk_vat_amount: Float
+}
+
+input RemoveCartDetails {
+    cart_id: String
+}
+
+type RemoveCartOutput {
+    success: Boolean
+    message: String
+}
+
+input RemoveBulkOrderCartItem {
+    masked_cart_id: String
+    cart_item_id: String
+}
+
+type RemoveBulkCartItemOutput {
+    success: Boolean
+    message: String
+    bulk_discount_message: [String]
+}
+
+type VbaBulkDetailsOutput {
+    account_holder_name: String
+    account_number: String
+    bankDetails: BankDetailsOutput
+}
+
+type BankDetailsOutput {
+    bank_code: String
+    bank_name: String
+}
+
+input UpdateBulkOrderCartItem {
+    masked_cart_id: String
+    cart_item_id: String
+    quantity: Int
+}
+
+type UpdateBulkCartItemOutput {
+    success: Boolean
+    message: String
+    bulk_discount_message: [String]
+    bulk_item_message: String
+}
+
+input AddBulkOrderCartItem {
+    masked_cart_id: String
+    cart_items: [BulkCartItemInput!]
+}
+
+input BulkCartItemInput {
+    data: BulkItemInput!
+}
+
+input BulkItemInput {
+    sku: String
+    quantity: Int
+}
+
+type AddBulkCartItemOutput {
+    success: Boolean
+    message: String
+    bulk_discount_message: [String]
+    bulk_item_message: String
+}
+
+type ParentOutletOutput {
+   success: Boolean
+}

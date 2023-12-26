@@ -1,0 +1,14 @@
+{
+    "quote": {
+        "column": {
+            "order_consent": true,
+            "eda_order_type": true
+        }
+    },
+    "sales_order": {
+        "column": {
+            "order_consent": true,
+            "eda_order_type": true
+        }
+    }
+}

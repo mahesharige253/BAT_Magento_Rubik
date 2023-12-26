@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="bat_order_cancel">
+        <job instance="Bat\OrderProducts\Cron\CancelOrder" method="execute" name="bat_order_cancel">
+            <config_path>payment_deadline/bat_order_cancel/sales_order_cron_config</config_path>
+        </job>
+        <job instance="Bat\OrderProducts\Cron\OrderPaymentReminder" method="execute" name="bat_order_payment_reminder">
+            <config_path>payment_deadline/bat_order_payment_reminder/order_payment_reminder_cron_config</config_path>
+        </job>
+    </group>
+</config>

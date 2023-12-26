@@ -1,0 +1,17 @@
+{
+    "name": "bat/magento-log",
+    "description": "Bat Magento API Log",
+    "type": "magento2-module",
+    "version": "3.0.1",
+    "require": {
+        "magento/magento2-base": ">=2.4.4"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Bat\\Log\\": ""
+        }
+    }
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Bat_NewProduct::configuration"  title="New/Recommended Product Carousel" translate="title" sortOrder="40" />
+                        </resource>
+                    </resource>
+                </resource>
+                <resource id="Bat_NewProduct::carousel" title="Home Page Carousel" translate="title" sortOrder="50">
+                    <resource id="Bat_NewProduct::newProduct"  title="Manage New/Recommended Products" translate="title" sortOrder="10" />
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

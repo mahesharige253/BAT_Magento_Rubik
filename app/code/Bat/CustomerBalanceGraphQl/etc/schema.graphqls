@@ -1,0 +1,27 @@
+type Cart {
+    credit_customer: CreditDetails! @doc(description: "Credit Customer detail") @resolver(class: "Bat\\CustomerBalanceGraphQl\\Model\\Resolver\\CreditCustomer")
+    non_credit_customer: NonCreditDetails! @doc(description: "Non Credit Customer Payment detail") @resolver(class: "Bat\\CustomerBalanceGraphQl\\Model\\Resolver\\NonCreditCustomer")
+    is_credit_customer: Boolean @doc(description: "IsCreditCustomer status") @resolver(class: "Bat\\CustomerBalanceGraphQl\\Model\\Resolver\\IsCreditCustomer")
+    is_first_order: Boolean @doc(description: "isFirstOrder status") @resolver(class: "Bat\\CustomerBalanceGraphQl\\Model\\Resolver\\IsFirstOrder")
+    vba_details: VbaInfo @doc(description: "vba details") @resolver(class: "Bat\\CustomerBalanceGraphQl\\Model\\Resolver\\VbaDetails")
+    payment_deadline: String @doc(description: "payment deadline") @resolver(class: "Bat\\CustomerBalanceGraphQl\\Model\\Resolver\\PaymentDeadline")
+    first_payment_deadline: String @doc(description: "First payment deadline") @resolver(class: "Bat\\CustomerBalanceGraphQl\\Model\\Resolver\\FirstPaymentDeadline")
+    netvat_amount: NetVatAmount @resolver(class: "Bat\\CustomerBalanceGraphQl\\Model\\Resolver\\NetVatAmount")
+}
+
+type CreditDetails {
+    remaining_ar: Float
+    overpayment: Float
+    minimum_payment: Float
+    grand_total: Float
+}
+
+type NonCreditDetails {
+    overpayment: Float
+    grand_total: Float
+}
+
+type NetVatAmount {
+    net: Float
+    vat: Float
+}

@@ -1,0 +1,16 @@
+/*adding company icon on admin panel menu bar navigate*/
+#menu-navigate-core-core > a:before { content: url('../images/navigate.png'); margin-bottom: 5px; }
+.config-nav .navigate-extensions .admin__page-nav-title:before {
+    content: '';
+    background-image: url('../images/navigate.png');
+    background-repeat: no-repeat;
+    background-size: 30px;
+    background-position: 0 0;
+    height: 30px;
+    position: absolute;
+    width: 30px;
+    top: 11px;
+}
+.config-nav .navigate-extensions .admin__page-nav-title strong {
+    margin-left: 40px;
+}

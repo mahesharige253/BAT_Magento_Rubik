@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="quote" resource="default" engine="innodb" comment="Quote">
+       <column xsi:type="boolean" name="order_consent" nullable="true" comment="Order Consent"/>
+       <column xsi:type="varchar" name="eda_order_type" nullable="true" comment="Order Type for EDA"/>
+    </table>
+    <table name="sales_order" resource="default" engine="innodb" comment="Sales Order">
+        <column xsi:type="boolean" name="order_consent" nullable="true" comment="Order Consent"/>
+        <column xsi:type="varchar" name="eda_order_type" nullable="true" comment="Order Type for EDA"/>
+    </table>
+</schema>

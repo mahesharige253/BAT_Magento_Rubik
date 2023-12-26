@@ -1,0 +1,60 @@
+type Query {
+    priceTagList(is_bulkorder: Int): [PriceTagCustomer] @resolver(class:"Bat\\PriceTagsGraphQl\\Model\\Resolver\\PriceTag") @doc(description:"The PriceTagCustomer query returns Pricetaglist") @cache(cacheable: false)
+    orderPriceTagList(orderId: Int! @doc(description: "The order ID of the order.")): [OrderPriceTagCustomer] @resolver(class:"Bat\\PriceTagsGraphQl\\Model\\Resolver\\OrderPriceTag") @doc(description:"The OrderPriceTagCustomer query returns OrderPricetaglist") @cache(cacheable: false)
+    cartPriceTagList: [CustomerPriceTagItem] @resolver(class:"Bat\\PriceTagsGraphQl\\Model\\Resolver\\CustomerPriceTagItem") @doc(description:"The cartPriceTagItems query returns cartPriceTagList") @cache(cacheable: false)
+}
+type PriceTagCustomer @doc(description: "PriceTagCustomer defines the customer available price tag list") {
+    priceTagImage: String
+    priceTagName: String
+    priceTagSku: String
+    pricetag_type: Int
+}
+
+type OrderPriceTagCustomer @doc(description: "OrderPriceTagCustomer defines the customer available price tag list") {
+    priceTagImage: String
+    priceTagName: String
+    priceTagSku: String
+}
+
+type CustomerPriceTagItem @doc(description: "CustomerPriceTagItem defines the customer available price tag list") {
+    priceTagImage: String
+    priceTagName: String
+    priceTagSku: String
+    pricetag_type: Int
+}
+
+type Mutation {
+    addPriceTagItems(input: AddPriceTagToCartInput!): [AddPriceTagOutput] @resolver(class: "Bat\\PriceTagsGraphQl\\Model\\Resolver\\AddUpdatePriceTag") @doc(description:"Add Update Price tag items")
+}
+
+input AddPriceTagToCartInput @doc(description: "Defines the simple and group products to add to the cart.") {
+    cart_id: String! @doc(description: "The unique ID of a `Cart` object.")
+    pricetag_items: [PriceTagCartItemInput] @doc(description: "An array of simple and group items to add.")
+}
+
+input PriceTagCartItemInput @doc(description: "Defines a single product to add to the cart.") {
+    data: PriceTagItemInput @doc(description: "An object containing the `sku`, `quantity`, and other relevant information about the product.")
+}
+
+input PriceTagItemInput @doc(description: "Defines an item to be added to the cart.") {
+    sku: String! @doc(description: "The SKU of the price tag product.")
+    quantity: Float! @doc(description: "The amount or number of an item to add.")
+}
+
+type AddPriceTagOutput {
+    
+    priceTagImage: String
+    priceTagName: String
+    priceTagSku: String
+}
+
+type PricetagItems {
+    priceTagImage: String
+    priceTagName: String
+    priceTagSku: String
+    pricetag_type: Int
+}
+
+interface CartItemInterface @typeResolver(class: "Magento\\QuoteGraphQl\\Model\\Resolver\\CartItemTypeResolver") @doc(description: "An interface for products in a cart.") {
+    is_price_tag: Boolean @doc(description: "is_price_tag status") @resolver(class: "Bat\\PriceTagsGraphQl\\Model\\Resolver\\IsPriceTag")
+}

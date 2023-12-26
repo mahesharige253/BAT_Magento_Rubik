@@ -1,0 +1,74 @@
+type Query {
+    orderProducts(
+        order_id: Int @doc(description: "Id of the Sales Order")
+    ): OrderProductsOutput
+        @resolver(class: "Bat\\OrderProducts\\Model\\Resolver\\OrderProducts")
+        @doc(
+            description: "The OrderProductsOutput will return the list of ordered products on Thankyou page after order placed."
+        )
+
+    orderDetails(
+        order_id: Int @doc(description: "Id of the Sales Order")
+    ): OrderDetailsOutput
+        @resolver(class: "Bat\\OrderProducts\\Model\\Resolver\\OrderDetails")
+        @doc(
+            description: "The OrderDetailsOutput will return the order details on Thankyou page after order placed."
+        )
+}
+
+type OrderProductsOutput {
+    product_count: String
+        @doc(description: "Return the total ordered product count")
+    items: [Items] @doc(description: "An array of all items data of order")
+}
+
+type Items @doc(description: "An array containing all the items of order") {
+    sku: String @doc(description: "SKU of Sales Order Item")
+    title: String @doc(description: "title of Sales Order Item")
+    price: Float @doc(description: "price of Sales Order Item")
+    quantity: String @doc(description: "price of Sales Order Item")
+    subtotal: String @doc(description: "price of Sales Order Item")
+    image: String @doc(description: "price of Sales Order Item")
+    product_image: String @doc(description: "Product images")
+    default_attribute: String @doc(description: "Magento's Catalog Product Attribute List")
+    is_price_tag: Boolean @doc(description: "is price tag item")
+    short_prod_nm: String @doc(description: "Short description")
+}
+
+type OrderDetailsOutput {
+    payment_deadline: String
+        @doc(description: "Returns the deadline of the payment")
+    message: String @doc(description: "Returns the message")
+    order_id: String @doc(description: "Return the order id")
+    discounts: String
+    order_amount: String @doc(description: "Return the order amount")
+    order_grand_total: Float
+    order_status: String @doc(description: "Return the order status")
+    order_date: String @doc(description: "Return the order date")
+    outlet_name: String @doc(description: "Return the name of the outlet")
+    outlet_owner_name: String
+        @doc(description: "Return the name of the outler owner")
+    is_first_order: Boolean @doc(description: "Return is true or false for is first order")
+    address: AddressOutput @doc(description: "Return the addrdess array")
+    phone_number: String @doc(description: "Return the phone number")
+    bank_details: BankDetails
+    account_number: String
+        @doc(description: "Return the account number of the bank")
+    account_holder: String
+        @doc(description: "Return the name of the account holder")
+    net: Float
+    vat: Float
+}
+
+type AddressOutput {
+    street: StreetOutput @doc(description: "Return the street array")
+    city: String @doc(description: "Return the city name")
+    region: String @doc(description: "Return the region name")
+    postal: String @doc(description: "Return the postal code of the area")
+}
+
+type StreetOutput {
+    street1: String @doc(description: "Return the street 1 value")
+    street2: String @doc(description: "Return the street 2 value")
+}
+

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../app/code/Magento/Webapi/etc/webapi.xsd">
+    <route method="GET" url="/V1/kakao/get-template/:templateCode">
+        <service class="Bat\Kakao\Api\TemplateInterface" method="getTemplate"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route method="POST" url="/V1/kakao/send-sms">
+        <service class="Bat\Kakao\Api\TemplateInterface" method="sendSms"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route method="GET" url="/V1/kakao/send-test-sms/:templateCode">
+        <service class="Bat\Kakao\Api\TemplateInterface" method="sendTestSms"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+</routes>

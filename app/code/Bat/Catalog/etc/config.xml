@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <bat_catalog_section>
+            <general>
+                <product_image_width>300</product_image_width>
+                <product_image_height>244</product_image_height>
+                <product_detail_page_image_width>375</product_detail_page_image_width>
+                <product_detail_page_image_height>375</product_detail_page_image_height>
+            </general>
+        </bat_catalog_section>
+    </default>
+</config>

@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="bat_eda_order_update">
+        <job instance="Bat\Sales\Cron\CreateOrderEda" method="execute" name="create_order_eda">
+            <config_path>bat_integrations/bat_order/eda_order_cron_schedule</config_path>
+        </job>
+    </group>
+    <group id="bat_delivery_delay">
+        <job instance="Bat\Sales\Cron\DeliveryDelayCron" method="execute" name="bat_delivery_delay">
+            <config_path>bat_sales/delivery_delay/cron_enable</config_path>
+        </job>
+    </group>
+</config>

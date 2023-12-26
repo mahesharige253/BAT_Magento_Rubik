@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+   <table name="quote_item" resource="default" engine="innodb">
+      <column xsi:type="int" name="is_price_tag" padding="11" unsigned="false" nullable="true" default="0" comment="Is price tag"/>
+   </table>
+   <table name="sales_order_item" resource="default" engine="innodb">
+      <column xsi:type="int" name="is_price_tag" padding="11" unsigned="false" nullable="true" default="0" comment="Is price tag"/>
+   </table>
+</schema>

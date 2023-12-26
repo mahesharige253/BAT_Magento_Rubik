@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <listingToolbar name="listing_top">
+        <massaction name="listing_massaction">
+            <action name="jokerorder_npi">
+                <settings>
+                    <url path="jokerorder/customer_action_attribute/npi"/>
+                    <type>npi</type>
+                    <label translate="true">NPI -Joker Order</label>
+                </settings>
+            </action>
+            <action name="jokerorder_ecall">
+                <settings>
+                    <url path="jokerorder/customer_action_attribute/ecall"/>
+                    <type>ecall</type>
+                    <label translate="true">E-Call -Joker Order</label>
+                </settings>
+            </action>
+        </massaction>
+    </listingToolbar>
+</listing>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Bat_NewProduct::carousel" title="Carousels" translate="title" module="Bat_CustomerConsentForm" sortOrder="20" parent="Bat_CustomerConsentForm::menu" dependsOnModule="Bat_CustomerConsentForm" resource="Bat_NewProduct::carousel"/>
+        <add id="Bat_NewProduct::newProduct" title="New/Recommended Products" module="Bat_NewProduct" sortOrder="10" parent="Bat_NewProduct::carousel" resource="Bat_NewProduct::newProduct" action="newproduct/newproduct/index"/>
+    </menu>
+</config>

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <link src="Bat_AccountClosure::js/accountclosure.js"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Bat\AccountClosure\Block\Adminhtml\Accountclosure\Edit"
+                name="accountclosure_edit"/>
+        </referenceContainer>
+        
+         <referenceContainer name="left">
+            <block class="Bat\AccountClosure\Block\Adminhtml\Accountclosure\Edit\Tabs"
+                name="accountclosure_edit_tabs">
+                <block class="Bat\AccountClosure\Block\Adminhtml\Accountclosure\Edit\Tab\Main" name="accountclosure_edit_tab_Main"/>
+           
+           <action method="addTab">
+                    <argument name="name" xsi:type="string">main_section</argument>
+                    <argument name="block" xsi:type="string">accountclosure_edit_tab_Main</argument>
+                </action>  
+            </block>
+        </referenceContainer>
+         
+    </body>
+</page>

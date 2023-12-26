@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="bat_eda_customer_update">
+        <job instance="Bat\Customer\Cron\CreateCustomerEda" method="execute" name="create_customer_eda">
+            <config_path>bat_integrations/bat_customer/eda_customer_cron_schedule</config_path>
+        </job>
+    </group>
+    <group id="bat_customer_terminate">
+        <job instance="Bat\Customer\Cron\TerminateCustomer" method="execute" name="terminate_customer">
+            <config_path>bat_customer_termination/general/account_termination_cron_schedule</config_path>
+        </job>
+    </group>
+    <group id="bat_order_frequency_day">
+         <job instance="Bat\Customer\Cron\OrderFrequencyDayCron" method="execute" name="order_frequency_day">
+            <config_path>order_frequency/order_day/full_cron_expression</config_path>
+        </job>
+    </group>
+    <group id="bat_consent_acceptance_notification">
+         <job instance="Bat\Customer\Cron\ConsentAcceptanceNotificationCron" method="execute" name="consent_acceptance_notification">
+            <config_path>marketingconsent_time/consent_notification/full_cron_expression</config_path>
+        </job>
+    </group>
+    <group id="bat_customer_rejected_data">
+         <job instance="Bat\Customer\Cron\RejectedCustomerDelete" method="execute" name="account_rejection_data">
+            <config_path>bat_customer_rejection/general/account_rejection_cron_schedule</config_path>
+        </job>
+    </group>
+     <group id="bat_customer_terminated_data">
+         <job instance="Bat\Customer\Cron\TerminatedCustomerDelete" method="execute" name="account_terminate_data">
+            <config_path>bat_customer_termination/delete_terminate_account/account_terminate_cron_schedule</config_path>
+        </job>
+    </group>
+     <group id="customer_refreshsegment">
+        <job instance="Bat\Customer\Cron\CustomerRefreshSegmentCron" method="refreshSegments" name="customer_refreshsegment">
+            <config_path>bat_customer/customer_refreshsegment/customer_refresh_segment_cron_config</config_path>
+        </job>
+    </group>
+</config>

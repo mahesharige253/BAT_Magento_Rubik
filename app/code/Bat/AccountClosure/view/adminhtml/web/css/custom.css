@@ -1,0 +1,13 @@
+.accountclosure-accountclosure-searchoutlet .page-content {
+    min-height: 500px;
+} 
+
+.accountclosure-accountclosure-index .admin__filter-actions , 
+.accountclosure-accountclosure-index .data-grid-filters {
+    display: none
+}
+
+.accountclosure-accountclosure-indexpage .admin__filter-actions , 
+.accountclosure-accountclosure-indexpage .data-grid-filters {
+    display: none
+}

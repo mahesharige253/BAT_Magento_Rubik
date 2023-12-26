@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <bat_log>
+            <rest>
+                <status>0</status>
+            </rest>
+            <graphql>
+                <status>0</status>
+            </graphql>
+        </bat_log>
+    </default>
+</config>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+    <tab id="bat_general_config" translate="label" sortOrder="10">
+            <label>BAT</label>
+        </tab>
+        <section id="bat_bulkorder" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="0">
+            <class>separator-top</class>
+            <label>Bulk Order CSV cron</label>
+            <tab>bat_general_config</tab>
+            <resource>Bat_BulkOrder::bulkorder_config</resource>
+            <group id="bulkorder" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                <field id="full_cron_expression" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                   <label>Generate Bulk Order CSV Cron Time</label>
+                   <comment>0 0 * * * it should be in this format. this will run every night at midnight.</comment>
+                </field>
+                <field id="log_enabled" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Log Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+        <section id="bat_adminbulkorder" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="0">
+            <class>separator-top</class>
+            <label>Bulk Order</label>
+            <tab>bat_general_config</tab>
+            <resource>Bat_BulkOrder::bulkorder_first_order_pricetag_config</resource>
+            <group id="adminbulkorder" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                <!-- <field id="bulkorder_enabled" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Bulk Order Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field> -->
+                <field id="first_order_price_tag" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>First Order Price Tag Package SKU</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

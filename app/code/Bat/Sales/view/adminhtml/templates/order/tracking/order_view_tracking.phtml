@@ -1,0 +1,62 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * @var $block \Magento\Sales\Block\Adminhtml\Order\AbstractOrder
+ * @var \Magento\Framework\View\Helper\SecureHtmlRenderer $secureRenderer
+ */
+
+/** @var \Magento\Shipping\Helper\Data $shippingHelper */
+$shippingHelper = $block->getData('shippingHelper');
+/** @var \Magento\Tax\Helper\Data $taxHelper */
+$taxHelper = $block->getData('taxHelper');
+?>
+<?php $order = $block->getOrder() ?>
+<?php if ($order->getIsVirtual()):
+    return '';
+endif; ?>
+
+<?php /* Shipping Method */ ?>
+<div class="admin__page-section-item order-shipping-method">
+    <div class="admin__page-section-item-title">
+        <span class="title"><?= $block->escapeHtml(__('Shipping Information')) ?></span>
+    </div>
+    <?php if ($order->getIsShipmentAvailable()): ?>
+    <div class="admin__page-section-item-content">
+        <table class="data-table admin__control-table" id="shipment_tracking_info">
+            <thead>
+            <tr class="headings">
+                <th class="col-carrier"><?= $block->escapeHtml(__('Carrier Code')) ?></th>
+                <th class="col-title"><?= $block->escapeHtml(__('Carrier Name')) ?></th>
+                <th class="col-number"><?= $block->escapeHtml(__('AWB Number')) ?></th>
+                <th class="col-delete last"><?= $block->escapeHtml(__('Tracking Url')) ?></th>
+            </tr>
+            </thead>
+            <?php if ($order): ?>
+                <tbody>
+                <tr class="">
+                    <td class="col-carrier"><?= $block->escapeHtml($order->getCarrierCode()) ?></td>
+                    <td class="col-title"><?= $block->escapeHtml($order->getCarrierName()) ?></td>
+                    <td class="col-title"><?= $block->escapeHtml($order->getAwbNumber()) ?></td>
+                    <td class="col-title">
+                        <?php if ($order->getTrackingUrl() != ''):?>
+                        <a href="<?= $block->escapeUrl($order->getTrackingUrl()) ?>"
+                           target="_blank">
+                            <span><?= $block->escapeHtml(__('Track Order')) ?></span>
+                        </a>
+                        <?php endif; ?>
+                    </td>
+                </tr>
+                </tbody>
+            <?php endif; ?>
+        </table>
+    </div>
+    <?php else: ?>
+        <div class="admin__page-section-item-no-info">
+            <span class="title"><?= $block->escapeHtml(__('No Information Available')) ?></span>
+        </div>
+    <?php endif; ?>
+</div>

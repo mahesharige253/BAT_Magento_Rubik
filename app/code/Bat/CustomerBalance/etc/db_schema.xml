@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="magento_customerbalance" resource="default" engine="innodb">
+        <column xsi:type="decimal" name="credit_limit" scale="4" precision="20" nullable="false" default="0" comment="Credit Limit"/>
+        <column xsi:type="decimal" name="credit_exposure" scale="4" precision="20" nullable="false" default="0" comment="Credit Exposure"/>
+        <column xsi:type="boolean" name="overdue_flag" nullable="true" default="0" comment="Payment Overdue status"/>
+        <column xsi:type="decimal" name="overdue_amount" scale="4" precision="20" nullable="false" default="0" comment="Overdue Amount"/>
+        <column xsi:type="decimal" name="amount" scale="4" precision="20" nullable="false" default="0"
+                        comment="Balance Amount"/>
+    </table>
+    <table name="bat_orderbalance" resource="default" engine="innodb">
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true" comment="Entity ID"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated At"/>
+        <column xsi:type="int" name="customer_id" unsigned="true" nullable="false" identity="false" default="0" comment="Customer Id"/>
+        <column xsi:type="decimal" name="available_balance" scale="4" precision="20" nullable="false" default="0" comment="Available Balance"/>
+        <column xsi:type="decimal" name="balance_changed" scale="4" precision="20" nullable="false" default="0" comment="Balance changed"/>
+        <column xsi:type="varchar" name="action" nullable="true" comment="Action"/>
+        <column xsi:type="longtext" name="comment" nullable="true" comment="Additional Info"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+    </table>
+</schema>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="bat_general_config" translate="label" sortOrder="10">
+            <label>BAT</label>
+        </tab>
+        <section id="bannerslider" showInDefault="1" showInWebsite="1" showInStore="1" type="text" translate="Bannerslider Information" sortOrder="200">
+            <label>Banner Slider</label>
+            <tab>bat_general_config</tab>
+            <resource>Navigate_BannerSlider::config_bannerslider</resource>
+            <group id="general" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20">
+                <label>General Settings</label>
+                <field id="enable" translate="Enable Module" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable Module</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+
+            <group id="slider" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20">
+                <label>Slider Settings</label>
+                <depends>
+                    <field id="*/general/enable">1</field>
+                </depends>
+                <field id="autoplay" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Slider Autoplay</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="autoplay_timing" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Slider Autoplay Timing</label>
+                    <depends><field id="autoplay">1</field></depends>
+                    <validate>required-entry validate-digits</validate>
+                </field>
+
+                <field id="item_desktop" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Slider Item For Desktop</label>
+                    <validate>required-entry validate-digits</validate>
+                  </field>
+
+                <field id="item_mobile" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Slider Item For mobile</label>
+                    <validate>required-entry validate-digits</validate>
+                  </field>
+
+                <field id="show_arrow" translate="label" type="select" sortOrder="4" showInDefault="4" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Show Arrow</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="show_dots" translate="label" type="select" sortOrder="4" showInDefault="4" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Show Dots</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                 <field id="infinite" translate="label" type="select" sortOrder="4" showInDefault="4" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Infinite</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

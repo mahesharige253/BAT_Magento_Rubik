@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="sales_order_place_before">
+        <observer name="order_before" instance="Bat\Sales\Observer\SalesOrderPlaceBefore" />
+    </event>
+    <event name="order_cancel_after">
+        <observer name="bat_order_cancel" instance="Bat\Sales\Observer\OrderCancelAfter" />
+    </event>
+    <event name="sales_model_service_quote_submit_success">
+        <observer name="update_invoice_eda_pending_orders" instance="Bat\Sales\Observer\UpdateOrder" />
+    </event>
+    <event name="sales_quote_add_item">
+        <observer name="add_custom_data_quote_item" instance="Bat\Sales\Observer\UpdateQuoteItem" />
+    </event>
+</config>

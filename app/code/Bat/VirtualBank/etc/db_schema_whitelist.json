@@ -1,0 +1,30 @@
+{
+    "bat_vba_master": {
+        "column": {
+            "vba_id": true,
+            "vba_no": true,
+            "vba_bank": true,
+            "vba_assigned_status": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "BAT_VBA_MASTER_VBA_NO": true
+        }
+    },
+    "bat_virtual_bank": {
+        "column": {
+            "bank_id": true,
+            "bank_name": true,
+            "bank_status": true,
+            "created_at": true,
+            "updated_at": true,
+            "notification_sent": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "BAT_VIRTUAL_BANK_BANK_NAME": true
+        }
+    }
+}

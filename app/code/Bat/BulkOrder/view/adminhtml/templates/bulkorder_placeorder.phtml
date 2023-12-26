@@ -1,0 +1,45 @@
+<?php
+$data = $block->getBulkOrderDetails();
+$bulkOrderId = $block->getBulkOrderId();
+$paymentDeadline = $data[0]['payment_deadline'];
+?>
+<div class="admin__page-section-content">
+    <div class="admin__page-section-item-title" style="text-align: center;">
+        <span class="title"><?= $block->escapeHtml(__('Bulk Order Successfully Placed')) ?></span>
+    </div>
+    <div class="admin__page-section-item order-information"  style="width:100%">
+        <div class="admin__page-section-item-content" style="margin: auto;max-width: 500px;">
+            <table class="admin__table-secondary order-information-table">
+                <tbody>
+                    <tr>
+                        <th><?= $block->escapeHtml(__('Bulk Order Id')) ?>:</th>
+                        <td><strong><?= $block->escapeHtml(__($bulkOrderId)) ?></strong></td>
+                    </tr>
+                    <tr>
+                        <th><?= $block->escapeHtml(__('Payment Deadline')) ?>:</th>
+                        <td><strong><?= $block->escapeHtml(__($paymentDeadline)) ?></strong></td>
+                    </tr>
+                   </tbody>
+               </table>
+        </div>
+    </div>
+</div>
+
+<table  class="data-grid" style="width:500px; margin: auto;">
+    <thead>
+<tr>
+    <th class="data-grid-th col-period no-link col-period"><?= $block->escapeHtml(__('Outlet Id')) ?></th>
+    <th class="data-grid-th col-period no-link col-period"><?= $block->escapeHtml(__('Order Increment Id')) ?></th>
+</tr>
+
+</thead>
+
+<?php foreach ($data as $orderData) { ?>
+    <tr>
+    <td><?= $block->escapeHtml(__($orderData['outlet_id'])) ?></td>
+    <td><?= $block->escapeHtml(__($orderData['order_id'])) ?></td>
+</tr>
+<?php } ?>
+</tr>
+</table>
+

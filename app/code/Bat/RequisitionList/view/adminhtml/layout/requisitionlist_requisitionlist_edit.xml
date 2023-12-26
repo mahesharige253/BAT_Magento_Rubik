@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <link src="Bat_RequisitionList::js/requisitionList.js"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Bat\RequisitionList\Block\Adminhtml\Requisitionlist\Edit"
+                name="requisitionlist_edit"/>
+        </referenceContainer>
+         <referenceContainer name="left">
+            <block class="Bat\RequisitionList\Block\Adminhtml\Requisitionlist\Edit\Tabs"
+                name="requisitionlist_edit_tabs">
+                <block class="Bat\RequisitionList\Block\Adminhtml\Requisitionlist\Edit\Tab\Main" name="requisitionlist_edit_tab_Main"/>
+           
+           <action method="addTab">
+                    <argument name="name" xsi:type="string">main_section</argument>
+                    <argument name="block" xsi:type="string">requisitionlist_edit_tab_Main</argument>
+                </action>  
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">requisitionlist_products</argument>
+                    <argument name="block" xsi:type="array">
+                        <item name="label" xsi:type="string">Select Products</item>
+                        <item name="title" xsi:type="string">Select Products</item>
+                        <item name="url" xsi:type="helper" helper="Bat\RequisitionList\Helper\Data::getProductsGridUrl"></item>
+                        <item name="class" xsi:type="string">ajax</item>
+                    </argument>
+                </action>
+            </block>
+        </referenceContainer>
+         
+    </body>
+</page>

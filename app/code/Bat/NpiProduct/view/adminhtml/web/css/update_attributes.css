@@ -1,0 +1,15 @@
+.field-change_new_product_tag{
+    margin: 0px;
+}
+.admin__scope-old .fieldset .field {
+    margin: 0px;
+}
+.admin__fieldset > .admin__field {
+    margin-bottom: 0rem;
+}
+.admin__field + .admin__field {
+    margin-top: 1.5rem;
+}
+.admin__field.field.field-limited_product_tag {
+    padding-top: 30px;
+}

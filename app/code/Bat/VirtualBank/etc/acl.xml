@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Bat_VirtualBank::configuration"  title="VBA Configuration" translate="title" sortOrder="40" />
+                        </resource>
+                        <resource id="Bat_Customer::vba_change_by_admin" 
+                            title="VBA Change By Admin" sortOrder="50"/>
+                    </resource>
+                </resource>
+                <resource id="Bat_VirtualBank::vba" title="VBA" translate="title" sortOrder="50">
+                    <resource id="Bat_VirtualBank::banks"  title="Manage Banks" translate="title" sortOrder="40" />
+                    <resource id="Bat_VirtualBank::accounts"  title="Manage Imports" translate="title" sortOrder="40" />
+                    <resource id="Bat_VirtualBank::delete"  title="Delete Banks" translate="title" sortOrder="40" />
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

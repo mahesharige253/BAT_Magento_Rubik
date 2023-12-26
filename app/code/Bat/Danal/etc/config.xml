@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <danal>
+            <setting>
+                <danal_url>https://wauth.teledit.com/Danal/WebAuth/Web/Start.php</danal_url>
+            </setting>
+        </danal>
+    </default>
+</config>

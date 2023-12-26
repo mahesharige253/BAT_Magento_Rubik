@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="bat_vba_master" resource="default" engine="innodb">
+        <column xsi:type="int" name="vba_id" unsigned="true" nullable="false" identity="true" comment="Vba Id"/>
+        <column xsi:type="varchar" name="vba_no" nullable="false" length="50" comment="Vba No"/>
+        <column xsi:type="varchar" name="bank_code" nullable="false" length="50" comment="Vba Associated to Bank"/>
+        <column xsi:type="int" name="vba_assigned_status" default="0" unsigned="true" nullable="true" comment="Vba Assigned Status"/>
+        <column xsi:type="timestamp" name="created_at" default="CURRENT_TIMESTAMP" on_update="false" nullable="false" comment="Vba Created At"/>
+        <column xsi:type="timestamp" name="updated_at" default="CURRENT_TIMESTAMP" on_update="true" nullable="true" comment="Vba Updated At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="vba_id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="BAT_VBA_MASTER_VBA_NO">
+            <column name="vba_no"/>
+        </constraint>
+    </table>
+
+    <table name="bat_virtual_bank" resource="default" engine="innodb">
+        <column xsi:type="int" name="bank_id" unsigned="true" nullable="false" identity="true" comment="Virtual Bank Id"/>
+        <column xsi:type="varchar" name="bank_code" nullable="false" length="50" comment="Virtual Bank Code"/>
+        <column xsi:type="varchar" name="bank_name" nullable="false" length="50" comment="Virtual Bank No"/>
+        <column xsi:type="int" name="bank_status" unsigned="true" default="0" nullable="false" comment="Virtual Bank Status"/>
+        <column xsi:type="timestamp" name="created_at" default="CURRENT_TIMESTAMP" on_update="false" nullable="false" comment="Virtual Bank Created At"/>
+        <column xsi:type="timestamp" name="updated_at" default="CURRENT_TIMESTAMP" on_update="true" nullable="true" comment="Virtual Bank Updated At"/>
+        <column xsi:type="int" name="notification_sent" default="0" unsigned="true" nullable="true" comment="Availabilty Notification Sent"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="bank_id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="BAT_VIRTUAL_BANK_BANK_CODE">
+            <column name="bank_code"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="BAT_VIRTUAL_BANK_BANK_NAME">
+            <column name="bank_name"/>
+        </constraint>
+    </table>
+</schema>

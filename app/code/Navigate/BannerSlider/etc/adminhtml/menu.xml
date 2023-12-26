@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2021 Navigate. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+    <menu>
+        <add id="Navigate_BannerSlider::main" title="Banner Slider" translate="Banner Slider" module="Navigate_BannerSlider" parent="Navigate_Core::core" sortOrder="200" resource="Navigate_BannerSlider::bannerslider" dependsOnConfig="bannerslider/general/enable"/>
+        <add id="Navigate_BannerSlider::bannerslider" parent="Navigate_BannerSlider::main" title="Manage Banner Slider" module="Navigate_BannerSlider"  sortOrder="100" dependsOnModule="Navigate_BannerSlider" action="bannerslider/bannerslider/index" resource="Navigate_BannerSlider::bannerslider"/>
+         <add id="Navigate_BannerSlider::configuration_menu" title="Configurations" module="Navigate_BannerSlider" parent="Navigate_BannerSlider::main" sortOrder="200" action="adminhtml/system_config/edit/section/bannerslider" resource="Navigate_BannerSlider::config_bannerslider"/>
+    </menu>
+</config>

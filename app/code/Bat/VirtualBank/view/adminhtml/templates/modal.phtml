@@ -1,0 +1,119 @@
+<?php
+/**
+ * @var $block \Bat\VirtualBank\Block\Adminhtml\Modal
+ */
+?>
+<div id="vba-admin-modal" style="display: none">
+<?php $bankList = $block->escapeHtml($block->getBankList());
+    $formKey = $block->getFormKey();
+    $customerId = $block->getCustomerId();
+    $currentBank = $block->getCurrentBank();
+?>
+    <form action="<?= $block->escapeUrl($block->getUrl('vba/customer/updatevba')) ?>" method="post"
+          id="vba_change_form">
+        <?php if (!empty($bankList)) { ?>
+            <div class="customer-popup-heading"><?= $block->escapeHtmlAttr('Change Bank Name');?></div>
+            <input name="customer_id" type="hidden" value="<?= $block->escapeHtmlAttr($customerId) ?>">
+            <input name="form_key" type="hidden" value="<?= $block->escapeHtmlAttr($formKey) ?>">
+            <select name="virtual_bank" id="virtual_bank">
+                    <?php
+                    foreach ($bankList as $key => $value) {
+                        $selected = '';
+                        $disabled = '';
+                        if ($currentBank['code'] == ($value[0])) {
+                            $selected = 'selected';
+                            $disabled = 'disabled';
+                        }?>
+                <option value="<?= $block->escapeHtmlAttr($value[0]) ?>"
+                        <?= $block->escapeHtmlAttr($selected) ?> <?= $block->escapeHtmlAttr($disabled) ?>  >
+                        <?= $block->escapeHtmlAttr($value[1]) ?></option>
+                    <?php } ?>
+            </select>
+
+            <input type="submit" value= "<?= __('Submit') ?>" id="bank_submit">
+            <div class="current_selected_bank">
+                <span><?= $block->escapeHtmlAttr("Current bank name:") ?></span><span> <?= $block->escapeHtmlAttr($currentBank['label']) ?></span>
+            </div>
+        <?php  } else {
+              echo "<div class='no_bank_available'>".
+              $block->escapeHtmlAttr('There is no bank available to change !')."</div>";
+        } ?>
+    </form>
+</div>
+<script>
+require(
+    [
+        'jquery',
+        'Magento_Ui/js/modal/modal',
+    ],
+    function(
+        $,
+        modal
+    ) {
+        var options = {
+            type: 'popup',
+            // responsive: true,
+            innerScroll: true,
+            title: false,
+            modalClass:'modal-pricepopup',
+            buttons: [{
+                text: $.mage.__('Close'),
+                class: '',
+                click: function () {
+                    this.closeModal();
+                }
+            }]
+        };
+        $(document).ready(function(){
+            var popup = modal(options, $('#vba-admin-modal'));
+            $('#vba-open-modal').on('click', function(){
+                $('#vba-admin-modal').modal('openModal');
+            });
+        });
+    }
+);
+</script>
+<style type="text/css">
+    .modal-popup .modal-inner-wrap{
+        width: 40% !important;
+    }
+
+    input#bank_submit {
+    margin: 0 0 0 3px;
+    padding: 8px;
+    font-weight: bold;
+    color: #504B4A;
+    }
+
+    select#virtual_bank {
+        width: 50%;
+        padding: 9px;
+        margin: 0 0 0 10px;
+    }
+
+    .customer-popup-heading {
+        margin: 10px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .current_selected_bank {
+        margin: 3px 0px 0px 10px;
+    }
+
+    .no_bank_available {
+        font-size: 16px;
+        padding: 0 0 0 50px;
+    }
+
+    .customer-index-edit .page-actions-buttons #order, .customer-index-editpage-actions-buttons #login_as_customer {
+        display: none;
+    }
+    .customer-index-edit .page-actions-buttons #invalidateToken {
+        display: none;
+    }
+
+    .customer-index-edit .page-actions-buttons #login_as_customer {
+        display: none;
+    }
+</style>

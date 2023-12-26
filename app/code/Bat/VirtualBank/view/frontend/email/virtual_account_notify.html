@@ -1,0 +1,23 @@
+<!--@subject   Virtual Accounts Availability Update
+ @-->
+{{template config_path="design/email/header_template"}}
+<table>
+   <tr>
+      <td>
+         <p>
+             Dear {{var name}},
+             The following banks are running low on Virtual Accounts.
+              <table class="virtual-banks">
+                  {{layout handle="email_virtual_bank_list" items=$banks area="frontend"}}
+              </table>
+         </p>
+      </td>
+  </tr>
+</table>
+{{template config_path="design/email/footer_template"}}
+
+
+
+
+
+

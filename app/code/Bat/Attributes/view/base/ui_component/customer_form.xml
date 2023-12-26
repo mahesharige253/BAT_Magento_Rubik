@@ -1,0 +1,2005 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <fieldset name="customer">
+        <field name="bat_frequently_ordered" formElement="input">
+            <settings>
+                <disabled>true</disabled>
+            </settings>
+        </field>
+        <field name="virtual_account" formElement="input">
+            <settings>
+                <disabled>true</disabled>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="virtual_bank" formElement="select">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+         <field name="virtual_account_new" formElement="input">
+            <settings>
+                <disabled>true</disabled>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="virtual_bank_new" formElement="select">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="outlet_id" formElement="input">
+            <settings>
+                <disabled>true</disabled>
+            </settings>
+        </field>
+        <field name="firstname" formElement="input">
+            <settings>
+                <disabled>true</disabled>
+            </settings>
+        </field>
+        <field name="lastname" formElement="input">
+            <settings>
+                <disabled>true</disabled>
+            </settings>
+        </field>
+        <field name="is_migrated" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="outlet_pin" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="returning_stock" formElement="select">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="product_return" formElement="select">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="account_closing_date" formElement="text">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="disclosure_rejected_fields" formElement="multiselect">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="account_deactivate" formElement="select">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="disclosure_consent_form_selected" formElement="select">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="disclosure_rejected_reason" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="additional_gst_number" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="sap_vendor_code" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="sap_outlet_code" formElement="input">
+            <settings>
+                <disabled>true</disabled>
+            </settings>
+        </field>
+        <field name="market_consent_given" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+         <field name="account_consent_given" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="payment_type" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="cust_group_five" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="payment_term" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="delivery_plant" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="sales_office" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="gst_number" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="business_licence_type" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="business_licence_item" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="sales_organization" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="division" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="pricing_procedure" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="customer_group" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="delivery_priority" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="shipping_condition" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="sales_group" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="account_group" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="customer_account_group" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="incoterm_one" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="incoterm_two" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="preferred_communication" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="distribution_channel" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="tax_code" formElement="input">
+            <settings>
+                 <visible>false</visible>
+            </settings>
+        </field>
+        <field name="owner_birth_year" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="owner_gender" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="deactivated_at" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="registration_rejected_at" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="customer_termination_at" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="bat_country_code" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="gender" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="language_code" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="sendemail_store_id" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="taxvat" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="lastname" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="middlename" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="prefix" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="suffix" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="bat_created_at" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="bat_company_code" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="customer_sap_confirmation_status" formElement="checkbox">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="sap_outlet_code" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="bat_batch_id" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="bat_frequently_ordered" formElement="input">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="consentform" formElement="multiselect">
+             <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="accountinfoconsent" formElement="multiselect">
+             <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="marketingconsent" formElement="multiselect">
+            <settings>
+                <visible>false</visible>
+            </settings>
+        </field>
+         <field name="closure_request_admin" formElement="select">
+            <settings>
+                <visible>false</visible>
+            </settings>
+         </field>
+         <field name="bat_order_frequency" formElement="select">
+            <settings>
+                <visible>false</visible>
+            </settings>
+         </field>
+         <field name="order_frequency_month" formElement="select">
+            <settings>
+                <visible>false</visible>
+            </settings>
+         </field>
+         <field name="order_frequency_week" formElement="select">
+            <settings>
+                <visible>false</visible>
+            </settings>
+         </field>
+         <field name="fix_flexible_order_day" formElement="select">
+            <settings>
+                <visible>false</visible>
+            </settings>
+         </field>
+          <field name="order_frequency_day" formElement="select">
+            <settings>
+                <visible>false</visible>
+            </settings>
+          </field>
+           <field name="order_frequency_time_from" formElement="select">
+            <settings>
+                <visible>false</visible>
+            </settings>
+           </field>
+            <field name="order_frequency_time_to" formElement="select">
+                <settings>
+                <visible>false</visible>
+            </settings>
+            </field>
+             <field name="dob" formElement="input">
+                <settings>
+                <visible>false</visible>
+            </settings>
+             </field>
+             <field name="mobilenumber" sortOrder="90" formElement="input">
+                <settings>
+                <disabled>true</disabled>
+            </settings>
+             </field>
+             <field name="outlet_id" sortOrder="95" formElement="input">
+                <settings>
+                <disabled>true</disabled>
+            </settings>
+             </field>
+             <field name="bat_paper_forms" sortOrder="120" formElement="checkbox">
+                <settings>
+                <disabled>true</disabled>
+            </settings>
+             </field>
+             <field name="joker_order_ecall_start_date" formElement="date">
+                <settings>
+                <disabled>true</disabled>
+            </settings>
+             </field>
+             <field name="joker_order_ecall_end_date" formElement="date">
+                <settings>
+                <disabled>true</disabled>
+            </settings>
+             </field>
+             <field name="joker_order_npi_start_date" formElement="date">
+                <settings>
+                <disabled>true</disabled>
+            </settings>
+             </field>
+             <field name="joker_order_npi_end_date" formElement="date">
+                <settings>
+                <disabled>true</disabled>
+            </settings>
+             </field>
+             <field name="marketingconsent_updatedat" formElement="input">
+                <settings>
+                <visible>false</visible>
+            </settings>
+             </field>
+             <field name="depot">
+                <settings>
+                <visible>false</visible>
+            </settings>
+             </field>
+            <field name="sigungu_code">
+                <settings>
+                <visible>false</visible>
+            </settings>
+             </field>
+             <field name="secondary_email" sortOrder="80" formElement="input">
+                <settings>
+                <disabled>true</disabled>
+            </settings>
+             </field>
+             <field name="email" sortOrder="85" formElement="input">
+                <settings>
+                <disabled>true</disabled>
+            </settings>
+             </field>
+            <field name="website_id">
+                <settings>
+                    <visible>false</visible>
+                </settings>
+            </field>
+            <container name="container_group">
+                <field name="disable_auto_group_change">
+                    <settings>
+                        <disabled>true</disabled>
+                    </settings>
+                </field>
+            </container>
+            <field name="bat_customer_group">
+                <settings>
+                    <visible>false</visible>
+                </settings>
+            </field>
+            <field name="is_parent">
+                <settings>
+                    <visible>false</visible>
+                </settings>
+            </field>
+            <field name="parent_outlet_id">
+                <settings>
+                    <visible>false</visible>
+                </settings>
+            </field>
+            <field name="total_ar_limit">
+                <settings>
+                    <visible>false</visible>
+                </settings>
+            </field>
+            <field name="is_credit_customer">
+                <settings>
+                    <visible>false</visible>
+                </settings>
+            </field>
+            <field name="bat_business_license_number" sortOrder="210" formElement="input">
+                <settings>
+                    <visible>true</visible>
+                    <validation>
+                    <rule name="customer-approved" xsi:type="boolean">true</rule>
+                    <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                    <rule name="validate-length" xsi:type="number">10</rule>
+                    <rule name="validate-greater-than-zero" xsi:type="boolean">true</rule>
+                    <rule name="max_text_length" xsi:type="number">10</rule>
+                    <rule name="min_text_length" xsi:type="number">10</rule>
+                </validation>
+                </settings>
+            </field>
+        <fieldset name="order_frequency_attributes">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Order frequency</item>
+                    <item name="dataScope" xsi:type="string">customer</item>
+                    <item name="sortOrder" xsi:type="number">330</item>
+                    <item name="collapsible" xsi:type="boolean">true</item>
+                    <item name="opened" xsi:type="boolean">false</item>
+                </item>
+            </argument>
+            <field name="fix_flexible_order_day" sortOrder="10" formElement="select">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <label translate="true">Fix or Flexible Order Day</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.fix_flexible_order_day</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.fix_flexible_order_day</link>
+                    </exports>
+                </settings>
+                <formElements>
+                    <select>
+                        <settings>
+                            <options class="Bat\Customer\Model\Entity\Attribute\Source\FixFlexibleOrderDayOptions"/>
+                        </settings>
+                    </select>
+                </formElements>
+            </field>
+            <field name="bat_order_frequency" sortOrder="20" formElement="select">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <label translate="true">Order Frequency</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.bat_order_frequency</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.bat_order_frequency</link>
+                    </exports>
+                </settings>
+                <formElements>
+                    <select>
+                        <settings>
+                            <options class="Bat\Customer\Model\Entity\Attribute\Source\OrderFrequencyOptions"/>
+                        </settings>
+                    </select>
+                </formElements>
+            </field>
+            <field name="order_frequency_month" sortOrder="30" formElement="select">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <label translate="true"> Order Frequency Month</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.order_frequency_month</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.order_frequency_month</link>
+                    </exports>
+                </settings>
+                <formElements>
+                    <select>
+                        <settings>
+                            <options class="Bat\Customer\Model\Entity\Attribute\Source\OrderMonthOptions"/>
+                        </settings>
+                    </select>
+                </formElements>
+            </field>
+            <field name="order_frequency_week" sortOrder="40" formElement="select">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <label translate="true">Order Frequency Week</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.order_frequency_week</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.order_frequency_week</link>
+                    </exports>
+                </settings>
+                <formElements>
+                    <select>
+                        <settings>
+                            <options class="Bat\Customer\Model\Entity\Attribute\Source\OrderWeekOptions"/>
+                        </settings>
+                    </select>
+                </formElements>
+            </field>
+            <field name="order_frequency_day" sortOrder="50" formElement="select">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <label translate="true">Order Frequency Day</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.order_frequency_day</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.order_frequency_day</link>
+                    </exports>
+                </settings>
+                <formElements>
+                    <select>
+                        <settings>
+                            <options class="Bat\Customer\Model\Entity\Attribute\Source\OrderFrequencyDayOptions"/>
+                        </settings>
+                    </select>
+                </formElements>
+            </field>
+            <field name="order_frequency_time_from" sortOrder="60" formElement="select">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <label translate="true">Order Frequency Time From</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.order_frequency_time_from</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.order_frequency_time_from</link>
+                    </exports>
+                </settings>
+                <formElements>
+                    <select>
+                        <settings>
+                            <options class="Bat\Customer\Model\Entity\Attribute\Source\OrderFrequencyTimeOptions"/>
+                        </settings>
+                    </select>
+                </formElements>
+            </field>
+             <field name="order_frequency_time_to" sortOrder="70" formElement="select">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <label translate="true">Order Frequency Time To</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.order_frequency_time_to</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.order_frequency_time_to</link>
+                    </exports>
+                </settings>
+                <formElements>
+                    <select>
+                        <settings>
+                            <options class="Bat\Customer\Model\Entity\Attribute\Source\OrderFrequencyTimeOptions"/>
+                        </settings>
+                    </select>
+                </formElements>
+            </field>
+        </fieldset>
+        <fieldset name="general_attributes">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">General Attributes</item>
+                    <item name="dataScope" xsi:type="string">customer</item>
+                    <item name="sortOrder" xsi:type="number">350</item>
+                    <item name="collapsible" xsi:type="boolean">true</item>
+                    <item name="opened" xsi:type="boolean">false</item>
+                </item>
+            </argument>
+            <field name="virtual_bank" formElement="select">
+                 <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                 <settings>
+                    <label translate="true">Bank Name</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.virtual_bank</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.virtual_bank</link>
+                    </exports>
+                </settings>
+                <formElements>
+                    <select>
+                        <settings>
+                            <options class="Bat\Attributes\Model\Source\Banks"/>
+                        </settings>
+                    </select>
+                </formElements>
+            </field>
+            <field name="virtual_account" formElement="input">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                 <settings>
+                    <label translate="true">Bank account number</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.virtual_account</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.virtual_account</link>
+                    </exports>
+                </settings>
+            </field>
+             <field name="virtual_bank_new" formElement="select">
+                 <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                 <settings>
+                    <label translate="true">Bank Name New</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.virtual_bank_new</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.virtual_bank_new</link>
+                    </exports>
+                </settings>
+                <formElements>
+                    <select>
+                        <settings>
+                            <options class="Bat\Attributes\Model\Source\Banks"/>
+                        </settings>
+                    </select>
+                </formElements>
+            </field>
+            <field name="virtual_account_new" formElement="input">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                 <settings>
+                    <label translate="true">Bank account number New</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.virtual_account_new</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.virtual_account_new</link>
+                    </exports>
+                </settings>
+            </field>
+            <field name="is_migrated" formElement="select">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                        <item name="default" xsi:type="number">0</item>
+                    </item>
+                </argument>
+                <settings>
+                    <label translate="true">Is Migrate</label>
+                    <dataType>int</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.is_migrated</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.is_migrated</link>
+                    </exports>
+                    <dataScope>is_migrated</dataScope>
+                </settings>
+                <formElements>
+                    <select>
+                        <settings>
+                            <options class="Magento\Eav\Model\Entity\Attribute\Source\Boolean"/>
+                        </settings>
+                    </select>
+                </formElements>
+            </field>
+            <field name="marketingconsent" formElement="multiselect">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">customer</item>
+                </item>
+            </argument>
+            <settings>
+                <label translate="true">Marketing Communication Consents</label>
+                <dataType>text</dataType>
+                <visible>true</visible>
+                <disabled>true</disabled>
+                <imports>
+                    <link name="value">${ $.provider }:data.customer.marketingconsent</link>
+                </imports>
+                <exports>
+                    <link name="value">${ $.provider }:data.customer.marketingconsent</link>
+                </exports>
+            </settings>
+            <formElements>
+                <multiselect>
+                    <settings>
+                        <options class="\Bat\Customer\Model\Entity\Attribute\Source\ConsentFormOptions"/>
+                    </settings>
+                </multiselect>
+            </formElements>
+        </field>
+        <field name="market_consent_given" formElement="select">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                        <item name="default" xsi:type="number">0</item>
+                    </item>
+                </argument>
+                <settings>
+                    <label translate="true">Market Consent Given</label>
+                    <dataType>boolean</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.market_consent_given</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.market_consent_given</link>
+                    </exports>
+                    <dataScope>market_consent_given</dataScope>
+                </settings>
+                <formElements>
+                    <select>
+                        <settings>
+                            <options class="\Magento\Eav\Model\Entity\Attribute\Source\Boolean"/>
+                        </settings>
+                    </select>
+                </formElements>
+            </field>
+             <field name="account_consent_given" formElement="select">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                        <item name="default" xsi:type="number">0</item>
+                    </item>
+                </argument>
+                <settings>
+                    <label translate="true">Account Consent Given</label>
+                    <dataType>boolean</dataType>
+                    <visible>false</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.account_consent_given</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.account_consent_given</link>
+                    </exports>
+                    <dataScope>account_consent_given</dataScope>
+                </settings>
+                <formElements>
+                    <select>
+                        <settings>
+                            <options class="\Magento\Eav\Model\Entity\Attribute\Source\Boolean"/>
+                        </settings>
+                    </select>
+                </formElements>
+            </field>
+            <field name="marketingconsent_updatedat" formElement="input">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                 <settings>
+                    <label translate="true">Marketing Consents Updated Date</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.marketingconsent_updatedat</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.marketingconsent_updatedat</link>
+                    </exports>
+                </settings>
+            </field>
+            <field name="closure_request_admin" formElement="select">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                        <item name="default" xsi:type="number">0</item>
+                    </item>
+                </argument>
+                <settings>
+                    <label translate="true">Closure Request Admin</label>
+                    <dataType>boolean</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.closure_request_admin</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.closure_request_admin</link>
+                    </exports>
+                    <dataScope>closure_request_admin</dataScope>
+                </settings>
+                <formElements>
+                    <select>
+                        <settings>
+                            <options class="\Magento\Eav\Model\Entity\Attribute\Source\Boolean"/>
+                        </settings>
+                    </select>
+                </formElements>
+            </field>
+            <field name="consentform" formElement="multiselect">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <label translate="true">Registration Consent forms</label>
+                    <dataType>text</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.consentform</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.consentform</link>
+                    </exports>
+                </settings>
+                <formElements>
+                    <multiselect>
+                        <settings>
+                            <options class="\Bat\Customer\Model\Entity\Attribute\Source\RegistrationConsentFormOptions"/>
+                        </settings>
+                    </multiselect>
+                </formElements>
+            </field>
+            <field name="accountinfoconsent" formElement="multiselect">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <label translate="true">Account Info Consent</label>
+                    <dataType>text</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.accountinfoconsent</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.accountinfoconsent</link>
+                    </exports>
+                </settings>
+                <formElements>
+                    <multiselect>
+                        <settings>
+                            <options class="\Bat\Customer\Model\Entity\Attribute\Source\AccountInfoConsentOptions"/>
+                        </settings>
+                    </multiselect>
+                </formElements>
+            </field>
+            <field name="bat_frequently_ordered" formElement="input">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                 <settings>
+                    <label translate="true">Frequently Ordered Product Id</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.bat_frequently_ordered</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.bat_frequently_ordered</link>
+                    </exports>
+                </settings>
+            </field>
+            <field name="bat_batch_id" formElement="input">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                 <settings>
+                    <label translate="true">Batch Id</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.bat_batch_id</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.bat_batch_id</link>
+                    </exports>
+                </settings>
+            </field>
+            <field name="sap_outlet_code" formElement="input">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                 <settings>
+                    <label translate="true">Sap Outlet Code</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.sap_outlet_code</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.sap_outlet_code</link>
+                    </exports>
+                </settings>
+            </field>
+            <field name="customer_sap_confirmation_status" formElement="select">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                        <item name="default" xsi:type="number">0</item>
+                    </item>
+                </argument>
+                <settings>
+                    <label translate="true">Customer confirmed from SAP</label>
+                    <dataType>int</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.customer_sap_confirmation_status</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.customer_sap_confirmation_status</link>
+                    </exports>
+                    <dataScope>customer_sap_confirmation_status</dataScope>
+                </settings>
+                 <formElements>
+                    <select>
+                        <settings>
+                            <options class="\Magento\Eav\Model\Entity\Attribute\Source\Boolean"/>
+                        </settings>
+                    </select>
+                </formElements>
+            </field>
+            <field name="bat_company_code" formElement="input">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                 <settings>
+                    <label translate="true">Company Code</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.bat_company_code</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.bat_company_code</link>
+                    </exports>
+                </settings>
+            </field>
+            <field name="bat_created_at" formElement="input">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                 <settings>
+                    <label translate="true">Created At</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.bat_created_at</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.bat_created_at</link>
+                    </exports>
+                </settings>
+            </field>
+            <field name="bat_customer_group" formElement="select">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <label translate="true">BAT Customer Group</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.bat_customer_group</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.bat_customer_group</link>
+                    </exports>
+                </settings>
+                 <formElements>
+                    <select>
+                        <settings>
+                            <options class="Bat\Customer\Model\Entity\Attribute\Source\CustomerGroup"/>
+                        </settings>
+                    </select>
+                </formElements>
+            </field>
+            <field name="is_parent" formElement="select">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                        <item name="default" xsi:type="number">0</item>
+                    </item>
+                </argument>
+                <settings>
+                    <label translate="true">Parent Outlet</label>
+                    <dataType>int</dataType>
+                    <visible>true</visible>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.is_parent</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.is_parent</link>
+                    </exports>
+                    <dataScope>is_parent</dataScope>
+                </settings>
+                 <formElements>
+                    <select>
+                        <settings>
+                            <options class="\Magento\Eav\Model\Entity\Attribute\Source\Boolean"/>
+                        </settings>
+                    </select>
+                </formElements>
+            </field>
+            <field name="parent_outlet_id" formElement="input">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                 <settings>
+                    <label translate="true">Parent Outlet Id</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.parent_outlet_id</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.parent_outlet_id</link>
+                    </exports>
+                </settings>
+            </field>
+            <field name="total_ar_limit" formElement="input">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                 <settings>
+                    <label translate="true">Total AR Limit</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.total_ar_limit</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.total_ar_limit</link>
+                    </exports>
+                </settings>
+            </field>
+            <field name="is_credit_customer" formElement="select">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                        <item name="default" xsi:type="number">0</item>
+                    </item>
+                </argument>
+                <settings>
+                    <label translate="true">Credit Customer</label>
+                    <dataType>int</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.is_credit_customer</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.is_credit_customer</link>
+                    </exports>
+                    <dataScope>is_credit_customer</dataScope>
+                </settings>
+                 <formElements>
+                    <select>
+                        <settings>
+                            <options class="\Magento\Eav\Model\Entity\Attribute\Source\Boolean"/>
+                        </settings>
+                    </select>
+                </formElements>
+            </field>
+        </fieldset>
+        <fieldset name="eda_attributes">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Customer Approval Required Information</item>
+                    <item name="dataScope" xsi:type="string">customer</item>
+                    <item name="sortOrder" xsi:type="number">400</item>
+                    <item name="collapsible" xsi:type="boolean">true</item>
+                    <item name="opened" xsi:type="boolean">false</item>
+                </item>
+            </argument>
+            <field name="language_code" formElement="input">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <label translate="true">Language Code</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.language_code</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.language_code</link>
+                    </exports>
+                    <validation>
+                        <rule name="customer-approved" xsi:type="boolean">true</rule>
+                        <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                    </validation>
+                    <notice>Default Value : KO</notice>
+                </settings>
+            </field>
+            <field name="bat_country_code" formElement="input">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <label translate="true">Country Code</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.bat_country_code</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.bat_country_code</link>
+                    </exports>
+                    <validation>
+                        <rule name="customer-approved" xsi:type="boolean">true</rule>
+                        <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                    </validation>
+                    <notice>Default Value : KR</notice>
+                </settings>
+            </field>
+            <field name="payment_type" formElement="input">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                   <validation>
+                       <rule name="customer-approved" xsi:type="boolean">true</rule>
+                       <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                   </validation>
+                    <notice>Default Value : ZF</notice>
+                    <label translate="true">Payment Type</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.payment_type</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.payment_type</link>
+                    </exports>
+                </settings>
+            </field>
+            <field name="payment_term" formElement="select">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <validation>
+                        <rule name="customer-approved" xsi:type="boolean">true</rule>
+                        <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                    </validation>
+                    <label translate="true">Payment Term</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.payment_term</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.payment_term</link>
+                    </exports>
+                </settings>
+                <formElements>
+                    <select>
+                        <settings>
+                            <options class="Bat\Attributes\Model\Source\EdaCustomerPaymentTerm"/>
+                        </settings>
+                    </select>
+                </formElements>
+            </field>
+            <field name="cust_group_five" formElement="input">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <validation>
+                       <rule name="customer-approved" xsi:type="boolean">true</rule>
+                       <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                    </validation>
+                    <notice>Default Value : 112</notice>
+                    <label translate="true">CustGroup5</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.cust_group_five</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.cust_group_five</link>
+                    </exports>
+                </settings>
+            </field>
+            <field name="delivery_plant" formElement="select">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <validation>
+                       <rule name="customer-approved" xsi:type="boolean">true</rule>
+                       <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                    </validation>
+                    <label translate="true">Delivery Plant</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.delivery_plant</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.delivery_plant</link>
+                    </exports>
+                </settings>
+                 <formElements>
+                    <select>
+                        <settings>
+                            <options class="Bat\Attributes\Model\Source\EdaCustomerDeliveryPlant"/>
+                        </settings>
+                    </select>
+                </formElements>
+            </field>
+            <field name="sales_office" formElement="select">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <validation>
+                       <rule name="customer-approved" xsi:type="boolean">true</rule>
+                       <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                    </validation>
+                    <label translate="true">Sales Office</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.sales_office</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.sales_office</link>
+                    </exports>
+                </settings>
+                <formElements>
+                    <select>
+                        <settings>
+                            <options class="Bat\Attributes\Model\Source\EdaCustomerSalesOffice"/>
+                        </settings>
+                    </select>
+                </formElements>
+            </field>
+            <field name="gst_number" formElement="input">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <validation>
+                       <rule name="customer-approved" xsi:type="boolean">true</rule>
+                       <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                       <rule name="validate-length" xsi:type="number">10</rule>
+                        <rule name="validate-greater-than-zero" xsi:type="boolean">true</rule>
+                        <rule name="max_text_length" xsi:type="number">10</rule>
+                        <rule name="min_text_length" xsi:type="number">10</rule>
+                    </validation>
+                    <label translate="true">Gst Number</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.gst_number</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.gst_number</link>
+                    </exports>
+                </settings>
+            </field>
+            <field name="additional_gst_number" formElement="input">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <validation>
+                        <rule name="validate-digits" xsi:type="boolean">true</rule>
+                        <rule name="validate-number" xsi:type="boolean">true</rule>
+                        <rule name="validate-greater-than-zero" xsi:type="boolean">true</rule>
+                        <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                        <rule name="validate-length" xsi:type="number">4</rule>
+                        <rule name="max_text_length" xsi:type="number">4</rule>
+                    </validation>
+                    <label translate="true">Additional GST Number</label>
+                    <dataType>int</dataType>
+                    <visible>true</visible>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.additional_gst_number</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.additional_gst_number</link>
+                    </exports>
+                </settings>
+            </field>
+            <field name="business_licence_type" formElement="select">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <validation>
+                        <rule name="customer-approved" xsi:type="boolean">true</rule>
+                        <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                    </validation>
+                    <label translate="true">Business Licence Type</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.business_licence_type</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.business_licence_type</link>
+                    </exports>
+                </settings>
+                <formElements>
+                    <select>
+                        <settings>
+                            <options class="Bat\Attributes\Model\Source\EdaCustomerBusinessType"/>
+                        </settings>
+                    </select>
+                </formElements>
+            </field>
+            <field name="business_licence_item" formElement="select">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <validation>
+                        <rule name="customer-approved" xsi:type="boolean">true</rule>
+                        <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                    </validation>
+                    <label translate="true">Business Licence Item</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.business_licence_item</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.business_licence_item</link>
+                    </exports>
+                </settings>
+                <formElements>
+                    <select>
+                        <settings>
+                            <options class="Bat\Attributes\Model\Source\EdaCustomerBusinessItem"/>
+                        </settings>
+                    </select>
+                </formElements>
+            </field>
+            <field name="sap_vendor_code" formElement="input">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <label translate="true">Sap Vendor Code</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.sap_vendor_code</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.sap_vendor_code</link>
+                    </exports>
+                     <validation>
+                        <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                    </validation>
+                </settings>
+            </field>
+            <field name="sales_organization" formElement="input">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <validation>
+                        <rule name="customer-approved" xsi:type="boolean">true</rule>
+                        <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                    </validation>
+                    <notice>Default Value : KR12</notice>
+                    <label translate="true">Sales Organization</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.sales_organization</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.sales_organization</link>
+                    </exports>
+                </settings>
+            </field>
+            <field name="division" formElement="input">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <validation>
+                        <rule name="customer-approved" xsi:type="boolean">true</rule>
+                        <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                    </validation>
+                    <notice>Default Value : 01</notice>
+                    <label translate="true">Division</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.division</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.division</link>
+                    </exports>
+                </settings>
+            </field>
+            <field name="pricing_procedure" formElement="input">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <validation>
+                        <rule name="customer-approved" xsi:type="boolean">true</rule>
+                        <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                    </validation>
+                    <notice>Default Value : 1</notice>
+                    <label translate="true">Pricing Procedure</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.pricing_procedure</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.pricing_procedure</link>
+                    </exports>
+                </settings>
+            </field>
+            <field name="customer_group" formElement="input">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <validation>
+                        <rule name="customer-approved" xsi:type="boolean">true</rule>
+                        <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                    </validation>
+                    <notice>Default Value : GS</notice>
+                    <label translate="true">Customer Group</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.customer_group</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.customer_group</link>
+                    </exports>
+                </settings>
+            </field>
+            <field name="delivery_priority" formElement="input">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <validation>
+                        <rule name="customer-approved" xsi:type="boolean">true</rule>
+                        <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                    </validation>
+                    <notice>Default Value : 2</notice>
+                    <label translate="true">Delivery Priority</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.delivery_priority</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.delivery_priority</link>
+                    </exports>
+                </settings>
+            </field>
+            <field name="shipping_condition" formElement="input">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <validation>
+                        <rule name="customer-approved" xsi:type="boolean">true</rule>
+                        <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                    </validation>
+                    <notice>Default Value : 1</notice>
+                    <label translate="true">Shipping Condition</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.shipping_condition</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.shipping_condition</link>
+                    </exports>
+                </settings>
+            </field>
+            <field name="sales_group" formElement="input">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <validation>
+                        <rule name="customer-approved" xsi:type="boolean">true</rule>
+                        <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                    </validation>
+                    <notice>Default Value : KR7</notice>
+                    <label translate="true">Sales Group</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.sales_group</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.sales_group</link>
+                    </exports>
+                </settings>
+            </field>
+            <field name="account_group" formElement="input">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <validation>
+                        <rule name="customer-approved" xsi:type="boolean">true</rule>
+                        <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                    </validation>
+                    <notice>Default Value : 01</notice>
+                    <label translate="true">Account Group</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.account_group</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.account_group</link>
+                    </exports>
+                </settings>
+            </field>
+            <field name="customer_account_group" formElement="input">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <validation>
+                        <rule name="customer-approved" xsi:type="boolean">true</rule>
+                        <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                    </validation>
+                    <notice>Default Value : Z001</notice>
+                    <label translate="true">Customer Account Group</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.customer_account_group</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.customer_account_group</link>
+                    </exports>
+                </settings>
+            </field>
+            <field name="incoterm_one" formElement="input">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <validation>
+                        <rule name="customer-approved" xsi:type="boolean">true</rule>
+                        <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                    </validation>
+                    <notice>Default Value : DAP</notice>
+                    <label translate="true">Incoterm1</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.incoterm_one</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.incoterm_one</link>
+                    </exports>
+                </settings>
+            </field>
+            <field name="incoterm_two" formElement="input">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <validation>
+                        <rule name="customer-approved" xsi:type="boolean">true</rule>
+                        <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                    </validation>
+                    <notice>Default Value : KOREA</notice>
+                    <label translate="true">Incoterm2</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.incoterm_two</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.incoterm_two</link>
+                    </exports>
+                </settings>
+            </field>
+            <field name="preferred_communication" formElement="input">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <validation>
+                        <rule name="customer-approved" xsi:type="boolean">true</rule>
+                        <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                    </validation>
+                    <notice>Default Value : TEL</notice>
+                    <label translate="true">Preferred Communication</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.preferred_communication</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.preferred_communication</link>
+                    </exports>
+                </settings>
+            </field>
+            <field name="distribution_channel" formElement="input">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <validation>
+                        <rule name="customer-approved" xsi:type="boolean">true</rule>
+                        <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                    </validation>
+                    <notice>Default Value : 01</notice>
+                    <label translate="true">Distribution Channel</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.distribution_channel</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.distribution_channel</link>
+                    </exports>
+                </settings>
+            </field>
+            <field name="owner_birth_year" formElement="input">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <validation>
+                        <rule name="validate-digits" xsi:type="boolean">true</rule>
+                        <rule name="validate-length" xsi:type="number">4</rule>
+                        <rule name="validate-greater-than-zero" xsi:type="boolean">true</rule>
+                        <rule name="max_text_length" xsi:type="number">4</rule>
+                        <rule name="min_text_length" xsi:type="number">4</rule>
+                        <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                    </validation>
+                    <notice>Format : YYYY</notice>
+                    <label translate="true">Owner Birth Year</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.owner_birth_year</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.owner_birth_year</link>
+                    </exports>
+                </settings>
+            </field>
+            <field name="owner_gender" formElement="select">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <label translate="true">Owner Gender</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.owner_gender</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.owner_gender</link>
+                    </exports>
+                </settings>
+                <formElements>
+                    <select>
+                        <settings>
+                            <options class="Bat\Attributes\Model\Source\EdaCustomerOwnerGender"/>
+                        </settings>
+                    </select>
+                </formElements>
+            </field>
+            <field name="tax_code" formElement="select">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <validation>
+                        <rule name="customer-approved" xsi:type="boolean">true</rule>
+                        <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                    </validation>
+                    <label translate="true">Tax Code</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.tax_code</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.tax_code</link>
+                    </exports>
+                </settings>
+                <formElements>
+                    <select>
+                        <settings>
+                            <options class="Bat\Attributes\Model\Source\EdaCustomerTaxCode"/>
+                        </settings>
+                    </select>
+                </formElements>
+            </field>
+            <field name="depot" formElement="select">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <validation>
+                        <rule name="customer-approved" xsi:type="boolean">true</rule>
+                        <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                    </validation>
+                    <label translate="true">Depot</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.depot</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.depot</link>
+                    </exports>
+                </settings>
+                <formElements>
+                    <select>
+                        <settings>
+                            <options class="Bat\Attributes\Model\Source\EdaCustomerDepot"/>
+                        </settings>
+                    </select>
+                </formElements>
+            </field>
+            <field name="sigungu_code" formElement="input">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                    </item>
+                </argument>
+                <settings>
+                    <label translate="true">Sigungu Code</label>
+                    <dataType>string</dataType>
+                    <visible>true</visible>
+                    <disabled>true</disabled>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.sigungu_code</link>
+                    </imports>
+                    <exports>
+                        <link name="value">${ $.provider }:data.customer.sigungu_code</link>
+                    </exports>
+                </settings>
+            </field>
+        </fieldset>
+    </fieldset>
+</form>

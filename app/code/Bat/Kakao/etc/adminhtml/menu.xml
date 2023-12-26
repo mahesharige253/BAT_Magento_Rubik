@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+   <menu>
+       <add id="Bat_Kakao::menu"
+           title="Kakao" module="Bat_Kakao"
+           sortOrder="100"
+           resource="Bat_Kakao::menu"
+           parent="Bat_CustomerConsentForm::menu"
+           />
+           <add id="Bat_Kakao::kakao"
+           title="Template List" module="Bat_Kakao"
+           sortOrder="100" parent="Bat_Kakao::menu"
+           action="kakao/kakao/index"
+           resource="Bat_Kakao::kakao"
+           />
+   </menu>
+</config>

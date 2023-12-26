@@ -1,0 +1,15 @@
+type Query {
+    bannerData: [BannerDataOutput] @resolver(class: "Bat\\BannerApi\\Model\\Resolver\\Banner") 
+    @doc(description: "The Banner data query return the data about the hompage banner")
+}
+
+type BannerDataOutput @doc(description: "Banner data ouptut gather information about the home page banner") {
+    banner_title: String @doc(description: "Banner title of Hompage Banner")
+    image_name: String @doc(description: "Banner Image Url of Homepage Banner") 
+    button_title: String @doc(description: "Button Title on Banner in Homepage")
+    url_key: String @doc(description: "Button Url on Homepage Banner")
+    position: String @doc(description: "Banner position on Home page")
+    button_status: Boolean @doc(description: "Banner button status")
+    banner_interval: String @doc(description: "Banner Interval in second")
+    banner_url: String @doc(description: "Banner Image Url")
+}

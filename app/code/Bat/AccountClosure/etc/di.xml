@@ -1,0 +1,22 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="accountclosure_closure_listing_data_source" xsi:type="string">
+                    Bat\AccountClosure\Model\ResourceModel\Closure\Grid\Collection
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    
+    <virtualType name="Bat\AccountClosure\Model\ResourceModel\Closure\Grid\Collection" type="Bat\AccountClosure\Ui\DataProvider\Closure\Listing\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">bat_account_closure</argument>
+            <argument name="resourceModel" xsi:type="string">Bat\AccountClosure\Model\ResourceModel\Closure</argument>
+        </arguments>
+    </virtualType>
+    <type name="Bat\AccountClosure\Ui\DataProvider\Closure\ListingDataProvider">
+        <plugin name="dev_grid_attributes" type="Bat\AccountClosure\Plugin\AddAttributesToUiDataProvider" />
+    </type>
+</config>

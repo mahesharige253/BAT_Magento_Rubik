@@ -1,0 +1,521 @@
+type Customer {
+    mobilenumber: String @doc(description: "Customer Mobile Number")
+    approval_status: String
+    custom_attributes: [CustomAttributesOutput]
+    business_license_file: String
+    business_license_number: String
+    tobacco_license_file: String
+    tobacco_license_number: String
+    sigungu_code: String
+    owner_gender: String
+    deactivation_status: Boolean
+        @resolver(
+            class: "Bat\\CustomerGraphQl\\Model\\Resolver\\DeactivationStatus"
+        )
+        @doc(description: "The Deactivation Status of the customer.")
+    outlet_name: String
+    outlet_id: String
+    secondary_email: String
+    virtual_bank: VbaInfo
+    is_parent_outlet: Boolean
+        @resolver(
+            class: "Bat\\CustomerGraphQl\\Model\\Resolver\\ParentOutletData"
+        )
+        @doc(description: "The Parent Outlet Status of the customer.")
+    selected_consents: String
+        @resolver(
+            class: "Bat\\CustomerGraphQl\\Model\\Resolver\\GetSelectedConsent"
+        )
+        @doc(description: "Get Selected Registration Consents")
+}
+
+input BatCustomerInput {
+    mobilenumber: String! @doc(description: "Customer Mobile Number")
+    name: String!
+    company_name: String!
+    paper_forms: Int
+    owner_birth_year: String
+    consent_identifier: String!
+    business_license: [BusinessLicenseInput]
+        @doc(description: "Business License Input")
+    tobacco_seller_license: [TobaccoSellerLicenseInput]
+        @doc(description: "Tobacco Seller License Input")
+    virtual_bank: String!
+    address: CustomerAddressInput
+    secondary_email: String
+    sigungu_code: String
+    owner_gender: String
+}
+
+type CustomerStatusOutput {
+    outlet_id: String
+    outlet_name: String
+    heading: String
+    message: String
+    call_center_number: String
+    rejected_fields: String
+    customer: Customer
+    registered_consents: String
+    paper_forms: String
+    approval_status: String
+    key_id: String
+    address: AddressOutput
+}
+
+type AddressOutput {
+    postcode: String
+    street: StreetOutput
+}
+type StreetOutput {
+    street1: String
+    street2: String
+}
+
+type Mutation {
+    setCustomerPinPassword(input: AddPinPassword!): PinPasswordOutput
+        @resolver(
+            class: "\\Bat\\CustomerGraphQl\\Model\\Resolver\\AddPinPassword"
+        )
+        @doc(description: "Pin and Password update")
+
+    loginWithPinOrPassword(
+        input: SetOutletIdPinOrPassword!
+    ): CustomerLoginOutput
+        @resolver(
+            class: "\\Bat\\CustomerGraphQl\\Model\\Resolver\\LoginWithPinPassword"
+        )
+        @doc(description: "Login with Pin or Password and return token")
+
+    createBatCustomer(input: BatCustomerInput!): CustomerOutput
+        @resolver(
+            class: "\\Bat\\CustomerGraphQl\\Model\\Resolver\\CreateCustomer"
+        )
+        @doc(description: "Create new customer")
+
+    updateBatCustomer(input: BatCustomerUpdateInput): CustomerOutput
+        @resolver(
+            class: "\\Bat\\CustomerGraphQl\\Model\\Resolver\\UpdateCustomer"
+        )
+        @doc(description: "Update existing customer")
+
+    updateAccountConsentInfo(input: ConsentIdentifier): AccountConsentOutput
+        @resolver(
+            class: "\\Bat\\CustomerGraphQl\\Model\\Resolver\\AccountInfoConsent"
+        )
+        @doc(description: "Update Account Info")
+
+    changeCustomerPassword(
+        currentPassword: String!
+            @doc(description: "The customer's original password.")
+        newPassword: String!
+            @doc(description: "The customer's updated password.")
+        currentPin: String! @doc(description: "The customer's original pin.")
+        newPin: String! @doc(description: "The customer's updated pin.")
+    ): PinAndPasswordOutput
+        @resolver(
+            class: "\\Bat\\CustomerGraphQl\\Model\\Resolver\\ChangePassword"
+        )
+        @doc(description: "Change the password for the logged-in customer.")
+
+    deactivateCustomer(
+        input: DeactivateCustomerInput!
+    ): DeactivateCustomerOutput
+        @resolver(
+            class: "\\Bat\\CustomerGraphQl\\Model\\Resolver\\DeactivateCustomer"
+        )
+        @doc(description: "Deactivate customer")
+
+    decryptData(input: DecryptData): DecryptDataOuput
+        @resolver(class: "\\Bat\\CustomerGraphQl\\Model\\Resolver\\DecryptData")
+        @doc(description: "Decrypt Data Api")
+
+    encryptData(input: EncryptString): EncryptDataOutput
+        @resolver(class: "\\Bat\\CustomerGraphQl\\Model\\Resolver\\EncryptData")
+        @doc(description: "Encrypt Data Api")
+
+    updateCustomerRejectInformation(input: CustomerInfoInput): CustomerOutput
+        @resolver(
+            class: "\\Bat\\CustomerGraphQl\\Model\\Resolver\\UpdateRejectedInformation"
+        )
+        @doc(description: "Updated customer rejected information")
+
+    regenerateLink(input: RegenerateLinkInput): RegenerateLinkOutput
+        @resolver(
+            class: "\\Bat\\CustomerGraphQl\\Model\\Resolver\\RegenerateLink"
+        )
+        @doc(description: "Regenerate Customer Set PinPassword Link")
+}
+
+type PinAndPasswordOutput {
+    success: Boolean @doc(description: "Status")
+    message_id: Int @doc(description: "Message id as per password/pin update")
+}
+
+input CustomerInfoInput {
+    update_type: String!
+    key_id: String!
+    mobilenumber: String! @doc(description: "Customer Mobile Number")
+    name: String
+    company_name: String
+    consent_identifier: String
+    business_license: [BusinessLicenseInput]
+        @doc(description: "Business License Input")
+    tobacco_seller_license: [TobaccoSellerLicenseInput]
+        @doc(description: "Tobacco Seller License Input")
+    address: CustomerAddressInput
+    secondary_email: String
+    paper_forms: Int
+    sigungu_code: String
+    owner_gender: String
+}
+
+input RegenerateLinkInput {
+    type: String
+    key_id: String
+}
+
+input BatCustomerUpdateInput {
+    outletId: String!
+    mobilenumber: String! @doc(description: "Customer Mobile Number")
+    name: String
+    company_name: String
+    paper_forms: Int
+    consent_identifier: String
+    business_license: [BusinessLicenseInput]
+        @doc(description: "Business License Input")
+    tobacco_seller_license: [TobaccoSellerLicenseInput]
+        @doc(description: "Tobacco Seller License Input")
+    virtual_bank: String
+    address: CustomerAddressInput
+    secondary_email: String
+    sigungu_code: String
+    owner_gender: String
+}
+
+input AddPinPassword {
+    outletId: String @doc(description: "Outlet Id")
+    password: String @doc(description: "Password")
+    confirmPassword: String @doc(description: "Password Confirm")
+    pin: String @doc(description: "Outlet Pin")
+    consent: String @doc(description: "Consent Selected by migrated customer")
+}
+
+type PinPasswordOutput {
+    success: Boolean
+    is_account_terminated: Boolean
+    message: String
+    outlet_id: String
+}
+
+type RegenerateLinkOutput {
+    message: String
+    success: Boolean
+}
+
+input SetOutletIdPinOrPassword {
+    outletId: String @doc(description: "Outlet Id")
+    password: String @doc(description: "Password")
+    pin: String @doc(description: "Pin"),
+    device_id: String @doc(description: "Device ID of current logged in device"),
+}
+
+type CustomerLoginOutput {
+    token: String
+    mobilenumber: String
+    message: String
+    maximum_attemps: Boolean
+    is_account_terminated: Boolean
+    is_new_device: Boolean
+}
+
+type IsMobileAvailableOutput
+    @doc(description: "Contains the result of the `isMobileAvailable` query.") {
+    is_mobile_available: Boolean!
+        @doc(
+            description: "Indicates whether the specified mobile number can be used to create a customer."
+        )
+    message: String @doc(description: "Message to display in frontend.")
+    multistore: Boolean
+        @doc(description: "Return whether customer is multi store or not")
+    is_mobile_exist: Boolean
+        @doc(description: "Return true if mobile number exist")
+    outlet_id: String
+        @doc(description: "Return OutletId in case of single store owner")
+}
+
+type IsTokenValidOutput
+    @doc(description: "Contains the result of the `isTokenValid` query.") {
+    is_token_valid: Boolean
+        @doc(
+            description: "Indicates whether the specified token is valid for a customer or not."
+        )
+    is_account_terminated: Boolean
+        @doc(
+            description: "Indicates whether the customer account is terminated or not."
+        )
+    is_account_deactivated: Boolean
+        @resolver(
+            class: "Bat\\CustomerGraphQl\\Model\\Resolver\\DeactivationStatus"
+        )
+        @doc(
+            description: "Indicates whether the customer account is deactivated or not."
+        )
+    token: String @doc(description: "Returns the new Customer token")
+}
+
+type KeyStatusOutput {
+    success: Boolean
+}
+
+input BusinessLicenseInput {
+    business_name: String @doc(description: "The file name include extensions")
+    business_file: String @doc(description: "The  base64 code format's file")
+}
+
+input TobaccoSellerLicenseInput {
+    tobacco_name: String @doc(description: "The file name include extensions")
+    tobacco_file: String @doc(description: "The  base64 code format's file")
+}
+
+type Query {
+    orderFrequency: OrderFrequencyOutput
+        @resolver(
+            class: "Bat\\CustomerGraphQl\\Model\\Resolver\\OrderFrequency"
+        )
+        @doc(
+            description: "The CustomerOrder Frequency Output will return the orderfrequency whether it is weekly,monthly or bi-weekly for particular customer as well as how many he can place."
+        )
+
+    getCustomerApplicationStatus(mobilenumber: String!): [CustomerStatusOutput]
+        @resolver(
+            class: "Bat\\CustomerGraphQl\\Model\\Resolver\\GetCustomerStatus"
+        )
+        @doc(description: "Get Customer Status")
+    getRejectedCustomerData(id: String!): CustomerStatusOutput
+        @resolver(
+            class: "Bat\\CustomerGraphQl\\Model\\Resolver\\GetRejectedCustomerData"
+        )
+        @doc(description: "Get Rejected Customer Data")
+    isMobileAvailable(
+        input: IsMobileAvailableInput
+            @doc(description: "Contains inputs for IsMobileAvailable api")
+    ): IsMobileAvailableOutput
+        @resolver(
+            class: "Bat\\CustomerGraphQl\\Model\\Resolver\\IsMobileAvailable"
+        )
+        @doc(
+            description: "Check whether the specified mobile number has already been used to create a customer account."
+        )
+
+    paymentOverdue: PaymentOverdueOutput
+        @resolver(
+            class: "Bat\\CustomerGraphQl\\Model\\Resolver\\PaymentOverdue"
+        )
+        @doc(
+            description: "This API will check that any payment overdue or not."
+        )
+
+    remainingARLimit: RemainingARLimitOutput
+        @resolver(
+            class: "Bat\\CustomerGraphQl\\Model\\Resolver\\RemainingARLimit"
+        )
+        @doc(
+            description: "This API will return remaining AR limit amount of specific customer."
+        )
+
+    getClosureAccountDetails: ClosureAccountDetailsOutput
+        @resolver(
+            class: "Bat\\CustomerGraphQl\\Model\\Resolver\\ClosureAccountDetail"
+        )
+        @doc(description: "This API will return Closure Account Detail.")
+
+    productCollection: ProductDataOutput
+        @resolver(class: "Bat\\CustomerGraphQl\\Model\\Resolver\\ProductData")
+        @doc(description: "Get Product collection of a store")
+
+    isTokenValid(generateNewToken: Boolean): IsTokenValidOutput
+        @resolver(class: "Bat\\CustomerGraphQl\\Model\\Resolver\\IsTokenValid")
+        @doc(description: "Check whether the specified token is valid or not.")
+
+    isKeyValid(input: IsKeyValidInput): KeyStatusOutput
+        @resolver(class: "Bat\\CustomerGraphQl\\Model\\Resolver\\IsLinkValid")
+        @doc(
+            description: "Check whether the change address link is valid or not."
+        )
+}
+
+type RemainingARLimitOutput {
+    customer_id: Int @doc(description: "Customer id of the login customer")
+    total_ar_limit: Int @doc(description: "Total AR Limit")
+    remaining_ar: Int @doc(description: "Remaining AR")
+    is_credit_customer: Boolean
+        @doc(description: "IsCreditCustomer status")
+        @resolver(
+            class: "Bat\\CustomerBalanceGraphQl\\Model\\Resolver\\IsCreditCustomer"
+        )
+    available_credit: Int @doc(description: "Available credit")
+    credit_exposure_positive: Int @doc(description: "Credit exposure positive")
+    credit_exposure_negative: Int @doc(description: "Credit exposure negative")
+    is_overdue: Boolean @doc(description: "If customer has overdue")
+}
+
+type PaymentOverdueOutput {
+    customer_id: Int @doc(description: "Customer id of the login customer")
+    message: String @doc(description: "Message for overdue as per status")
+    status: Int @doc(description: "Overdue status")
+    failed_orders: Boolean
+    due_amount: Int @doc(description: "Overdue Amount")
+    total_overpayment: Float @doc(description: "Total OverPayment Amount")
+    minimum_payment: Float @doc(description: "Payable Amount")
+    next_order_date: String
+        @doc(description: "Next Order Date based on assigned regular Frequency OR joker order frequency")
+    order_regular_frequency_date: String
+        @doc(description: "Next Order Date based on assigned order Frequency")
+    customer_status: Int
+        @doc(
+            description: "Customer approval status id for Approved, New, VBA Change Request"
+        )
+    is_vba_change_approved: Int
+        @doc(
+            description: "It will return 1 if customer status updated from VBA change to Approved"
+        )
+}
+
+type OrderFrequencyOutput {
+    cust_id: String @doc(description: "Customer id of the login customer")
+    cust_name: String @doc(description: "Customer name of the login customer")
+    order_placed: String
+        @doc(
+            description: "Total order placed based on order frequency of logged in customer"
+        )
+    order_frequency: String
+        @doc(
+            description: "Order frequency(Weekly = 0, Bi-weekly = 1, Monthly = 2) for login customer"
+        )
+    total_order: String
+        @doc(
+            description: "Total order limit for customer based on order frequency"
+        )
+    message: String
+        @doc(
+            description: "Message whether customer can able to place order or not"
+        )
+    success: Boolean @doc(description: "Returns true or false")
+    joker_order_frequency: Int @doc(description: "Add joker order frequency")
+    allow_normal_order: Boolean
+        @doc(
+            description: "Flag to check Normal order frequency available or not"
+        )
+    order_frequency_day: String
+        @doc(
+            description: "Customer order frequency day name like Monday"
+        )
+
+}
+
+type CustomAttributesOutput {
+    attribute_code: String
+    value: String
+}
+
+input ConsentIdentifier {
+    consent_identifier: String
+}
+
+input IsMobileAvailableInput {
+    mobilenumber: String
+    isPasswordPin: Boolean
+    isOutletId: Boolean
+}
+
+input IsKeyValidInput {
+    key_id: String!
+    type: String!
+}
+
+type AccountConsentOutput {
+    message: String
+    success: Boolean
+}
+
+input DeactivateCustomerInput {
+    bank_account_card: [BankAccountCardInput]
+        @doc(description: "Bank Account Card Input")
+    account_closing_date: String @doc(description: "Account Closing Date")
+    returning_stock: Int @doc(description: "Return stock")
+    consent_form: Int @doc(description: "Consent Form")
+    return_items: [ReturnProductItem]
+}
+
+input ReturnProductItem {
+    sku: String
+    qty: Int
+}
+
+input DecryptData {
+    encrypted_data: String
+}
+
+input EncryptString {
+    data: String
+}
+
+input BankAccountCardInput {
+    card_name: String @doc(description: "The file name include extensions")
+    card_file: String @doc(description: "The  base64 code format's file")
+}
+
+type DeactivateCustomerOutput {
+    success: Int @doc(description: "Status")
+    message: String
+        @doc(description: "Response message after submitting deactivation form")
+}
+
+type DecryptDataOuput {
+    success: Boolean
+    decrypted_data: String
+}
+
+type EncryptDataOutput {
+    success: Boolean
+    encrypted_data: String
+}
+
+type ClosureAccountDetailsOutput {
+    closure_status: String @doc(description: "Closure Status")
+    status_message: String @doc(description: "Status Message")
+    rejected_fields: String @doc(description: "Rejected Fields")
+    rejected_reason: String @doc(description: "Rejected Reason")
+    bank_account_card: String
+    card_name: String
+    account_closing_date: String
+    return_stock: [ReturnProduct]
+    return_total_item: Int
+    return_total_qty: Int
+}
+
+type ReturnProduct {
+    sku: String
+    qty: Int
+    uid: String
+    product_image: String
+    name: String
+    short_prod_nm: String
+    price: Float
+}
+
+type ProductDataOutput {
+    items: [ProductInterface] @doc(description: "An array of products.")
+}
+
+type Cart {
+    discount_message: [String]
+        @resolver(
+            class: "Bat\\CustomerGraphQl\\Model\\Resolver\\DiscountMessage"
+        )
+}
+
+type StoreConfig {
+    pin_password_url_valid_days : String @doc(description: "Change Pin Password URL Valid Days")
+    address_change_valid_hours : String @doc(description: "Change Address Url Valid Hours")
+}

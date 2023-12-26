@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <order_frequency>
+            <general>
+                <order_frequency_weekly>1</order_frequency_weekly>
+                <order_frequency_biweekly>1</order_frequency_biweekly>
+                <order_frequency_monthly>1</order_frequency_monthly>
+                <order_frequency_bimonthly>1</order_frequency_bimonthly>
+                <allow_saturday_sunday>Saturday,Sunday</allow_saturday_sunday>
+            </general>
+        </order_frequency>
+        <bat_customer>
+            <token_renew>
+                <minutes>10</minutes>
+            </token_renew>
+        </bat_customer>
+    </default>
+</config>

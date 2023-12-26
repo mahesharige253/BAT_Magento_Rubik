@@ -1,0 +1,30 @@
+type Query {
+    contactusData: ContactUsDataOutput
+        @resolver(
+            class: "\\Bat\\ContactUs\\Model\\Resolver\\GetContactUsData"
+        )
+        @doc(description: "Return information about the contactus data")
+        @cache(cacheable: false)
+}
+
+type ContactUsDataOutput
+    @doc(
+        description: "Information data output gather information about the Information forms"
+    ) {
+    page_title: String
+        @doc(description: "Return the title of the Information")
+    banner_image: String
+        @doc(description: "Returns the id of the Information")
+    operating_hours_label: String
+    operating_hours_value: String
+    operating_hours_value_2: String
+    contact_number: String
+    company_name_label: String
+    company_name_value: String
+    company_address_label: String
+    company_address_value: String
+    business_license_label: String
+    business_license_value: String
+    representative_label: String
+    representative_value: String  
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <kakao>
+            <setting>
+                <is_active>0</is_active>
+                <api_url>https://example.com</api_url>
+                <api_key>ASDZXCQWE123123</api_key>
+                <log_active>1</log_active>
+                <error_message>There is some issue while sending sms</error_message>
+                <sms_sender_number>9123456789</sms_sender_number>
+            </setting>
+            <kakao_templates>
+                <enabled>1</enabled>
+                <full_cron_expression>0 0 * * *</full_cron_expression>
+            </kakao_templates>
+        </kakao>
+    </default>
+</config>

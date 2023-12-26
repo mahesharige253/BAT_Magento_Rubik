@@ -1,0 +1,15 @@
+type Cart {
+    vba_info: VbaInfo @resolver(class: "\\Bat\\QuoteGraphQl\\Model\\Resolver\\VabInfo")
+    total_item: Int! @resolver(class: "\\Bat\\QuoteGraphQl\\Model\\Resolver\\CartTotalItem") @doc(description: "The total number of items in the cart.")
+    total_item_quntity: Int! @resolver(class: "\\Bat\\QuoteGraphQl\\Model\\Resolver\\CartTotalItemQty") @doc(description: "The total number of items qty in the cart.")
+}
+
+type VbaInfo {
+    bank_details: BankDetails
+    account_number: String
+    account_holder_name: String
+}
+
+input PlaceOrderInput @doc(description: "Specifies the quote to be converted to an order.") {
+    order_consent: Boolean! @doc(description: "Customer order consent status")
+}

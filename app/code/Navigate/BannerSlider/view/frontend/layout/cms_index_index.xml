@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Navigate_BannerSlider::css/owl.carousel.min.css" />
+        <css src="Navigate_BannerSlider::css/owl.theme.css" />
+    </head>
+    <body>
+        <referenceContainer name="page.wrapper">
+             <block ifconfig="bannerslider/general/enable" class="Navigate\BannerSlider\Block\Bannerslider\Index" name="main_slider" template="Navigate_BannerSlider::slider/slider.phtml" after="page.top"/>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,142 @@
+interface ProductInterface @typeResolver(class: "Magento\\CatalogGraphQl\\Model\\ProductInterfaceTypeResolverComposite") @doc(description: "The ProductInterface contains attributes that are common to all types of products. ") {
+    product_tags: ProductTags @resolver(class: "Bat\\CatalogGraphQl\\Model\\Resolver\\Product\\ProductTag")
+    default_attribute: String @doc(description: "Magento's Catalog Product Attribute List") @resolver(class: "Bat\\CatalogGraphQl\\Model\\Resolver\\Product\\DefaultAttribute")
+    price: Int @doc(description: "Product's Price") @resolver(class: "Bat\\CatalogGraphQl\\Model\\Resolver\\Product\\Price")
+    quantity: Int @doc(description: "Product's Quantity") @resolver(class: "Bat\\CatalogGraphQl\\Model\\Resolver\\Product\\Quantity")
+    category: [CategoryValue] @doc(description: "Product's Category") @resolver(class: "Bat\\CatalogGraphQl\\Model\\Resolver\\Product\\Category")
+    image: String @doc(description: "Product's Image") @resolver(class: "Bat\\CatalogGraphQl\\Model\\Resolver\\Product\\Image")
+    product_image: String @doc(description: "Product's Image") @resolver(class: "Bat\\CatalogGraphQl\\Model\\Resolver\\Product\\ProductImage")
+    product_url: String @doc(description: "Product's URL") @resolver(class: "Bat\\CatalogGraphQl\\Model\\Resolver\\Product\\ProductUrl")
+    stock_status: String @doc(description: "Product's URL") @resolver(class: "Bat\\CatalogGraphQl\\Model\\Resolver\\Product\\StockStatus")
+    flavor: String @doc(description: "Product Flavor") @resolver(class: "Bat\\CatalogGraphQl\\Model\\Resolver\\Product\\BatFlavor")
+    item_message: String @doc(description: "Items Discount Message") @resolver(class: "Bat\\CustomerGraphQl\\Model\\Resolver\\ItemMessage")
+}
+
+
+input ProductAttributeSortInput @doc(description: "Specifies the attribute to use for sorting search results and indicates whether the results are sorted in ascending or descending order. It's possible to sort products using searchable attributes with enabled 'Use in Filter Options' option")
+{
+    bat_created_at: SortEnum @doc(description: "Sort by the Latest assigned to each product.")
+}
+
+
+type Mutation {
+saveProduct (input: ProductData!): ProductDataOutput @resolver (
+class: "\\Bat\\CatalogGraphQl\\Model\\Resolver\\CreateNewProduct") @doc(
+description: "Insert new product detail"),
+createCategory (input: CategoryData!): CategoryDataOutput @resolver (
+class: "\\Bat\\CatalogGraphQl\\Model\\Resolver\\CreateNewCategory") @doc(
+description: "Insert new category detail")
+
+}
+
+input ProductData {
+sku: String @doc(description: "SKU")
+name: String @doc(description: "Name")
+attribute_set_id: String @doc(description: "Attribute Set Id")
+price: Int @doc(description: "Price")
+status: String @doc(description: "Status")
+visibility: String @doc(description: "Product Visibility")
+type_id: String @doc(description: "Product Type id")
+weight: String @doc(description: "Weight")
+extension_attributes: ExtensionAttributesInput
+custom_attributes: [CustomAttributesInput]
+image: String @doc(description: "Image")
+categoryIds: String @doc(description: "Category Ids")
+pricetag_type: Int @doc(description: "Price tag type")
+}
+
+input ExtensionAttributesInput {
+    stock_item: StockItemInput
+}
+
+input CustomAttributesInput {
+    attribute_code: String
+    value: String
+}
+
+type CategoryValue {
+    url: String
+    label: String
+}
+
+input StockItemInput {
+    stock_id: Int
+    qty: Int
+    is_in_stock: Boolean
+}
+
+type ProductDataOutput {
+message: String @doc(description: "Response Message")
+}
+
+input CategoryData {
+parentId: String @doc(description: "Parent Category Id")
+name: String @doc(description: "Category Name")
+description: String @doc(description: "Category Name")
+meta_title: String @doc(description: "Category Name")
+meta_keywords: String @doc(description: "Category Name")
+meta_description: String @doc(description: "Category Name")
+}
+
+type CategoryDataOutput {
+message: String @doc(description: "Response Message")
+status: Boolean @doc(description: "Flag Response")
+}
+
+type Query {
+    displayProducts (
+        search: String @doc(description: "One or more keywords to use in a full-text search."),
+        filter: ProductAttributeFilterInput @doc(description: "The product attributes to search for and return."),
+        pageSize: Int = 20 @doc(description: "The maximum number of results to return at once. The default value is 20."),
+        currentPage: Int = 1 @doc(description: "The page of results to return. The default value is 1."),
+        sort: ProductSortInput @doc(description: "Specifies which attributes to sort on, and whether to return the results in ascending or descending order."),
+        areaCode: String
+    ): CategoryProducts @doc(description: "The list of products assigned to the category.") @cache(cacheIdentity: "Magento\\CatalogGraphQl\\Model\\Resolver\\Product\\Identity") @resolver(class: "Bat\\CatalogGraphQl\\Model\\Resolver\\Products")
+        products (
+            sort: ProductAttributeSortInput @doc(description: "Specifies which attributes to sort on, and whether to return the results in ascending or descending order."),areaCode: String
+        ): Products
+        @resolver(class: "Magento\\CatalogGraphQl\\Model\\Resolver\\Products") @doc(description: "Search for products that match the criteria specified in the `search` and `filter` attributes.") @cache(cacheIdentity: "Magento\\CatalogGraphQl\\Model\\Resolver\\Product\\Identity")
+}
+
+type CategoryProducts @doc(description: "Contains details about the products assigned to a category.") {
+    items: [ProductsDisplayOutput] @doc(description: "An array of products that are assigned to the category.") @resolver(class: "Bat\\CatalogGraphQl\\Model\\Resolver\\Product\\ProductData")
+    page_info: SearchResultPageInfo @doc(description: "Pagination metadata.")
+    total_count: Int @doc(description: "The number of products in the category that are marked as visible. By default, in complex products, parent products are visible, but their child products are not.")
+}
+
+input ProductAttributeFilterInput @doc(description: "Defines the filters to be used in the search. A filter contains at least one attribute, a comparison operator, and the value that is being searched for.") {
+    category_id: FilterEqualTypeInput @deprecated(reason: "Use `category_uid` instead.") @doc(description: "Deprecated: use `category_uid` to filter product by category ID.")
+    category_uid: FilterEqualTypeInput @doc(description: "Filter product by the unique ID for a `CategoryInterface` object.")
+    is_plp: FilterEqualTypeInput @doc(description: "Filter product by the Is PLP for a product filter.")
+}
+
+type ProductsDisplayOutput @doc(description: "Consent data ouptut gather information about the consent forms") {
+    name: String
+    sku: String
+    product_tags: ProductTags @doc(description: "Product Tag")
+    default_attribute: String @doc(description: "Magento's Catalog Product Attribute List")
+    price: Int @doc(description: "Product's Price")
+    quantity: Int @doc(description: "Product's Quantity")
+    category: [CategoryValue] @doc(description: "Product's Category")
+    image: String @doc(description: "Product's Image")
+    product_image: String @doc(description: "Product's Image")
+    product_url: String @doc(description: "Product's URL")
+    stock_status: String @doc(description: "Product's URL")
+    product_position: String @doc(description: "Product's manual sequencing")
+    short_prod_nm: String
+    consumer_price: String
+}
+
+input ProductSortInput @doc(description: "Specifies the attribute to use for sorting search results and indicates whether the results are sorted in ascending or descending order. It's possible to sort products using searchable attributes with enabled 'Use in Filter Options' option")
+{
+    relevance: SortEnum @doc(description: "Sort by the search relevance score (default).")
+    position: SortEnum @doc(description: "Sort by the position assigned to each product.")
+    bat_created_at: SortEnum @doc(description: "Sort by the Latest assigned to each product.")
+}
+
+type ProductTags @doc(description: "Product Tags") {
+    new: Boolean
+    limited: Boolean
+    hot: Boolean
+    frequent: Boolean
+}

@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2021 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="bat_information_faq" resource="default" engine="innodb" comment="Information Data">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="varchar" name="information_title" nullable="false" length="255" comment="Information Title"/>
+        <column xsi:type="mediumtext" name="content" nullable="false" comment="Content"/>
+        <column xsi:type="varchar" name="enable_link" nullable="false"  comment="Enable Information Data"/>
+        <column xsi:type="varchar" name="position" nullable="false" length="255" comment="Position"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+    <table name="bat_information_notice" resource="default" engine="innodb" comment="Information Data">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="varchar" name="information_title" nullable="false" length="255" comment="Information Title"/>
+        <column xsi:type="mediumtext" name="content" nullable="false" comment="Content"/>
+        <column xsi:type="varchar" name="enable_link" nullable="false"  comment="Enable Information Data"/>
+        <column xsi:type="varchar" name="position" nullable="false" length="255" comment="Position"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+    <table name="bat_information_brand" resource="default" engine="innodb" comment="Information Data">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="varchar" name="information_title" nullable="false" length="255" comment="Information Title"/>
+        <column xsi:type="varchar" name="enable_link" nullable="false"  comment="Enable Information Data"/>
+        <column xsi:type="varchar" name="brandimage" nullable="false" length="255" comment="Brand Name"/>
+        <column xsi:type="varchar" name="position" nullable="false" length="255" comment="Position"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+    <table name="bat_information_barcode" resource="default" engine="innodb" comment="Information Data">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="varchar" name="information_title" nullable="false" length="255" comment="Information Title"/>
+        <column xsi:type="varchar" name="enable_link" nullable="false"  comment="Enable Information Data"/>
+        <column xsi:type="varchar" name="brand_type" nullable="false" length="255" comment="Brand Type"/>
+        <column xsi:type="varchar" name="productimage" nullable="false" length="255" comment="Product Image"/>
+        <column xsi:type="varchar" name="packbarcode" nullable="false" length="255" comment="Pack Barcode Image"/>
+        <column xsi:type="varchar" name="cartonbarcode" nullable="false" length="255" comment="Carton Barcode Image"/>
+        <column xsi:type="varchar" name="consumer_price" nullable="false" length="255" comment="Consumer Price"/>
+        <column xsi:type="varchar" name="position" nullable="false" length="255" comment="Position"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+     <table name="bat_information_order_manual" resource="default" engine="innodb" comment="Information Data">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="varchar" name="information_title" nullable="false" length="255" comment="Information Title"/>
+        <column xsi:type="varchar" name="enable_link" nullable="false"  comment="Enable Information Data"/>
+        <column xsi:type="varchar" name="orderpdf" nullable="false" length="255" comment="order pdf"/>
+        <column xsi:type="varchar" name="ordermanualbanner" nullable="false" length="255" comment="Order Manual Banner"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>

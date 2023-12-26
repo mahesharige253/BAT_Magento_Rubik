@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+   <menu>
+       <add id="Bat_CustomerConsentForm::menu"
+           title="BAT" module="Bat_CustomerConsentForm"
+           sortOrder="10"
+           resource="Bat_CustomerConsentForm::menu"
+           />
+           <add id="Bat_CustomerConsentForm::menu_item"
+           title="Manage Consent Forms" module="Bat_CustomerConsentForm"
+           sortOrder="10" parent="Bat_CustomerConsentForm::menu"
+           action="customerconsentform/create/index"
+           resource="Bat_CustomerConsentForm::menu_item"
+           />
+   </menu>
+</config>
+

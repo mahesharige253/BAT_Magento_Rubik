@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="header">
+            <block class="Bat\Admin\Block\Page\Header" name="logo" before="-">
+                <arguments>
+                    <argument name="show_part" xsi:type="string">logo</argument>
+                    <argument name="edition" translate="true" xsi:type="string">Rubik B2B</argument>
+                    <argument name="logo_image_src" xsi:type="string">Bat_Admin/images/rubik.jpg</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="footer">
+            <container name="legal" htmlTag="div" htmlClass="footer-legal">
+                <container name="legal.copyright" htmlTag="p" htmlClass="copyright col-m-6">
+                    <block class="Bat\Admin\Block\Page\Copyright" name="copyright" as="copyright" />
+                </container>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

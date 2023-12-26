@@ -1,0 +1,41 @@
+<?php
+/** @var Bat\Dashboard\ViewModel\VbaSummary  $viewModel */
+$viewModel = $block->getViewModel();
+$enabledBanks = $viewModel->getEnabledBanks();
+?>
+
+<div class="fieldset-wrapper">
+    <div class="fieldset-wrapper-title">
+        <span class="title"><?= $block->escapeHtml(__('VBA Summary')) ?></span>
+    </div>
+    <?php if (empty($enabledBanks)): ?>
+        <div class="fieldset-wrapper" style="font-size: 16px;margin-top: 20px;">
+            <?= $block->escapeHtml(__('No Banks Available')) ?>
+        </div>
+    <?php else: ?>
+    <table class="data-grid" id="vba-summary">
+        <thead>
+        <tr>
+            <th class="data-grid-th">
+                <span><?= $block->escapeHtml(__('Virtual Bank Name')) ?></span>
+            </th>
+            <th class="data-grid-th">
+                <span><?= $block->escapeHtml(__('Available Virtual Bank Accounts')) ?></span>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($enabledBanks as $bank) { ?>
+        <tr data-role="row" title="#">
+            <td class="bank-name" <?= ($bank['available_accounts'] < 300)?"style='color: red'":"" ?>>
+                <?= $block->escapeHtml(__($bank['bank_name'])) ?>
+            </td>
+            <td class="available-account-count" <?= ($bank['available_accounts'] < 300)?"style='color: red'":"" ?>>
+                <?= $block->escapeHtml(__($bank['available_accounts'])) ?>
+            </td>
+        </tr>
+        <?php } ?>
+        </tbody>
+    </table>
+    <?php endif; ?>
+</div>

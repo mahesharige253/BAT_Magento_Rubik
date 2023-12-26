@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+   <menu>
+       <add id="Bat_RequisitionList::menu"
+           title="Manage Requisition List" module="Bat_RequisitionList"
+           sortOrder="10"
+           resource="Bat_RequisitionList::menu"
+           parent="Bat_CustomerConsentForm::menu"
+           />
+           <add id="Bat_RequisitionList::requisitionlist"
+           title="Requisition List" module="Bat_RequisitionList"
+           sortOrder="10" parent="Bat_RequisitionList::menu"
+           action="requisitionlist/requisitionlist/index"
+           resource="Bat_RequisitionList::requisitionlist"
+           />
+   </menu>
+</config>

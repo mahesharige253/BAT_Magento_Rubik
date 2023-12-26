@@ -1,0 +1,121 @@
+<?php
+/**
+ * @var $block \Bat\Customer\Block\Adminhtml\Modal
+ */
+?>
+<div id="update-address-admin-modal">
+    <?php
+    $formKey = $block->getFormKey();
+    $customerId = $block->getCustomerId();
+    ?>
+    <form action="<?= $block->getUrl('batcustomer/customer/updateaddress') ?>" method="post"
+          id="update_address_form" style="display: none">
+        <div class="customer-popup-heading"><?= __('Update Address');?></div>
+        <div class="address_form">
+            <input name="postal_code" id="postal_code" type="text" value="" class="admin__field-postcode" readonly placeholder="Postcode">
+            <a id="find_postal_code" href="#"><?= __("Find Postal Code") ?></a>
+            <input name="customer_id" type="hidden" value="<?= $block->escapeHtmlAttr($customerId) ?>">
+            <input name="address_one" id="address_one" type="text" value="" class="admin__field-control" readonly placeholder="Address 1">
+            <input name="address_two" type="text" value="" class="admin__field-control" placeholder="Address 2">
+            <input name="sigungu_code" id="sigungu_code" type="hidden" value="">
+            <input name="form_key" type="hidden" value="<?= $block->escapeHtmlAttr($formKey) ?>">
+        </div>
+        <input type="submit" value="Save Address" id="address_submit" onclick="return confirmSubmit()" style="display: none">
+    </form>
+</div>
+<script>
+    require(
+        [
+            'jquery',
+            'Magento_Ui/js/modal/modal',
+            '//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js'
+        ],
+        function(
+            $,
+            modal
+        ) {
+            var options = {
+                type: 'popup',
+                // responsive: true,
+                innerScroll: true,
+                title: false,
+                modalClass:'modal-pricepopup',
+                buttons: [{
+                    text: $.mage.__('Close'),
+                    class: '',
+                    click: function () {
+                        this.closeModal();
+                    }
+                }]
+            };
+            $(document).ready(function(){
+                 var popup = modal(options, $('#update-address-admin-modal'));
+                $('#update-address-open-modal').on('click', function(){
+                    $('#update-address-admin-modal').modal('openModal');
+                    $('#update_address_form').css('display', 'block');
+                });
+                $('#find_postal_code').on('click', function() {
+                    new window.daum.Postcode({
+                        oncomplete: function (data) {
+                            console.log(data)
+                            $('#postal_code').val(data.zonecode);
+                            $('#address_one').val(data.roadAddress);
+                            $('#sigungu_code').val(data.sigunguCode);
+                            $('input[type="submit"]').show('fast');
+                        },
+                    }).open();
+                });
+            });
+        });
+
+    function confirmSubmit()
+    {
+        var agree=confirm("<?= __('Are you wants to update the address?') ?>");
+        if (agree)
+            return true ;
+        else
+            return false ;
+    }
+</script>
+<style type="text/css">
+    #update-address-admin-modal .modal-popup .modal-inner-wrap{
+        width: 40% !important;
+    }
+
+    #update-address-admin-modal .customer-popup-heading {
+        margin: 10px;
+        font-size: 25px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    #update-address-admin-modal .address_form {
+        margin: 10px 0;
+    }
+
+    #update-address-admin-modal .address_form input {
+        height: 35px;
+    }
+
+    #update-address-admin-modal .admin__field-control {
+        float: left;
+        clear: both;
+        width: 90%;
+    }
+
+    #update-address-admin-modal input#address_submit {
+        clear: both;
+        margin: 20px 0 0 0;
+        font-size:20px;
+    }
+
+    #update-address-admin-modal input#postal_code {
+        margin-bottom: 15px;
+    }
+
+    #update-address-admin-modal a#find_postal_code {
+        margin-left: 20px;
+        font-size: 18px;
+    }
+
+</style>

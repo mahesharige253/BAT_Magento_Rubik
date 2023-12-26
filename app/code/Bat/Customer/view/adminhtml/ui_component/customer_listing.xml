@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <listingToolbar name="listing_top">
+        <massaction name="listing_massaction">
+            <action name="delete">
+                <settings>
+                <actionDisable>true</actionDisable>
+            </settings>
+            </action>
+            <action name="subscribe">
+                <settings>
+                    <actionDisable>true</actionDisable>
+                </settings>
+            </action>
+            <action name="unsubscribe">
+                <settings>
+                    <actionDisable>true</actionDisable>
+                </settings>
+            </action>
+            <action name="activate">
+                <settings>
+                    <actionDisable>true</actionDisable>
+                </settings>
+            </action>
+            <action name="inactivate">
+                <settings>
+                    <actionDisable>true</actionDisable>
+                </settings>
+            </action>
+            <action name="assign_to_group">
+                <settings>
+                    <actionDisable>true</actionDisable>
+                </settings>
+            </action>
+            <action name="edit">
+                <settings>
+                    <actionDisable>true</actionDisable>
+                </settings>
+            </action>
+        </massaction>
+    </listingToolbar>
+    <columns name="customer_columns">
+        <settings>
+            <editorConfig>
+                <param name="enabled" xsi:type="boolean">false</param>
+            </editorConfig>
+        </settings>
+        <actionsColumn name="actions" class="Magento\Customer\Ui\Component\Listing\Column\Actions">
+            <settings>
+                <indexField>entity_id</indexField>
+                <draggable>true</draggable>
+            </settings>
+        </actionsColumn>
+    </columns>
+</listing>
